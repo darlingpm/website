@@ -1,0 +1,615 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Frisco Property Management | Darling Property Management</title>
+<meta name="description" content="Premium property management in Frisco, TX. Leasing, tenant screening, maintenance, and full-service management for single-family and multi-family investors. Free rental analysis.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Calendly -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+<!-- LocalBusiness Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Darling Property Management",
+  "description": "Professional property management services in Frisco, TX and the DFW Metroplex. Leasing, tenant screening, rent collection, maintenance coordination, and full-service management for residential investors.",
+  "url": "https://www.darlingpropertymanagement.com",
+  "telephone": "(469) 324-9605",
+  "email": "info@darlingpropertymanagement.com",
+  "areaServed": [
+    { "@type": "City", "name": "Frisco", "addressRegion": "TX" },
+    { "@type": "City", "name": "Plano", "addressRegion": "TX" },
+    { "@type": "City", "name": "McKinney", "addressRegion": "TX" },
+    { "@type": "City", "name": "Prosper", "addressRegion": "TX" }
+  ],
+  "priceRange": "$$",
+  "serviceType": ["Property Management", "Tenant Placement", "Rent Collection", "Maintenance Coordination"]
+}
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --charcoal:  #333333;
+    --offwhite:  #F5F5F5;
+    --gold:      #F6A623;
+    --evergreen: #2F5D3A;
+    --sage:      #D7E3D3;
+    --white:     #FFFFFF;
+    --midgray:   #777777;
+    --lightgray: #E0E0E0;
+  }
+
+  html { overflow-x: hidden; scroll-behavior: smooth; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--offwhite);
+    color: var(--charcoal);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .hero {
+    background: var(--evergreen);
+    padding: 60px 20px 52px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(246,166,35,0.08);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+  .hero-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .hero h1 {
+    font-size: clamp(24px, 7vw, 46px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .hero h1 .gold { color: var(--gold); }
+  .hero > p {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    max-width: 560px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+  }
+  .hero-cta {
+    display: inline-flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn-gold {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-gold:hover { background: #e8961a; }
+  .btn-outline {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 2px solid rgba(255,255,255,0.35);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn-outline:hover { border-color: var(--white); }
+
+  .section { padding: 52px 20px; }
+  .section.white { background: var(--white); }
+  .section.off { background: var(--offwhite); }
+  .section-inner { max-width: 800px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .sec-title {
+    font-size: clamp(20px, 5vw, 30px);
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+  .sec-body {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--midgray);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .market-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  @media (min-width: 500px) { .market-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 720px) { .market-grid { grid-template-columns: repeat(3, 1fr); } }
+  .mcard {
+    background: var(--white);
+    border: 1px solid var(--lightgray);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .mcard-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--midgray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .mcard-val {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--evergreen);
+    line-height: 1.2;
+  }
+  .mcard-sub {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--midgray);
+    margin-top: 4px;
+  }
+
+  .reason-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  .reason-list li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .reason-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--evergreen);
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .reason-list li strong { color: var(--evergreen); font-weight: 600; }
+
+  .svc-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  @media (min-width: 500px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 720px) { .svc-grid { grid-template-columns: repeat(3, 1fr); } }
+  .svc-card {
+    background: var(--offwhite);
+    border-radius: 12px;
+    padding: 22px 18px;
+    text-align: center;
+  }
+  .svc-card-icon { font-size: 28px; margin-bottom: 10px; }
+  .svc-card h3 { font-size: 14px; font-weight: 700; color: var(--charcoal); margin-bottom: 6px; }
+  .svc-card p { font-size: 12px; font-weight: 300; color: var(--midgray); line-height: 1.6; }
+
+  .hood-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .hood-chip {
+    background: var(--sage);
+    color: var(--evergreen);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--lightgray);
+    padding: 18px 0;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-q::after {
+    content: '+';
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+  .faq-item.open .faq-q::after { content: '−'; }
+  .faq-a {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--midgray);
+    line-height: 1.7;
+    display: none;
+  }
+  .faq-item.open .faq-a { display: block; }
+
+  .callout-box {
+    background: rgba(246,166,35,0.1);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.65;
+    margin-top: 24px;
+  }
+  .callout-box strong { color: var(--evergreen); font-weight: 600; }
+
+  .cta-section {
+    background: var(--evergreen);
+    padding: 56px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(246,166,35,0.08);
+    pointer-events: none;
+  }
+  .cta-section h2 {
+    font-size: clamp(22px, 5vw, 34px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .cta-section > p {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 26px;
+    line-height: 1.65;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  @media (min-width: 440px) { .cta-btns { flex-direction: row; max-width: none; } }
+  .cta-btn-gold {
+    display: block;
+    padding: 14px 28px;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .cta-btn-gold:hover { background: #e8961a; }
+  .cta-btn-wht {
+    display: block;
+    padding: 14px 28px;
+    border: 2px solid rgba(255,255,255,0.35);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .cta-btn-wht:hover { border-color: var(--white); }
+
+  .footnote {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--midgray);
+    line-height: 1.7;
+    background: var(--offwhite);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-tag">Areas We Serve · Frisco, TX</span>
+  <h1>Frisco <span class="gold">Property Management</span><br>For Growing Portfolios</h1>
+  <p>Full-service property management in one of America's fastest-growing cities. From The Star to Stonebriar — we handle everything so your Frisco investment performs.</p>
+  <div class="hero-cta">
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="btn-gold">Get a Free Rental Analysis</a>
+    <a href="#" class="btn-outline" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+  </div>
+</section>
+
+<!-- MARKET SNAPSHOT -->
+<section class="section off">
+  <div class="section-inner">
+    <div class="eyebrow">Frisco Rental Market · 2026</div>
+    <h2 class="sec-title">Premium rents in one of America's fastest-growing cities</h2>
+    <p class="sec-body">Frisco's explosive population growth, world-class amenities, and concentration of corporate relocations drive some of the highest rental rates in the DFW Metroplex. Here's what the numbers look like right now.</p>
+
+    <div class="market-grid">
+      <div class="mcard">
+        <div class="mcard-label">Median Rent (All Types)</div>
+        <div class="mcard-val">$2,590</div>
+        <div class="mcard-sub">Source: <a href="https://www.zumper.com/rent-research/frisco-tx" target="_blank" rel="noopener" style="color:var(--evergreen);text-decoration:underline;">Zumper</a>, Mar 2026</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-label">Avg. Rent (All Types)</div>
+        <div class="mcard-val">$2,975</div>
+        <div class="mcard-sub">Source: <a href="https://www.zillow.com/rental-manager/market-trends/frisco-tx/" target="_blank" rel="noopener" style="color:var(--evergreen);text-decoration:underline;">Zillow</a>, Mar 2026</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-label">Median Home Sale Price</div>
+        <div class="mcard-val">$620K</div>
+        <div class="mcard-sub">Source: <a href="https://www.redfin.com/city/30844/TX/Frisco/housing-market" target="_blank" rel="noopener" style="color:var(--evergreen);text-decoration:underline;">Redfin</a>, Feb 2026</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-label">Population</div>
+        <div class="mcard-val">~230,000</div>
+        <div class="mcard-sub">Source: <a href="https://www.noradarealestate.com/blog/frisco-real-estate-market/" target="_blank" rel="noopener" style="color:var(--evergreen);text-decoration:underline;">U.S. Census Bureau</a></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-label">Renter Households</div>
+        <div class="mcard-val">33%</div>
+        <div class="mcard-sub">Source: <a href="https://www.rentcafe.com/average-rent-market-trends/us/tx/frisco/" target="_blank" rel="noopener" style="color:var(--evergreen);text-decoration:underline;">RentCafe / U.S. Census</a></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-label">Avg. Days on Market</div>
+        <div class="mcard-val">71</div>
+        <div class="mcard-sub">Source: <a href="https://www.redfin.com/city/30844/TX/Frisco/housing-market" target="_blank" rel="noopener" style="color:var(--evergreen);text-decoration:underline;">Redfin</a>, Feb 2026</div>
+      </div>
+    </div>
+
+    <div class="callout-box">
+      <strong>Investor takeaway:</strong> Frisco commands premium rents ($2,590 median) driven by top-rated Frisco ISD schools, The Star (Dallas Cowboys HQ), PGA of America headquarters, and a constant influx of corporate relocations. With 71% population growth from 2010–2020, this market rewards long-term investors who can acquire and hold.
+    </div>
+  </div>
+</section>
+
+<!-- WHY FRISCO -->
+<section class="section white">
+  <div class="section-inner">
+    <div class="eyebrow">Why Invest Here</div>
+    <h2 class="sec-title">Why Frisco is a smart bet for rental investors</h2>
+    <p class="sec-body">Frisco isn't just growing — it's booming. What was a small town of 33,000 in 2000 is now a 230,000-person economic powerhouse with a national brand. For investors, that growth translates to sustained demand and premium rents.</p>
+
+    <ul class="reason-list">
+      <li><strong>Fastest-Growing Large City in America:</strong> Frisco's population grew 71% from 2010–2020 (U.S. Census), and growth continues with major master-planned communities like Phillips Creek Ranch and Fields still under development.</li>
+      <li><strong>The Star District:</strong> The Dallas Cowboys World Headquarters and mixed-use entertainment complex is a national draw. Homes and rentals near The Star command premium prices and attract corporate tenants relocating for work.</li>
+      <li><strong>PGA of America Headquarters:</strong> Relocated to Frisco in 2022 with a 600-acre campus, adding another anchor employer and raising the city's national profile — which in turn drives housing demand.</li>
+      <li><strong>Top-Rated Frisco ISD:</strong> Multiple 10/10 GreatSchools-rated schools across the district draw families who are willing to pay premium rents for access — and tend to stay long-term.</li>
+      <li><strong>Premium Rental Market:</strong> At $2,590 median rent, Frisco is 36% above the national average. Investors who acquire here benefit from some of the highest per-unit income in North Texas.</li>
+      <li><strong>Corporate Relocations:</strong> Companies continue moving operations to Frisco's growing business corridors along the Dallas North Tollway, bringing high-income professional renters who need housing immediately upon arrival.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section off">
+  <div class="section-inner">
+    <div class="eyebrow">What We Do</div>
+    <h2 class="sec-title">Full-service property management in Frisco</h2>
+    <p class="sec-body">Whether you own one rental home or a growing portfolio across DFW, we handle the day-to-day so you don't have to. Here's what's included.</p>
+
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-card-icon">🔑</div>
+        <h3>Leasing & Screening</h3>
+        <p>Professional photos, 3D tours, Zillow syndication, and rigorous background/credit/income checks to fill vacancies fast with quality tenants.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-icon">💰</div>
+        <h3>Rent Collection</h3>
+        <p>Automated online payments, late fee enforcement, and direct deposits to you — so rent shows up on time, every time.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-icon">🔧</div>
+        <h3>Maintenance</h3>
+        <p>24/7 emergency response with vetted local vendors. No markups. Full photo documentation for every job.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-icon">📊</div>
+        <h3>Financial Reporting</h3>
+        <p>Monthly owner statements, custom dashboards, year-end 1099s, and tax-ready P&L summaries.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-icon">⚖️</div>
+        <h3>Legal Compliance</h3>
+        <p>Texas Property Code compliance, fair housing adherence, lease enforcement, and eviction support when needed.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-icon">📋</div>
+        <h3>Market Analysis</h3>
+        <p>Free rental analysis using real-time comp data to price your Frisco property for maximum income with minimal vacancy.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:28px;">
+      <a href="https://www.darlingpropertymanagement.com/services" class="btn-gold" style="display:inline-block;">See All Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEIGHBORHOODS -->
+<section class="section white">
+  <div class="section-inner">
+    <div class="eyebrow">Local Expertise</div>
+    <h2 class="sec-title">Frisco neighborhoods we manage</h2>
+    <p class="sec-body">We know the micro-markets within Frisco — from the premium homes near The Star to the established communities of Stonebriar and Phillips Creek Ranch. Our local knowledge means better pricing, faster leasing, and happier tenants.</p>
+
+    <div class="hood-chips">
+      <span class="hood-chip">The Star District</span>
+      <span class="hood-chip">Stonebriar</span>
+      <span class="hood-chip">Phillips Creek Ranch</span>
+      <span class="hood-chip">Newman Village</span>
+      <span class="hood-chip">Starwood</span>
+      <span class="hood-chip">Chapel Creek</span>
+      <span class="hood-chip">Richwoods</span>
+      <span class="hood-chip">Frisco Lakes</span>
+      <span class="hood-chip">Frisco Square</span>
+      <span class="hood-chip">Panther Creek</span>
+      <span class="hood-chip">Grayhawk</span>
+      <span class="hood-chip">Stonelake Estates</span>
+      <span class="hood-chip">Griffin Parc</span>
+      <span class="hood-chip">Wade Park</span>
+    </div>
+
+    <div class="callout-box" style="margin-top:24px;">
+      <strong>Also serving nearby:</strong> Plano, McKinney, Prosper, Little Elm, The Colony, and throughout the DFW Metroplex. <a href="https://www.darlingpropertymanagement.com/rental-property-quote" style="color:var(--evergreen);font-weight:600;text-decoration:underline;">Get a free analysis for your property →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section off">
+  <div class="section-inner">
+    <div class="eyebrow">Common Questions</div>
+    <h2 class="sec-title">Frisco property management FAQ</h2>
+
+    <div class="faq-item open">
+      <div class="faq-q" onclick="toggleFaq(this)">How much does property management cost in Frisco?</div>
+      <div class="faq-a">Our full management fee is <strong>10% of monthly rent</strong> — right in line with the DFW average of 10–12%. Tenant placement is 75% of the first month's rent ($1,000 minimum). There are no fees while your property is vacant. For leasing-only services, the fee is 100% of the first month's rent. <a href="https://www.darlingpropertymanagement.com/pricing" style="color:var(--evergreen);font-weight:600;text-decoration:underline;">See full pricing details →</a></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How quickly can you lease my Frisco rental?</div>
+      <div class="faq-a">Our goal is 30 days or less. We use professional photography, 3D virtual tours, and syndicate your listing across Zillow, Apartments.com, and local DFW networks for maximum exposure. Frisco's strong renter demand — driven by corporate relocations and top-rated schools — means well-priced properties move quickly. We don't charge leasing fees until a tenant is placed.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What types of properties do you manage in Frisco?</div>
+      <div class="faq-a">We manage single-family homes, townhouses, condos, and small multi-family properties throughout Frisco and the DFW Metroplex. Whether you own one rental near The Star or a portfolio spread across multiple Frisco neighborhoods, our services scale to fit.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How much can I rent my Frisco home for?</div>
+      <div class="faq-a">As of March 2026, the median rent in Frisco is approximately $2,590/month across all property types (Zumper). Zillow reports an average of $2,975/month. Premium neighborhoods like Stonebriar can command $5,000+/month for larger homes. We offer a free rental analysis that uses real-time comp data to pinpoint the optimal price for your specific property. <a href="https://www.darlingpropertymanagement.com/rental-property-quote" style="color:var(--evergreen);font-weight:600;text-decoration:underline;">Get your free analysis →</a></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is Frisco a good market for rental property investment?</div>
+      <div class="faq-a">Frisco is a premium rental market. The combination of 71% population growth over the last decade, top-rated Frisco ISD schools, The Star (Dallas Cowboys HQ), PGA of America headquarters, and continuous corporate relocations creates sustained, high-income renter demand. While acquisition costs are higher ($620K median home price), the premium rents ($2,590–$2,975/mo) and long-term appreciation potential make Frisco attractive for investors focused on quality tenants and asset growth.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What makes Darling Property Management different from other Frisco property managers?</div>
+      <div class="faq-a">We're investor-owned and operated — we manage properties the way we'd manage our own. That means aligned incentives, transparent pricing with no hidden fees, and white-glove service without the corporate runaround. We also offer interactive tools like our free rental analysis and cap rate calculator that most competitors don't.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <h2>Own a rental in Frisco?<br>Let's talk.</h2>
+  <p>Get a free rental analysis — no obligation, no pressure. Just straight answers about what your property could earn.</p>
+  <div class="cta-btns">
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="cta-btn-gold">Get My Free Rental Analysis</a>
+    <a href="#" class="cta-btn-wht" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+  </div>
+</section>
+
+<p class="footnote">
+  Market data sourced from Zumper, Zillow, Redfin, RentCafe, and U.S. Census Bureau (Feb–Mar 2026). Texas Property Code Compliance (Sec. 92) is the owner's expense in all plans.<br>
+  Darling Property Management · Frisco & North Dallas, TX · (469) 324-9605
+</p>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    document.querySelectorAll('.faq-item').forEach(function(i) {
+      if (i !== item) i.classList.remove('open');
+    });
+    item.classList.toggle('open');
+  }
+
+  document.querySelectorAll('a[href*="darlingpropertymanagement.com"]').forEach(function(link) {
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener');
+  });
+</script>
+</body>
+</html>
