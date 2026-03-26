@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rent vs. Sell Calculator - Darling Property Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Calendly -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ffbd59;
+            --primary-dark: #e8a840;
+            --dark-gray: #333333;
+            --light-gray: #e1e1e1;
+            --bg: #fafafa;
+            --card: #ffffff;
+            --text: #333333;
+            --text-light: #666666;
+            --border: #e1e1e1;
+            --success: #52b788;
+            --rent-color: #ffbd59;
+            --sell-color: #333333;
+            --shadow: rgba(255, 189, 89, 0.15);
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 16px;
+        }
+
+        /* ── Header ── */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 0.6s ease-out;
+        }
+        .header h1 {
+            font-size: clamp(28px, 5vw, 48px);
+            color: var(--dark-gray);
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+        .header .highlight { color: var(--primary); }
+        .header p {
+            color: var(--text-light);
+            font-size: clamp(14px, 3vw, 18px);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ── Layout ── */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        /* ── Cards ── */
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 32px 24px;
+            box-shadow: 0 4px 20px var(--shadow);
+            border: 1px solid var(--border);
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        /* ── Result Banner ── */
+        .result-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--dark-gray);
+            padding: 32px 24px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .result-banner h2 {
+            font-size: clamp(16px, 3vw, 22px);
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            opacity: 0.85;
+        }
+        .result-banner .amount {
+            font-size: clamp(40px, 8vw, 64px);
+            font-weight: 700;
+            margin: 8px 0;
+            line-height: 1;
+        }
+        .result-banner .subtext {
+            font-size: clamp(14px, 2.5vw, 20px);
+            opacity: 0.85;
+            font-weight: 500;
+        }
+
+        /* ── Verdict Badge (NEW) ── */
+        .verdict-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            color: var(--dark-gray);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        /* ── Chart ── */
+        .chart-container {
+            position: relative;
+            height: 320px;
+            margin: 24px 0;
+        }
+
+        /* ── Slider ── */
+        .slider-container {
+            margin: 28px 0;
+            background: var(--bg);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .slider-label {
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 13px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+        .slider-wrapper { position: relative; padding: 0 8px; }
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 4px;
+            background: var(--light-gray);
+            outline: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: transform 0.15s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+        input[type="range"]::-moz-range-thumb {
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .year-display {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 12px;
+        }
+
+        /* ── KPI Grid ── */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 24px 0;
+        }
+        .kpi-card {
+            background: var(--bg);
+            padding: 18px 12px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .kpi-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+        .kpi-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .kpi-value {
+            font-size: clamp(18px, 3vw, 26px);
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+        .kpi-value.rent { color: var(--rent-color); }
+        .kpi-value.sell { color: var(--sell-color); }
+        .kpi-value.positive { color: var(--success); }
+
+        /* ── Inputs Panel ── */
+        .inputs-panel {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 32px 24px;
+            box-shadow: 0 4px 20px var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-number {
+            width: 28px; height: 28px;
+            background: var(--primary);
+            color: var(--dark-gray);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; font-weight: 700; flex-shrink: 0;
+        }
+
+        /* ── Form Inputs ── */
+        .input-group { margin-bottom: 14px; }
+        .input-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .input-wrap {
+            display: flex;
+            align-items: center;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            background: white;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+        .input-wrap:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(255, 189, 89, 0.1);
+        }
+        .input-wrap:hover { border-color: var(--primary-dark); }
+        .input-affix {
+            padding: 0 10px;
+            font-size: 13px; font-weight: 600;
+            color: #999; background: #f9f9f9;
+            white-space: nowrap; user-select: none;
+            border-right: 1px solid var(--border);
+            align-self: stretch;
+            display: flex; align-items: center;
+        }
+        .input-affix.suffix {
+            border-right: none;
+            border-left: 1px solid var(--border);
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"] {
+            flex: 1;
+            padding: 11px 12px;
+            border: none;
+            background: transparent;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: var(--text);
+            outline: none;
+            min-width: 0;
+        }
+
+        /* hide number spinners */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+        input[type="number"] { -moz-appearance: textfield; }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg);
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: 18px; height: 18px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+        .checkbox-group label {
+            margin: 0 !important;
+            cursor: pointer;
+            font-size: 13px !important;
+            text-transform: none !important;
+            letter-spacing: 0 !important;
+            color: var(--text) !important;
+        }
+
+        /* ── Buttons ── */
+        .btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--dark-gray);
+            border: none;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin: 20px 0 0;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px var(--shadow);
+            touch-action: manipulation;
+        }
+        .btn:hover { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); }
+        .btn:active { transform: scale(0.98); }
+
+        .btn-ghost {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--text-light);
+            box-shadow: none;
+            font-size: 13px;
+            padding: 11px 24px;
+        }
+        .btn-ghost:hover { border-color: var(--primary); color: var(--primary); background: transparent; }
+
+        /* ── Advanced Toggle ── */
+        .advanced-inputs { display: none; margin-top: 20px; }
+        .advanced-inputs.show { display: block; }
+
+        /* ── Divider ── */
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 20px 0;
+        }
+
+        /* ── Legend ── */
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 16px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        .legend-color {
+            width: 16px; height: 16px;
+            border-radius: 4px;
+        }
+        .legend-color.rent { background: var(--rent-color); }
+        .legend-color.sell { background: var(--sell-color); }
+
+        /* ── Data Table ── */
+        .table-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 28px 0 12px;
+        }
+        .table-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+        .table-subtitle {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .data-table th {
+            padding: 10px 10px;
+            text-align: right;
+            background: var(--bg);
+            font-weight: 700;
+            color: var(--text);
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.4px;
+            border-bottom: 2px solid var(--primary);
+            white-space: nowrap;
+        }
+        .data-table th:first-child { text-align: center; }
+        .data-table td {
+            padding: 10px 10px;
+            text-align: right;
+            color: var(--text);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .data-table td:first-child {
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .data-table tr:hover td { background: #fffbf5; }
+        .data-table .positive-val { color: var(--success); font-weight: 600; }
+        .data-table .negative-val { color: #e05c5c; font-weight: 600; }
+
+        /* ── Disclaimer ── */
+        .disclaimer {
+            background: #fffbf5;
+            border-left: 4px solid var(--primary);
+            padding: 14px 16px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 11.5px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        .disclaimer strong { color: var(--dark-gray); }
+
+        /* ── CTA Section ── */
+        .cta-section {
+            text-align: center;
+            margin-top: 32px;
+            padding: 32px 24px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            color: var(--dark-gray);
+        }
+        .cta-section h3 {
+            font-size: clamp(20px, 4vw, 28px);
+            margin-bottom: 10px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .cta-section p {
+            margin-bottom: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.5;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-cta {
+            background: white;
+            color: var(--primary-dark);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            display: inline-block;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            width: 100%;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        /* ── Animations ── */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Responsive ── */
+        @media (min-width: 768px) {
+            .container { padding: 40px 24px; }
+            .main-layout { grid-template-columns: 3fr 2fr; }
+            .chart-container { height: 380px; }
+        }
+        @media (min-width: 1024px) {
+            .inputs-panel {
+                position: sticky;
+                top: 20px;
+                max-height: calc(100vh - 40px);
+                overflow-y: auto;
+                scrollbar-width: thin;
+                scrollbar-color: var(--primary) var(--bg);
+            }
+            .inputs-panel::-webkit-scrollbar { width: 6px; }
+            .inputs-panel::-webkit-scrollbar-track { background: var(--bg); border-radius: 4px; }
+            .inputs-panel::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+        }
+        @media (max-width: 480px) {
+            .kpi-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Rent vs. Sell <span class="highlight">Calculator</span></h1>
+            <p>Make an informed decision about whether to rent out or sell your property with our comprehensive wealth projection tool</p>
+        </div>
+
+        <div class="main-layout">
+            <!-- Left Column - Results and Charts -->
+            <div>
+                <div class="card">
+                    <!-- Result Banner -->
+                    <div class="result-banner">
+                        <div class="verdict-badge" id="verdictBadge">📈 Renting Wins</div>
+                        <h2>If you <strong>RENT OUT</strong> your property, you'll have</h2>
+                        <div class="amount">$<span id="diff">0</span></div>
+                        <div class="subtext">more wealth in <span id="years">20</span> years</div>
+                    </div>
+
+                    <!-- Chart -->
+                    <div class="chart-container">
+                        <canvas id="graph"></canvas>
+                    </div>
+
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color rent"></div>
+                            <span>Rent Out Wealth</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color sell"></div>
+                            <span>Sell Now Wealth</span>
+                        </div>
+                    </div>
+
+                    <!-- Year Slider -->
+                    <div class="slider-container">
+                        <div class="slider-label">Drag to explore wealth by year</div>
+                        <div class="slider-wrapper">
+                            <input type="range" id="year_slider" min="1" max="20" value="5">
+                        </div>
+                        <div class="year-display">Year <span id="current_year">5</span></div>
+                    </div>
+
+                    <!-- KPI Cards -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-label">Rent Out Wealth</div>
+                            <div class="kpi-value rent">$<span id="rent_wealth">0</span></div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-label">Sell Now Wealth</div>
+                            <div class="kpi-value sell">$<span id="sell_wealth">0</span></div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-label">Difference</div>
+                            <div class="kpi-value positive">$<span id="difference">0</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Disclaimer -->
+                    <div class="disclaimer">
+                        <strong>Disclaimer:</strong> This data is provided for informational purposes only and should not be relied upon as a guarantee of any future result. Consult a qualified professional before making any financial decision. This projection does not necessarily indicate positive monthly cash flow — it reflects long-term equity growth, appreciation, and other factors that may not translate into immediate income or liquidity.
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="cta-section">
+                        <h3>Ready to Make the Right Move?</h3>
+                        <p>Talk to our team about your specific property. We'll help you run the real numbers and make a confident decision.</p>
+                        <a href="" class="btn-cta" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Free Consultation</a>
+                    </div>
+
+                    <!-- Data Table -->
+                    <div style="overflow-x: auto; margin-top: 32px;">
+                        <div class="table-header">
+                            <div>
+                                <div class="table-title">Year-by-Year Breakdown</div>
+                                <div class="table-subtitle">Full projection over your hold period</div>
+                            </div>
+                        </div>
+                        <table class="data-table" id="table">
+                            <thead>
+                                <tr>
+                                    <th>Yr</th>
+                                    <th>Rental Income</th>
+                                    <th>Mortgage</th>
+                                    <th>Other Costs</th>
+                                    <th>Net Cash Flow</th>
+                                    <th>House Value</th>
+                                    <th>Equity</th>
+                                    <th>Wealth (Rent)</th>
+                                    <th>Wealth (Sell)</th>
+                                    <th>Difference</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Inputs -->
+            <div>
+                <div class="inputs-panel">
+                    <div class="section-title">
+                        <span class="section-number">1</span>
+                        Property Details
+                    </div>
+
+                    <div class="input-group">
+                        <label>Home Value</label>
+                        <div class="input-wrap">
+                            <span class="input-affix">$</span>
+                            <input type="number" id="home_value" value="340000">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Price Paid</label>
+                        <div class="input-wrap">
+                            <span class="input-affix">$</span>
+                            <input type="number" id="price_paid" value="300000">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Original Mortgage</label>
+                        <div class="input-wrap">
+                            <span class="input-affix">$</span>
+                            <input type="number" id="original_mortgage" value="300000">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Mortgage Balance</label>
+                        <div class="input-wrap">
+                            <span class="input-affix">$</span>
+                            <input type="number" id="mortgage_balance" value="294000">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Interest Rate</label>
+                        <div class="input-wrap">
+                            <input type="number" id="interest_rate" value="6.85" step="0.01">
+                            <span class="input-affix suffix">%</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Mortgage Payment</label>
+                        <div class="input-wrap">
+                            <span class="input-affix">$</span>
+                            <input type="number" id="mortgage_payment" value="1965.78">
+                            <span class="input-affix suffix">/mo</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Property Taxes</label>
+                        <div class="input-wrap">
+                            <input type="number" id="property_taxes" value="1.6" step="0.1">
+                            <span class="input-affix suffix">%</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Homeowners Insurance</label>
+                        <div class="input-wrap">
+                            <span class="input-affix">$</span>
+                            <input type="number" id="insurance" value="115">
+                            <span class="input-affix suffix">/mo</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Monthly Rent</label>
+                        <div class="input-wrap">
+                            <span class="input-affix">$</span>
+                            <input type="number" id="monthly_rent" value="2850">
+                            <span class="input-affix suffix">/mo</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Appreciation Rate</label>
+                        <div class="input-wrap">
+                            <input type="number" id="appreciation" value="3.5" step="0.1">
+                            <span class="input-affix suffix">%/yr</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Years to Hold</label>
+                        <div class="input-wrap">
+                            <input type="number" id="years_hold" value="20" min="1" max="30">
+                            <span class="input-affix suffix">yrs</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="primary">
+                            <label for="primary">Primary Residence? (capital gains exclusion applies)</label>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <button class="btn btn-ghost" id="advancedToggle">⚙ Show Advanced Options</button>
+
+                    <div class="advanced-inputs" id="advancedInputs">
+                        <div class="section-title" style="margin-top: 20px;">
+                            <span class="section-number">2</span>
+                            Advanced Options
+                        </div>
+
+                        <div class="input-group">
+                            <label>Make-Ready Costs</label>
+                            <div class="input-wrap">
+                                <span class="input-affix">$</span>
+                                <input type="number" id="make_ready" value="3000">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Annual Maintenance</label>
+                            <div class="input-wrap">
+                                <input type="number" id="maintenance" value="1.0" step="0.1">
+                                <span class="input-affix suffix">%</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Refurb Costs to Sell</label>
+                            <div class="input-wrap">
+                                <span class="input-affix">$</span>
+                                <input type="number" id="refurb_sell" value="0">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Mortgage Term</label>
+                            <div class="input-wrap">
+                                <input type="number" id="mortgage_term" value="30">
+                                <span class="input-affix suffix">yrs</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Property Management Fee</label>
+                            <div class="input-wrap">
+                                <input type="number" id="management_fee" value="4.8" step="0.1">
+                                <span class="input-affix suffix">%</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Annual Vacancy Rate</label>
+                            <div class="input-wrap">
+                                <input type="number" id="vacancy" value="8" step="0.1">
+                                <span class="input-affix suffix">%</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>CapEx</label>
+                            <div class="input-wrap">
+                                <input type="number" id="capex" value="5" step="0.1">
+                                <span class="input-affix suffix">%</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="include_capex" checked>
+                                <label for="include_capex">Include CapEx in calculations</label>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Annual Rent Change</label>
+                            <div class="input-wrap">
+                                <input type="number" id="rent_change" value="3" step="0.1">
+                                <span class="input-affix suffix">%/yr</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Selling Costs</label>
+                            <div class="input-wrap">
+                                <input type="number" id="selling_costs" value="10" step="0.1">
+                                <span class="input-affix suffix">%</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>After-Tax Reinvestment Rate</label>
+                            <div class="input-wrap">
+                                <input type="number" id="reinvestment" value="6" step="0.1">
+                                <span class="input-affix suffix">%</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Effective Capital Gains Tax</label>
+                            <div class="input-wrap">
+                                <input type="number" id="capital_gains_tax" value="15" step="0.1">
+                                <span class="input-affix suffix">%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script>
+        let table_rows = [];
+        let chart;
+
+        function formatCurrency(value) {
+            const abs = Math.abs(Math.round(value));
+            return abs.toLocaleString('en-US');
+        }
+
+        // Wire up inputs
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', update);
+        });
+
+        document.getElementById('year_slider').addEventListener('input', updateCurrentYear);
+
+        document.getElementById('advancedToggle').addEventListener('click', () => {
+            const adv = document.getElementById('advancedInputs');
+            adv.classList.toggle('show');
+            document.getElementById('advancedToggle').textContent =
+                adv.classList.contains('show') ? '⚙ Hide Advanced Options' : '⚙ Show Advanced Options';
+        });
+
+        function compute() {
+            const homeValue        = parseFloat(document.getElementById('home_value').value) || 0;
+            const pricePaid        = parseFloat(document.getElementById('price_paid').value) || 0;
+            const mortgageBalance  = parseFloat(document.getElementById('mortgage_balance').value) || 0;
+            const interestRate     = parseFloat(document.getElementById('interest_rate').value) / 100 || 0;
+            const mortgagePayment  = parseFloat(document.getElementById('mortgage_payment').value) || 0;
+            const propertyTaxes   = parseFloat(document.getElementById('property_taxes').value) / 100 || 0;
+            const insurance        = parseFloat(document.getElementById('insurance').value) * 12 || 0;
+            const monthlyRent      = parseFloat(document.getElementById('monthly_rent').value) || 0;
+            const appreciation     = parseFloat(document.getElementById('appreciation').value) / 100 || 0;
+            const yearsHold        = parseInt(document.getElementById('years_hold').value) || 20;
+            const primary          = document.getElementById('primary').checked;
+            const makeReady        = parseFloat(document.getElementById('make_ready').value) || 0;
+            const maintenance      = parseFloat(document.getElementById('maintenance').value) / 100 || 0;
+            const refurbSell       = parseFloat(document.getElementById('refurb_sell').value) || 0;
+            const managementFee    = parseFloat(document.getElementById('management_fee').value) / 100 || 0;
+            const vacancy          = parseFloat(document.getElementById('vacancy').value) / 100 || 0;
+            const capex            = parseFloat(document.getElementById('capex').value) / 100 || 0;
+            const includeCapEx     = document.getElementById('include_capex').checked;
+            const rentChange       = parseFloat(document.getElementById('rent_change').value) / 100 || 0;
+            const sellingCosts     = parseFloat(document.getElementById('selling_costs').value) / 100 || 0;
+            const reinvestment     = parseFloat(document.getElementById('reinvestment').value) / 100 || 0;
+            const capitalGainsTax  = parseFloat(document.getElementById('capital_gains_tax').value) / 100 || 0;
+
+            const adjustedSale = homeValue - refurbSell;
+            const sellingCost  = adjustedSale * sellingCosts;
+            const gain         = adjustedSale - sellingCost - pricePaid;
+            const exclusion    = primary ? 250000 : 0;
+            const taxableGain  = Math.max(0, gain - exclusion);
+            const tax          = taxableGain * capitalGainsTax;
+            let netProceeds    = Math.max(adjustedSale - sellingCost - mortgageBalance - tax, 0);
+
+            let rows = [];
+            let currentBalance    = mortgageBalance;
+            let currentHouseValue = homeValue;
+            let currentAnnualRent = monthlyRent * 12;
+            let cumulativeCash    = -makeReady;
+            const monthlyR        = interestRate / 12;
+
+            for (let year = 1; year <= yearsHold; year++) {
+                currentHouseValue *= (1 + appreciation);
+                currentAnnualRent *= (1 + rentChange);
+                const effectiveRent     = currentAnnualRent * (1 - vacancy);
+                const management        = currentAnnualRent * managementFee;
+                const taxes             = currentHouseValue * propertyTaxes;
+                const maintenanceAnnual = currentHouseValue * maintenance;
+                const capEx             = includeCapEx ? effectiveRent * capex : 0;
+                const otherCosts        = taxes + insurance + management + maintenanceAnnual + capEx;
+
+                let annualMortgage = 0;
+                let b = currentBalance;
+                for (let m = 1; m <= 12; m++) {
+                    if (b <= 0) break;
+                    const int = b * monthlyR;
+                    let principal = mortgagePayment - int;
+                    if (principal > b) principal = b;
+                    b -= principal;
+                    annualMortgage += mortgagePayment;
+                }
+                currentBalance = b;
+
+                const netCash   = effectiveRent - annualMortgage - otherCosts;
+                cumulativeCash += netCash;
+                const equity    = currentHouseValue - currentBalance;
+                const wealthRent = cumulativeCash + equity;
+                const wealthSell = netProceeds * Math.pow(1 + reinvestment, year);
+                const diff       = wealthRent - wealthSell;
+
+                rows.push({ year, rentalIncome: effectiveRent, mortgage: -annualMortgage,
+                    otherCosts: -otherCosts, netCash, houseValue: currentHouseValue,
+                    houseEquity: equity, wealthRent, wealthSell, diff });
+            }
+            return rows;
+        }
+
+        function update() {
+            const yearsHold = parseInt(document.getElementById('years_hold').value) || 20;
+            const slider    = document.getElementById('year_slider');
+            slider.max      = yearsHold;
+            if (parseInt(slider.value) > yearsHold) slider.value = yearsHold;
+
+            table_rows = compute();
+
+            // Update table
+            const tbody = document.getElementById('table').querySelector('tbody');
+            tbody.innerHTML = table_rows.map(r => `
+                <tr>
+                    <td>${r.year}</td>
+                    <td>$${formatCurrency(r.rentalIncome)}</td>
+                    <td class="negative-val">−$${formatCurrency(Math.abs(r.mortgage))}</td>
+                    <td class="negative-val">−$${formatCurrency(Math.abs(r.otherCosts))}</td>
+                    <td class="${r.netCash >= 0 ? 'positive-val' : 'negative-val'}">${r.netCash >= 0 ? '+' : '−'}$${formatCurrency(Math.abs(r.netCash))}</td>
+                    <td>$${formatCurrency(r.houseValue)}</td>
+                    <td>$${formatCurrency(r.houseEquity)}</td>
+                    <td class="positive-val">$${formatCurrency(r.wealthRent)}</td>
+                    <td>$${formatCurrency(r.wealthSell)}</td>
+                    <td class="${r.diff >= 0 ? 'positive-val' : 'negative-val'}">${r.diff >= 0 ? '+' : '−'}$${formatCurrency(Math.abs(r.diff))}</td>
+                </tr>
+            `).join('');
+
+            // Update banner
+            const lastRow = table_rows[table_rows.length - 1];
+            document.getElementById('diff').innerText    = formatCurrency(Math.abs(lastRow.diff));
+            document.getElementById('years').innerText   = yearsHold;
+
+            // Update verdict badge
+            const badge = document.getElementById('verdictBadge');
+            if (lastRow.diff >= 0) {
+                badge.textContent = '📈 Renting Wins';
+                badge.style.background = 'rgba(255,255,255,0.3)';
+            } else {
+                badge.textContent = '🏷 Selling Wins';
+                badge.style.background = 'rgba(255,255,255,0.3)';
+            }
+
+            updateCurrentYear();
+            updateGraph();
+        }
+
+        function updateCurrentYear() {
+            const current = parseInt(document.getElementById('year_slider').value);
+            document.getElementById('current_year').innerText = current;
+            if (table_rows.length > 0) {
+                const r = table_rows[current - 1];
+                document.getElementById('rent_wealth').innerText  = formatCurrency(r.wealthRent);
+                document.getElementById('sell_wealth').innerText  = formatCurrency(r.wealthSell);
+                document.getElementById('difference').innerText   = formatCurrency(Math.abs(r.diff));
+            }
+        }
+
+        function updateGraph() {
+            if (chart) chart.destroy();
+            const ctx = document.getElementById('graph').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: table_rows.map(r => `Yr ${r.year}`),
+                    datasets: [
+                        {
+                            label: 'Rent Out',
+                            data: table_rows.map(r => r.wealthRent),
+                            borderColor: '#ffbd59',
+                            backgroundColor: 'rgba(255, 189, 89, 0.12)',
+                            borderWidth: 3,
+                            pointRadius: 3,
+                            pointHoverRadius: 6,
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Sell Now',
+                            data: table_rows.map(r => r.wealthSell),
+                            borderColor: '#333333',
+                            backgroundColor: 'rgba(51, 51, 51, 0.06)',
+                            borderWidth: 3,
+                            pointRadius: 3,
+                            pointHoverRadius: 6,
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(51,51,51,0.95)',
+                            padding: 12,
+                            titleFont: { size: 13, weight: '600', family: 'Poppins' },
+                            bodyFont: { size: 12, family: 'Poppins' },
+                            callbacks: {
+                                label: ctx => ctx.dataset.label + ': $' + formatCurrency(ctx.parsed.y)
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#eeeeee', drawBorder: false },
+                            ticks: {
+                                callback: v => '$' + (v >= 1000000 ? (v/1000000).toFixed(1)+'M' : (v/1000).toFixed(0)+'k'),
+                                font: { size: 11, family: 'Poppins' },
+                                color: '#999'
+                            }
+                        },
+                        x: {
+                            grid: { display: false, drawBorder: false },
+                            ticks: {
+                                font: { size: 11, family: 'Poppins' },
+                                color: '#999',
+                                maxRotation: 0
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => { if (typeof Chart !== 'undefined') update(); }, 100);
+        });
+    </script>
+</body>
+</html>
