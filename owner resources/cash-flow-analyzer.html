@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rental Property Cash Flow Analyzer</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     BRAND TOKENS
+  ============================================================ */
+  :root {
+    --charcoal:    #333333;
+    --off-white:   #F5F5F5;
+    --gold:        #F6A623;
+    --evergreen:   #2F5D3A;
+    --sage:        #D7E3D3;
+    --teal:        #3F7E7E;
+    --brick:       #C4623D;
+    --sky:         #6C8FA8;
+    --white:       #FFFFFF;
+    --shadow-sm:   0 2px 8px rgba(0,0,0,.08);
+    --shadow-md:   0 6px 24px rgba(0,0,0,.12);
+    --shadow-lg:   0 16px 48px rgba(0,0,0,.16);
+    --radius:      12px;
+    --radius-sm:   8px;
+    --gold-glow:   0 0 0 3px rgba(246,166,35,.25);
+    --transition:  .2s cubic-bezier(.4,0,.2,1);
+  }
+
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--off-white);
+    color: var(--charcoal);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ============================================================
+     HERO HEADER
+  ============================================================ */
+  .hero {
+    background: var(--evergreen);
+    position: relative;
+    overflow: hidden;
+    padding: 56px 24px 64px;
+    text-align: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 20%, rgba(246,166,35,.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 10% 80%, rgba(47,93,58,.6) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,.025) 0px,
+      rgba(255,255,255,.025) 1px,
+      transparent 1px,
+      transparent 24px
+    );
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(246,166,35,.2);
+    border: 1px solid rgba(246,166,35,.4);
+    color: var(--gold);
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p {
+    color: rgba(255,255,255,.72);
+    font-size: .95rem;
+    font-weight: 400;
+    max-width: 540px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* ============================================================
+     LAYOUT
+  ============================================================ */
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: -32px auto 40px;
+    padding: 0 20px;
+    max-width: 1080px;
+  }
+  @media (max-width: 768px) {
+    .main-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ============================================================
+     CARDS
+  ============================================================ */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    animation: slideUp .45s cubic-bezier(.4,0,.2,1) both;
+  }
+  .card:nth-child(1) { animation-delay: .05s; }
+  .card:nth-child(2) { animation-delay: .12s; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--sage);
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    z-index: 2;
+  }
+  .card-icon {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .card-icon.green  { background: rgba(47,93,58,.1);  color: var(--evergreen); }
+  .card-icon.gold   { background: rgba(246,166,35,.15); color: #c9870e; }
+  .card-icon.teal   { background: rgba(63,126,126,.1); color: var(--teal); }
+  .card-icon.brick  { background: rgba(196,98,61,.1);  color: var(--brick); }
+  .card-header h2 {
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.2;
+  }
+  .card-header p {
+    font-size: .72rem;
+    color: #888;
+    font-weight: 400;
+    line-height: 1;
+    margin-top: 1px;
+  }
+  .card-body { padding: 22px 24px; }
+
+  /* ============================================================
+     FORM ELEMENTS
+  ============================================================ */
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  label {
+    display: block;
+    font-size: .75rem;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: .03em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .input-prefix, .input-suffix {
+    position: absolute;
+    font-size: .85rem;
+    font-weight: 600;
+    color: #999;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .input-prefix { left: 12px; }
+  .input-suffix { right: 12px; }
+  input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: .88rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    background: var(--off-white);
+    border: 1.5px solid #ddd;
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    -moz-appearance: textfield;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+  input:focus {
+    border-color: var(--gold);
+    box-shadow: var(--gold-glow);
+    background: var(--white);
+  }
+  .has-prefix input { padding-left: 26px; }
+  .has-suffix input { padding-right: 36px; }
+
+  /* ============================================================
+     MORTGAGE RESULT PILL
+  ============================================================ */
+  .mortgage-result {
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--evergreen) 0%, #3d7a4d 100%);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .mortgage-result .label {
+    font-size: .72rem;
+    font-weight: 600;
+    color: rgba(255,255,255,.7);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .mortgage-result .amount {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    margin-top: 3px;
+  }
+  .mortgage-result .sub {
+    font-size: .68rem;
+    color: rgba(255,255,255,.5);
+    margin-top: 2px;
+  }
+  .mortgage-result .badge-pill {
+    background: rgba(246,166,35,.25);
+    border: 1px solid rgba(246,166,35,.5);
+    color: var(--gold);
+    font-size: .68rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ============================================================
+     EXPENSE ROWS
+  ============================================================ */
+  .expense-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: end;
+    margin-bottom: 14px;
+    animation: fadeIn .3s ease both;
+  }
+  .expense-row .input-wrap input { background: var(--white); }
+  .expense-row .row-label {
+    font-size: .73rem;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .percent-note {
+    font-size: .65rem;
+    color: #aaa;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  /* Info icon + tooltip */
+  .info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px; height: 15px;
+    background: var(--sage);
+    border-radius: 50%;
+    font-size: .58rem;
+    font-weight: 700;
+    color: var(--evergreen);
+    cursor: help;
+    margin-left: 5px;
+    vertical-align: middle;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .info-icon .tooltip-box {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 230px;
+    background: var(--charcoal);
+    color: rgba(255,255,255,.88);
+    font-size: .68rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-transform: none;
+    letter-spacing: 0;
+    pointer-events: none;
+    z-index: 99;
+    box-shadow: 0 6px 20px rgba(0,0,0,.25);
+  }
+  .info-icon .tooltip-box::after {
+    content: '';
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--charcoal);
+  }
+  .info-icon:hover .tooltip-box { display: block; }
+  .row-label-wrap {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 6px;
+  }
+  .btn-remove {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    border: 1.5px solid #e0e0e0;
+    background: var(--white);
+    color: #bbb;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    transition: all var(--transition);
+    flex-shrink: 0;
+    margin-bottom: 1px;
+  }
+  .btn-remove:hover { border-color: var(--brick); color: var(--brick); background: rgba(196,98,61,.05); }
+
+  .add-expense-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: none;
+    border: 1.5px dashed var(--sage);
+    color: var(--teal);
+    font-family: 'Poppins', sans-serif;
+    font-size: .78rem;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+    transition: all var(--transition);
+    letter-spacing: .02em;
+  }
+  .add-expense-btn:hover {
+    border-color: var(--teal);
+    background: rgba(63,126,126,.06);
+    color: #2e6060;
+  }
+
+  /* ============================================================
+     INCOME SECTION
+  ============================================================ */
+  .income-card {
+    grid-column: 1 / -1;
+    animation: slideUp .45s cubic-bezier(.4,0,.2,1) .2s both;
+  }
+  .income-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+
+  /* ============================================================
+     RESULTS SECTION
+  ============================================================ */
+  .results-section {
+    padding: 0 20px 60px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+  }
+  .section-sub {
+    font-size: .8rem;
+    color: #888;
+    margin-bottom: 24px;
+  }
+
+  /* ============================================================
+     CASH FLOW SUMMARY BAR
+  ============================================================ */
+  .cashflow-bar {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 28px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    animation: slideUp .5s .3s both;
+  }
+  .cashflow-main { flex: 1; min-width: 200px; }
+  .cashflow-main .label {
+    font-size: .72rem;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .cashflow-main .amount {
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1;
+    margin: 4px 0;
+    transition: color .3s;
+  }
+  .cashflow-main .sub { font-size: .78rem; color: #aaa; }
+  .cashflow-positive { color: var(--evergreen); }
+  .cashflow-negative { color: var(--brick); }
+  .cashflow-neutral  { color: var(--charcoal); }
+
+  .cashflow-dividers {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .cashflow-item { text-align: center; }
+  .cashflow-item .ci-label {
+    font-size: .68rem;
+    font-weight: 600;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+  }
+  .cashflow-item .ci-val {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-top: 2px;
+  }
+  .cashflow-item .ci-val.neg { color: var(--brick); }
+  .cashflow-item .ci-val.pos { color: var(--evergreen); }
+
+  .divider-line {
+    width: 1px;
+    height: 48px;
+    background: var(--sage);
+    align-self: center;
+  }
+
+  /* ============================================================
+     ROI METRICS GRID
+  ============================================================ */
+  .roi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .roi-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 22px 20px;
+    position: relative;
+    overflow: hidden;
+    animation: slideUp .5s cubic-bezier(.4,0,.2,1) both;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .roi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .roi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .roi-card.gold::before  { background: var(--gold); }
+  .roi-card.green::before { background: var(--evergreen); }
+  .roi-card.teal::before  { background: var(--teal); }
+  .roi-card.sky::before   { background: var(--sky); }
+  .roi-card.brick::before { background: var(--brick); }
+
+  .roi-card:nth-child(1) { animation-delay: .35s; }
+  .roi-card:nth-child(2) { animation-delay: .42s; }
+  .roi-card:nth-child(3) { animation-delay: .49s; }
+  .roi-card:nth-child(4) { animation-delay: .56s; }
+  .roi-card:nth-child(5) { animation-delay: .63s; }
+
+  .roi-name {
+    font-size: .7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #999;
+    margin-bottom: 6px;
+  }
+  .roi-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+  .roi-desc {
+    font-size: .69rem;
+    color: #aaa;
+    line-height: 1.45;
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px solid var(--sage);
+  }
+  .roi-tooltip {
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 18px; height: 18px;
+    background: var(--sage);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .6rem;
+    font-weight: 700;
+    color: var(--evergreen);
+    cursor: help;
+  }
+
+  /* ============================================================
+     WATERFALL CHART
+  ============================================================ */
+  .waterfall-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 24px;
+    margin-bottom: 24px;
+    animation: slideUp .5s .7s both;
+  }
+  .waterfall-title {
+    font-size: .85rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+  }
+  .waterfall-chart { display: flex; flex-direction: column; gap: 6px; }
+  .wf-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 80px;
+    align-items: center;
+    gap: 12px;
+    font-size: .78rem;
+  }
+  .wf-label { font-weight: 500; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .wf-bar-wrap { height: 22px; border-radius: 4px; overflow: hidden; background: var(--off-white); }
+  .wf-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s cubic-bezier(.4,0,.2,1);
+    min-width: 2px;
+  }
+  .wf-bar.income  { background: var(--evergreen); }
+  .wf-bar.expense { background: var(--brick); }
+  .wf-bar.netpos  { background: var(--teal); }
+  .wf-bar.netneg  { background: #e07060; }
+  .wf-amount { font-weight: 700; font-size: .78rem; color: var(--charcoal); text-align: right; }
+  .wf-amount.neg { color: var(--brick); }
+  .wf-divider { grid-column: 1/-1; height: 1px; background: var(--sage); margin: 4px 0; }
+
+  /* ============================================================
+     DISCLAIMER
+  ============================================================ */
+  .disclaimer {
+    background: rgba(246,166,35,.08);
+    border: 1px solid rgba(246,166,35,.25);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: .72rem;
+    color: #777;
+    line-height: 1.5;
+    animation: slideUp .5s .8s both;
+    margin-bottom: 20px;
+  }
+  .disclaimer-icon { font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
+
+  /* ============================================================
+     ANIMATIONS
+  ============================================================ */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* ============================================================
+     RESPONSIVE TWEAKS
+  ============================================================ */
+  @media (max-width: 600px) {
+    .cashflow-bar { flex-direction: column; align-items: flex-start; }
+    .cashflow-dividers { gap: 20px; }
+    .divider-line { display: none; }
+    .wf-row { grid-template-columns: 120px 1fr 70px; }
+  }
+
+  /* ============================================================
+     CTA SECTION
+  ============================================================ */
+  .cta-section {
+    max-width: 1080px;
+    margin: 0 auto 64px;
+    padding: 0 20px;
+    animation: slideUp .5s .85s both;
+  }
+  .cta-block {
+    background: var(--evergreen);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding: 40px 48px;
+    box-shadow: var(--shadow-lg);
+  }
+  @media (max-width: 680px) {
+    .cta-block { grid-template-columns: 1fr; padding: 32px 28px; gap: 28px; }
+    .cta-actions { flex-direction: column; }
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 95% 50%, rgba(246,166,35,.18) 0%, transparent 65%),
+      repeating-linear-gradient(
+        -45deg,
+        rgba(255,255,255,.022) 0px,
+        rgba(255,255,255,.022) 1px,
+        transparent 1px,
+        transparent 28px
+      );
+    pointer-events: none;
+  }
+  .cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(246,166,35,.18);
+    border: 1px solid rgba(246,166,35,.35);
+    color: var(--gold);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+  .cta-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .5; transform: scale(.7); }
+  }
+  .cta-headline {
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .cta-headline span { color: var(--gold); }
+  .cta-body {
+    font-size: .88rem;
+    color: rgba(255,255,255,.72);
+    line-height: 1.65;
+    max-width: 480px;
+    margin-bottom: 24px;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: 'Poppins', sans-serif;
+    font-size: .88rem;
+    font-weight: 700;
+    padding: 13px 26px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition);
+    box-shadow: 0 4px 14px rgba(246,166,35,.4);
+    white-space: nowrap;
+  }
+  .btn-primary:hover {
+    background: #f9b73a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(246,166,35,.5);
+  }
+  .btn-primary svg { flex-shrink: 0; }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,.3);
+    color: rgba(255,255,255,.85);
+    font-family: 'Poppins', sans-serif;
+    font-size: .83rem;
+    font-weight: 600;
+    padding: 12px 22px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition);
+    white-space: nowrap;
+  }
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,.6);
+    background: rgba(255,255,255,.08);
+    color: var(--white);
+  }
+
+  /* Owner types list */
+  .owner-types {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .ot-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .83rem;
+    color: rgba(255,255,255,.8);
+    font-weight: 500;
+  }
+  .ot-icon { font-size: .95rem; flex-shrink: 0; }
+
+  /* What to expect card */
+  .cta-block {
+    align-items: start !important;
+  }
+  .cta-expect-card {
+    background: rgba(255,255,255,.09);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    min-width: 260px;
+    max-width: 300px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 820px) {
+    .cta-expect-card { max-width: 100%; min-width: unset; }
+  }
+  .expect-title {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .expect-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 22px; }
+  .expect-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .expect-num {
+    font-size: .7rem;
+    font-weight: 800;
+    color: var(--gold);
+    background: rgba(246,166,35,.15);
+    border: 1px solid rgba(246,166,35,.3);
+    border-radius: 6px;
+    padding: 3px 7px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    letter-spacing: .04em;
+  }
+  .expect-item strong {
+    display: block;
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+  .expect-item p {
+    font-size: .73rem;
+    color: rgba(255,255,255,.55);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .expect-footer {
+    font-size: .7rem;
+    color: rgba(255,255,255,.45);
+    border-top: 1px solid rgba(255,255,255,.12);
+    padding-top: 16px;
+    line-height: 1.4;
+  }
+
+  /* Modal styles removed — using calendar booking link instead */
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<div class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-badge">Owner Resources</div>
+  <h1>Rental Property<br><span>Cash Flow Analyzer</span></h1>
+  <p>Estimate your property's investment performance. Plug in your numbers and get a full picture — instantly.</p>
+</div>
+
+<!-- ============================================================
+     INPUT GRID — Mortgage + Expenses
+============================================================ -->
+<div class="main-grid">
+
+  <!-- MORTGAGE INPUTS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon green">🏠</div>
+      <div>
+        <h2>Mortgage Calculator</h2>
+        <p>Estimate your monthly loan payment</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <label>Purchase / Sale Price</label>
+        <div class="input-wrap has-prefix">
+          <span class="input-prefix">$</span>
+          <input type="number" id="salePrice" value="350000" min="0" step="1000" />
+        </div>
+      </div>
+      <div class="field">
+        <label>Down Payment</label>
+        <div class="input-wrap has-prefix">
+          <span class="input-prefix">$</span>
+          <input type="number" id="downPayment" value="70000" min="0" step="1000" />
+        </div>
+        <div style="margin-top:5px;font-size:.7rem;color:#aaa;" id="downPctNote">20.0% of purchase price</div>
+      </div>
+      <div class="field">
+        <label>Annual Interest Rate</label>
+        <div class="input-wrap has-suffix">
+          <input type="number" id="interestRate" value="7.25" min="0" max="30" step="0.05" />
+          <span class="input-suffix">%</span>
+        </div>
+      </div>
+      <div class="field">
+        <label>Loan Term</label>
+        <div class="input-wrap has-suffix">
+          <input type="number" id="loanTerm" value="30" min="1" max="40" step="1" />
+          <span class="input-suffix">yrs</span>
+        </div>
+      </div>
+      <div class="mortgage-result">
+        <div>
+          <div class="label">Est. Monthly P&I Payment</div>
+          <div class="amount" id="monthlyPayment">$1,913</div>
+          <div class="sub" id="loanAmountNote">Loan: $280,000</div>
+        </div>
+        <div class="badge-pill" id="ltv">LTV: 80%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPENSE INPUTS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon brick">📋</div>
+      <div>
+        <h2>Monthly Expenses</h2>
+        <p>All costs beyond your mortgage payment</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div id="expenseList">
+        <!-- Populated by JS -->
+      </div>
+      <button class="add-expense-btn" onclick="addCustomExpense()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add Custom Expense
+      </button>
+    </div>
+  </div>
+
+  <!-- INCOME INPUTS -->
+  <div class="card income-card">
+    <div class="card-header">
+      <div class="card-icon gold">💵</div>
+      <div>
+        <h2>Rental Income</h2>
+        <p>Enter your expected monthly income sources</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="income-grid">
+        <div class="field">
+          <label>Gross Monthly Rent</label>
+          <div class="input-wrap has-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="monthlyRent" value="2800" min="0" step="50" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Other Monthly Income</label>
+          <div class="input-wrap has-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="otherIncome" value="0" min="0" step="25" />
+          </div>
+          <div style="margin-top:5px;font-size:.7rem;color:#aaa;">Parking, pets, laundry, etc.</div>
+        </div>
+        <div class="field">
+          <label>Projected Annual Rent Growth</label>
+          <div class="input-wrap has-suffix">
+            <input type="number" id="rentGrowth" value="3" min="0" max="20" step="0.5" />
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Holding Period (for IRR)</label>
+          <div class="input-wrap has-suffix">
+            <input type="number" id="holdingPeriod" value="5" min="1" max="30" step="1" />
+            <span class="input-suffix">yrs</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Annual Property Appreciation</label>
+          <div class="input-wrap has-suffix">
+            <input type="number" id="appreciation" value="3" min="0" max="20" step="0.5" />
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Selling Cost % (for IRR)</label>
+          <div class="input-wrap has-suffix">
+            <input type="number" id="sellingCost" value="6" min="0" max="15" step="0.5" />
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================
+     RESULTS SECTION
+============================================================ -->
+<div class="results-section">
+
+  <div class="section-title">📊 Investment Analysis</div>
+  <div class="section-sub">Results update automatically as you adjust your numbers above.</div>
+
+  <!-- CASH FLOW SUMMARY BAR -->
+  <div class="cashflow-bar">
+    <div class="cashflow-main">
+      <div class="label">Monthly Net Cash Flow</div>
+      <div class="amount cashflow-neutral" id="netCashFlow">—</div>
+      <div class="sub" id="annualCashFlow">Annual: —</div>
+    </div>
+    <div class="cashflow-dividers">
+      <div class="cashflow-item">
+        <div class="ci-label">Gross Income</div>
+        <div class="ci-val pos" id="sumIncome">—</div>
+      </div>
+      <div class="divider-line"></div>
+      <div class="cashflow-item">
+        <div class="ci-label">Mortgage P&I</div>
+        <div class="ci-val neg" id="sumMortgage">—</div>
+      </div>
+      <div class="divider-line"></div>
+      <div class="cashflow-item">
+        <div class="ci-label">Other Expenses</div>
+        <div class="ci-val neg" id="sumExpenses">—</div>
+      </div>
+      <div class="divider-line"></div>
+      <div class="cashflow-item">
+        <div class="ci-label">Total Out</div>
+        <div class="ci-val neg" id="sumTotal">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROI METRICS -->
+  <div class="roi-grid">
+    <div class="roi-card gold">
+      <div class="roi-tooltip" title="Cash on Cash Return">?</div>
+      <div class="roi-name">Cash-on-Cash Return</div>
+      <div class="roi-value" id="coc">—</div>
+      <div class="roi-desc">Annual pre-tax cash flow ÷ total cash invested. Measures the immediate return on your out-of-pocket investment.</div>
+    </div>
+    <div class="roi-card green">
+      <div class="roi-tooltip" title="Cap Rate">?</div>
+      <div class="roi-name">Cap Rate</div>
+      <div class="roi-value" id="capRate">—</div>
+      <div class="roi-desc">Net Operating Income ÷ Property Value. A property-level metric independent of financing. 6–8% is typically considered strong.</div>
+    </div>
+    <div class="roi-card teal">
+      <div class="roi-tooltip" title="Gross Rent Multiplier">?</div>
+      <div class="roi-name">Gross Rent Multiplier</div>
+      <div class="roi-value" id="grm">—</div>
+      <div class="roi-desc">Purchase Price ÷ Annual Gross Rent. A quick rule-of-thumb valuation tool. Lower is generally better (under 10–12 is solid).</div>
+    </div>
+    <div class="roi-card sky">
+      <div class="roi-tooltip" title="Debt Service Coverage Ratio">?</div>
+      <div class="roi-name">DSCR</div>
+      <div class="roi-value" id="dscr">—</div>
+      <div class="roi-desc">Net Operating Income ÷ Annual Debt Service. Lenders want ≥1.25. Above 1.0 means the property covers its loan payments.</div>
+    </div>
+    <div class="roi-card brick">
+      <div class="roi-tooltip" title="Internal Rate of Return">?</div>
+      <div class="roi-name">Est. IRR</div>
+      <div class="roi-value" id="irr">—</div>
+      <div class="roi-desc">Estimated annualized total return including cash flow + equity gain at sale, accounting for rent growth and appreciation over your holding period.</div>
+    </div>
+  </div>
+
+  <!-- WATERFALL BREAKDOWN -->
+  <div class="waterfall-card">
+    <div class="waterfall-title">📉 Monthly Cash Flow Waterfall</div>
+    <div class="waterfall-chart" id="waterfallChart">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <span class="disclaimer-icon">⚠️</span>
+    <div>
+      <strong>Disclaimer:</strong> This calculator is for educational and planning purposes only. It is not a guarantee of financial performance. Actual results will vary based on market conditions, tenant occupancy, maintenance needs, and other factors. IRR estimates use simplified assumptions. Please consult a licensed financial advisor, CPA, or real estate professional before making investment decisions.
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT ENGINE
+============================================================ -->
+<script>
+/* ============================
+   DEFAULT EXPENSE DEFINITIONS
+============================ */
+const defaultExpenses = [
+  { id: 'propTax',    label: 'Property Taxes',      value: 350, pctOf: null, pctDefault: null, info: null },
+  { id: 'insurance',  label: 'Insurance',            value: 120, pctOf: null, pctDefault: null, info: null },
+  { id: 'propMgmt',   label: 'Property Management', value: 280, pctOf: null, pctDefault: 0.10,
+    info: 'Property management fees typically range from <strong>10–12% of monthly rent</strong>. This covers tenant communication, maintenance coordination, rent collection, and lease enforcement.' },
+  { id: 'vacancy',    label: 'Vacancy Reserve',      value: 140, pctOf: null, pctDefault: 0.05,
+    info: 'Vacancy rates typically range from <strong>3–10% of gross rent</strong> depending on your market and property type. A 5% reserve (≈18 days/year) is a common conservative baseline for stable rental markets.' },
+  { id: 'maintenance',label: 'Maintenance & Repairs',value: 150, pctOf: null, pctDefault: null, info: null },
+  { id: 'capex',      label: 'CapEx Reserve',        value: 100, pctOf: null, pctDefault: null, info: null },
+  { id: 'hoa',        label: 'HOA / Condo Fees',     value: 0,   pctOf: null, pctDefault: null, info: null },
+  { id: 'utilities',  label: 'Utilities',            value: 0,   pctOf: null, pctDefault: null, info: null },
+];
+let customExpenses = [];
+
+/* ============================
+   RENDER EXPENSE LIST
+============================ */
+function renderExpenses() {
+  const rent = parseNum('monthlyRent');
+  const list = document.getElementById('expenseList');
+  list.innerHTML = '';
+
+  const allExpenses = [...defaultExpenses, ...customExpenses];
+
+  allExpenses.forEach((exp, idx) => {
+    const isCustom = idx >= defaultExpenses.length;
+    const row = document.createElement('div');
+    row.className = 'expense-row';
+
+    const currentVal = (exp.value !== null && exp.value !== undefined) ? exp.value : 0;
+
+    // Info icon HTML
+    const infoHTML = exp.info
+      ? `<span class="info-icon">i<span class="tooltip-box">${exp.info}</span></span>`
+      : '';
+
+    // Hint below input for pct-default fields
+    const pctHint = exp.pctDefault !== null && exp.pctDefault !== undefined
+      ? `<div style="margin-top:4px;font-size:.65rem;color:#aaa;">Default: ${(exp.pctDefault*100).toFixed(0)}% of rent = $${(rent * exp.pctDefault).toFixed(0)}/mo</div>`
+      : '';
+
+    row.innerHTML = `
+      <div>
+        <div class="row-label-wrap">
+          <span class="row-label" style="margin-bottom:0">${exp.label}</span>${infoHTML}
+        </div>
+        <div class="input-wrap has-prefix">
+          <span class="input-prefix">$</span>
+          <input
+            type="number"
+            min="0"
+            step="10"
+            value="${currentVal}"
+            oninput="updateExpense(${idx}, this.value)"
+            ${isCustom ? `id="customExp_${idx}"` : ''}
+          />
+        </div>
+        ${pctHint}
+      </div>
+      ${isCustom ? `<button class="btn-remove" onclick="removeCustomExpense(${idx - defaultExpenses.length})" title="Remove">✕</button>` : '<div></div>'}
+    `;
+    list.appendChild(row);
+  });
+}
+
+function updateExpense(idx, val) {
+  if (idx < defaultExpenses.length) {
+    defaultExpenses[idx].value = parseFloat(val) || 0;
+  } else {
+    customExpenses[idx - defaultExpenses.length].value = parseFloat(val) || 0;
+  }
+  calculate();
+}
+
+function addCustomExpense() {
+  const name = prompt('Enter a label for your new expense (e.g. "Lawn Care"):');
+  if (!name || !name.trim()) return;
+  customExpenses.push({ id: `custom_${Date.now()}`, label: name.trim(), value: 0, locked: false, pctOf: null });
+  renderExpenses();
+  calculate();
+}
+
+function removeCustomExpense(customIdx) {
+  customExpenses.splice(customIdx, 1);
+  renderExpenses();
+  calculate();
+}
+
+/* ============================
+   UTILITY HELPERS
+============================ */
+function parseNum(id) {
+  const el = document.getElementById(id);
+  return parseFloat(el ? el.value : 0) || 0;
+}
+
+function fmt(n, decimals = 0) {
+  const abs = Math.abs(n);
+  const str = abs.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+  return (n < 0 ? '-$' : '$') + str;
+}
+
+function fmtPct(n, decimals = 1) {
+  return (isFinite(n) ? n.toFixed(decimals) : '—') + '%';
+}
+
+/* ============================
+   MORTGAGE CALCULATION
+============================ */
+function calcMortgage() {
+  const price    = parseNum('salePrice');
+  const down     = parseNum('downPayment');
+  const rate     = parseNum('interestRate') / 100 / 12;
+  const terms    = parseNum('loanTerm') * 12;
+  const loan     = Math.max(price - down, 0);
+
+  let payment;
+  if (rate === 0) {
+    payment = loan / terms;
+  } else {
+    payment = loan * (rate * Math.pow(1 + rate, terms)) / (Math.pow(1 + rate, terms) - 1);
+  }
+
+  const ltv = price > 0 ? (loan / price * 100).toFixed(1) : 0;
+  const downPct = price > 0 ? (down / price * 100).toFixed(1) : 0;
+
+  document.getElementById('monthlyPayment').textContent = isFinite(payment) ? fmt(payment) : '—';
+  document.getElementById('loanAmountNote').textContent = `Loan: ${fmt(loan)}`;
+  document.getElementById('ltv').textContent = `LTV: ${ltv}%`;
+  document.getElementById('downPctNote').textContent = `${downPct}% of purchase price`;
+
+  return isFinite(payment) ? payment : 0;
+}
+
+/* ============================
+   TOTAL EXPENSES
+============================ */
+function calcTotalExpenses() {
+  let total = 0;
+  const allExpenses = [...defaultExpenses, ...customExpenses];
+  allExpenses.forEach(exp => {
+    total += parseFloat(exp.value) || 0;
+  });
+  return total;
+}
+
+/* ============================
+   WATERFALL CHART
+============================ */
+function renderWaterfall(income, mortgage, expenseItems, net) {
+  const container = document.getElementById('waterfallChart');
+  const max = income * 1.05;
+
+  const rows = [
+    { label: 'Gross Monthly Rent', amount: income, type: 'income' },
+    ...expenseItems.map(e => ({ label: e.label, amount: -e.amount, type: 'expense' })),
+    { label: 'Mortgage (P&I)', amount: -mortgage, type: 'expense', divBefore: true },
+    { label: 'Net Cash Flow', amount: net, type: net >= 0 ? 'netpos' : 'netneg', divBefore: true },
+  ];
+
+  container.innerHTML = rows.map(r => {
+    const pct = Math.min(Math.abs(r.amount) / max * 100, 100).toFixed(1);
+    const divBefore = r.divBefore ? `<div class="wf-divider"></div>` : '';
+    return `
+      ${divBefore}
+      <div class="wf-row">
+        <span class="wf-label">${r.label}</span>
+        <div class="wf-bar-wrap">
+          <div class="wf-bar ${r.type}" style="width:${pct}%"></div>
+        </div>
+        <span class="wf-amount ${r.amount < 0 ? 'neg' : ''}">${fmt(r.amount)}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+/* ============================
+   IRR ESTIMATION (Newton–Raphson)
+============================ */
+function estimateIRR(cashFlows) {
+  let rate = 0.1;
+  for (let iter = 0; iter < 300; iter++) {
+    let npv = 0, dNpv = 0;
+    cashFlows.forEach((cf, t) => {
+      const disc = Math.pow(1 + rate, t);
+      npv  += cf / disc;
+      dNpv -= t * cf / (disc * (1 + rate));
+    });
+    if (Math.abs(dNpv) < 1e-10) break;
+    const newRate = rate - npv / dNpv;
+    if (Math.abs(newRate - rate) < 1e-8) { rate = newRate; break; }
+    rate = newRate;
+  }
+  return rate * 100;
+}
+
+/* ============================
+   MASTER CALCULATE
+============================ */
+function calculate() {
+  const mortgage      = calcMortgage();
+  const rent          = parseNum('monthlyRent');
+  const otherIncome   = parseNum('otherIncome');
+  const rentGrowth    = parseNum('rentGrowth') / 100;
+  const holdYears     = Math.max(1, Math.round(parseNum('holdingPeriod')));
+  const appreciation  = parseNum('appreciation') / 100;
+  const sellingCostPct= parseNum('sellingCost') / 100;
+  const salePrice     = parseNum('salePrice');
+  const downPayment   = parseNum('downPayment');
+
+  const grossIncome = rent + otherIncome;
+  const totalExpenses = calcTotalExpenses();
+  const totalOut = mortgage + totalExpenses;
+  const net = grossIncome - totalOut;
+
+  // Update summary bar
+  const netEl = document.getElementById('netCashFlow');
+  netEl.textContent = fmt(net);
+  netEl.className = 'amount ' + (net > 0 ? 'cashflow-positive' : net < 0 ? 'cashflow-negative' : 'cashflow-neutral');
+  document.getElementById('annualCashFlow').textContent = `Annual: ${fmt(net * 12)}`;
+  document.getElementById('sumIncome').textContent   = fmt(grossIncome);
+  document.getElementById('sumMortgage').textContent = fmt(-mortgage);
+  document.getElementById('sumExpenses').textContent = fmt(-totalExpenses);
+  document.getElementById('sumTotal').textContent    = fmt(-totalOut);
+
+  // Cap Rate: NOI / Price
+  const noi = grossIncome * 12 - totalExpenses * 12; // excludes mortgage
+  const capRateVal = salePrice > 0 ? (noi / salePrice * 100) : 0;
+
+  // Cash on Cash: annual net CF / total cash invested
+  const totalCashIn = downPayment; // closing costs could be added
+  const cocVal = totalCashIn > 0 ? (net * 12 / totalCashIn * 100) : 0;
+
+  // GRM
+  const grmVal = rent > 0 ? (salePrice / (rent * 12)) : 0;
+
+  // DSCR
+  const annualDebt = mortgage * 12;
+  const dscrVal = annualDebt > 0 ? (noi / annualDebt) : 0;
+
+  // IRR: initial outflow = -downPayment
+  // Year 1..N: net cash flow (growing)
+  // Terminal: sale proceeds - remaining mortgage balance - selling costs
+  let irrFlows = [-downPayment];
+  let currentRent = rent + otherIncome;
+  let loan = Math.max(salePrice - downPayment, 0);
+  const annualRate = parseNum('interestRate') / 100;
+  const monthlyRate = annualRate / 12;
+  const totalPayments = parseNum('loanTerm') * 12;
+
+  // Calculate remaining balance after holdYears
+  function remainingBalance(loan, monthlyRate, totalPayments, paymentsMade) {
+    if (monthlyRate === 0) return loan - (loan / totalPayments) * paymentsMade;
+    const r = monthlyRate;
+    const n = totalPayments;
+    const k = paymentsMade;
+    const P = loan;
+    return P * (Math.pow(1 + r, n) - Math.pow(1 + r, k)) / (Math.pow(1 + r, n) - 1);
+  }
+
+  for (let yr = 1; yr <= holdYears; yr++) {
+    const annualRent = currentRent * 12;
+    const annualExpenses = totalExpenses * 12;
+    const annualMortgage = mortgage * 12;
+    const annualNOI = annualRent - annualExpenses - annualMortgage;
+
+    if (yr < holdYears) {
+      irrFlows.push(annualNOI);
+    } else {
+      // Sale in final year
+      const salePriceYr = salePrice * Math.pow(1 + appreciation, yr);
+      const remBal = remainingBalance(loan, monthlyRate, totalPayments, yr * 12);
+      const proceeds = salePriceYr * (1 - sellingCostPct) - Math.max(remBal, 0);
+      irrFlows.push(annualNOI + proceeds);
+    }
+    currentRent *= (1 + rentGrowth);
+  }
+
+  const irrVal = estimateIRR(irrFlows);
+
+  // Update ROI cards
+  document.getElementById('coc').textContent     = fmtPct(cocVal);
+  document.getElementById('capRate').textContent  = fmtPct(capRateVal);
+  document.getElementById('grm').textContent      = isFinite(grmVal) ? grmVal.toFixed(2) + 'x' : '—';
+  document.getElementById('dscr').textContent     = isFinite(dscrVal) ? dscrVal.toFixed(2) + 'x' : '—';
+  document.getElementById('irr').textContent      = (isFinite(irrVal) && irrVal > -100 && irrVal < 999) ? fmtPct(irrVal) : '—';
+
+  // Waterfall
+  const expenseItemsForWaterfall = [...defaultExpenses, ...customExpenses].map(exp => ({
+    label: exp.label,
+    amount: parseFloat(exp.value) || 0,
+  })).filter(e => e.amount > 0);
+
+  renderWaterfall(grossIncome, mortgage, expenseItemsForWaterfall, net);
+}
+
+/* ============================
+   INIT & EVENT LISTENERS
+============================ */
+document.addEventListener('DOMContentLoaded', () => {
+  renderExpenses();
+  calculate();
+
+  // Listen to all inputs
+  document.querySelectorAll('input[type="number"], input[type="text"]').forEach(el => {
+    el.addEventListener('input', () => {
+      if (['monthlyRent', 'salePrice', 'downPayment', 'interestRate', 'loanTerm'].includes(el.id)) {
+        renderExpenses(); // re-render pct-based expenses
+      }
+      calculate();
+    });
+  });
+
+  // Use a MutationObserver to catch dynamically added inputs
+  const obs = new MutationObserver(() => {
+    document.querySelectorAll('#expenseList input').forEach(el => {
+      if (!el.dataset.bound) {
+        el.dataset.bound = '1';
+        el.addEventListener('input', calculate);
+      }
+    });
+  });
+  obs.observe(document.getElementById('expenseList'), { childList: true, subtree: true });
+});
+</script>
+
+<!-- ============================================================
+     CTA SECTION
+============================================================ -->
+<div class="cta-section">
+  <div class="cta-block">
+
+    <!-- LEFT: Messaging -->
+    <div class="cta-content">
+      <div class="cta-eyebrow">No pressure. Just a conversation.</div>
+      <h2 class="cta-headline">Wondering if this property<br>is the right move for you?</h2>
+      <p class="cta-body">
+        Whether you're buying your first rental, growing a portfolio, or figuring out if professional management makes sense — we'd love to help you think it through. Grab a free 20-minute call with one of our local property managers. No pitch, no obligation.
+      </p>
+
+      <!-- WHO THIS IS FOR -->
+      <div class="owner-types">
+        <div class="ot-item">
+          <span class="ot-icon">🔑</span>
+          <span>First-time landlords getting started</span>
+        </div>
+        <div class="ot-item">
+          <span class="ot-icon">📈</span>
+          <span>Investors ready to scale their portfolio</span>
+        </div>
+        <div class="ot-item">
+          <span class="ot-icon">🗺️</span>
+          <span>Out-of-state owners who want peace of mind</span>
+        </div>
+      </div>
+
+
+
+      <!-- ACTIONS -->
+      <div class="cta-actions">
+        <button class="btn-primary" onclick="openCalendly()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Schedule My Free Call
+        </button>
+        <a class="btn-secondary" href="tel:+14693249605">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Prefer to call? (469) 324-9605
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT: What to expect card -->
+    <div class="cta-expect-card">
+      <div class="expect-title">What to expect on your call</div>
+      <div class="expect-list">
+        <div class="expect-item">
+          <span class="expect-num">01</span>
+          <div>
+            <strong>Tell us about your property</strong>
+            <p>Share the address, what you're thinking, and any numbers you've run.</p>
+          </div>
+        </div>
+        <div class="expect-item">
+          <span class="expect-num">02</span>
+          <div>
+            <strong>We'll give you honest feedback</strong>
+            <p>Rental range, market conditions, and whether management makes financial sense.</p>
+          </div>
+        </div>
+        <div class="expect-item">
+          <span class="expect-num">03</span>
+          <div>
+            <strong>You decide the next step</strong>
+            <p>No pressure. If we're a good fit, great. If not, we'll still point you in the right direction.</p>
+          </div>
+        </div>
+      </div>
+      <div class="expect-footer">
+        ⏱️ &nbsp;Takes about 20 minutes &nbsp;·&nbsp; Completely free
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Calendly inline popup -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+<style>
+  /* Calendly overlay backdrop */
+  .calendly-overlay-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 9998;
+    backdrop-filter: blur(4px);
+    animation: fadeIn .2s ease;
+  }
+  .calendly-overlay-backdrop.open { display: block; }
+  .calendly-popup-wrapper {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .calendly-popup-wrapper.open { display: flex; }
+  .calendly-popup-inner {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: 0 24px 64px rgba(0,0,0,.3);
+    width: 100%;
+    max-width: 700px;
+    height: min(720px, 90vh);
+    overflow: hidden;
+    position: relative;
+    animation: slideUp .3s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    flex-direction: column;
+  }
+  .calendly-popup-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: var(--evergreen);
+    flex-shrink: 0;
+  }
+  .calendly-popup-header span {
+    font-size: .82rem;
+    font-weight: 700;
+    color: rgba(255,255,255,.9);
+    letter-spacing: .02em;
+  }
+  .btn-close-calendly {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,.15);
+    color: var(--white);
+    font-size: .9rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background var(--transition);
+    line-height: 1;
+  }
+  .btn-close-calendly:hover { background: rgba(255,255,255,.28); }
+  .calendly-inline-widget {
+    flex: 1;
+    min-height: 0;
+  }
+</style>
+
+<!-- Backdrop -->
+<div class="calendly-overlay-backdrop" id="calendlyBackdrop" onclick="closeCalendly()"></div>
+
+<!-- Popup wrapper -->
+<div class="calendly-popup-wrapper" id="calendlyPopup">
+  <div class="calendly-popup-inner">
+    <div class="calendly-popup-header">
+      <span>📅 &nbsp;Schedule Your Free 30-Minute Call</span>
+      <button class="btn-close-calendly" onclick="closeCalendly()">✕</button>
+    </div>
+    <div
+      class="calendly-inline-widget"
+      id="calendlyWidget"
+      data-url="https://calendly.com/michael-darlingpropertymanagement/30min?hide_gdpr_banner=1&primary_color=2F5D3A"
+      style="min-width:280px;">
+    </div>
+  </div>
+</div>
+
+<script>
+  function openCalendly() {
+    document.getElementById('calendlyBackdrop').classList.add('open');
+    document.getElementById('calendlyPopup').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // Init Calendly widget if not already loaded
+    if (window.Calendly) {
+      Calendly.initInlineWidget({
+        url: 'https://calendly.com/michael-darlingpropertymanagement/30min?hide_gdpr_banner=1&primary_color=2F5D3A',
+        parentElement: document.getElementById('calendlyWidget'),
+      });
+    }
+  }
+  function closeCalendly() {
+    document.getElementById('calendlyBackdrop').classList.remove('open');
+    document.getElementById('calendlyPopup').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeCalendly();
+  });
+</script>
+</body>
+</html>
