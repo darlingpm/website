@@ -1,0 +1,1299 @@
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent Referral Program | North Texas Property Management</title>
+  <meta name="description" content="Partner with North Texas's premier property management team. Earn referral income, protect your client relationships, and give your investor clients white-glove property management." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333333;
+      background: #FFFFFF;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ========== COLOR VARIABLES ========== */
+    :root {
+      --charcoal: #333333;
+      --off-white: #F5F5F5;
+      --gold: #F6A623;
+      --gold-hover: #e5951a;
+      --evergreen: #2F5D3A;
+      --sage: #D7E3D3;
+      --teal: #3F7E7E;
+      --brick: #C4623D;
+      --sky: #6C8FA8;
+      --white: #FFFFFF;
+    }
+
+    /* ========== UTILITY ========== */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .section-pad { padding: 80px 0; }
+    .text-center { text-align: center; }
+
+    /* ========== BUTTONS ========== */
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 15px rgba(246,166,35,0.35);
+    }
+    .btn-primary:hover {
+      background: var(--gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(246,166,35,0.45);
+    }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 36px;
+      border: 2px solid var(--white);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--charcoal);
+    }
+    .btn-outline-gold {
+      display: inline-block;
+      background: transparent;
+      color: var(--gold);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 36px;
+      border: 2px solid var(--gold);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* ========== SECTION LABEL ========== */
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      background: linear-gradient(160deg, #1a1a1a 0%, var(--charcoal) 40%, var(--teal) 100%);
+      padding: 80px 0 90px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -15%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(246,166,35,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40%; left: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(63,126,126,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero .container { position: relative; z-index: 2; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(246,166,35,0.15);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 .highlight { color: var(--gold); }
+    .hero p.subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      font-weight: 300;
+      max-width: 520px;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Hero value props */
+    .hero-value-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .hero-vcard {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .hero-vcard:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold);
+    }
+    .hero-vcard-icon {
+      width: 48px; height: 48px;
+      background: rgba(246,166,35,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .hero-vcard h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .hero-vcard p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+    }
+
+    /* ========== AGENT PAIN POINTS ========== */
+    .pain-section {
+      background: var(--white);
+      padding: 80px 0;
+    }
+    .pain-section .section-header {
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+    .pain-section h2 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .pain-section p.section-sub {
+      font-size: 1.05rem;
+      color: #666;
+      line-height: 1.7;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .pain-card {
+      background: var(--off-white);
+      border-radius: 12px;
+      padding: 36px 28px;
+      border-left: 4px solid var(--sky);
+      transition: transform 0.3s;
+    }
+    .pain-card:hover { transform: translateY(-4px); }
+    .pain-card .card-icon { font-size: 1.6rem; margin-bottom: 14px; display: block; }
+    .pain-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+    .pain-card p { font-size: 0.9rem; color: #666; line-height: 1.6; }
+
+    /* ========== HOW IT WORKS ========== */
+    .how-section {
+      background: linear-gradient(180deg, var(--off-white) 0%, var(--white) 100%);
+      padding: 80px 0;
+    }
+    .how-section h2 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 60px;
+    }
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      position: relative;
+    }
+    .how-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 16%; right: 16%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--sage), var(--gold), var(--sage));
+    }
+    .how-step {
+      text-align: center;
+      position: relative;
+    }
+    .how-step-num {
+      width: 80px; height: 80px;
+      background: var(--evergreen);
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: 800;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 4px 20px rgba(47,93,58,0.3);
+    }
+    .how-step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .how-step p { font-size: 0.88rem; color: #666; line-height: 1.6; max-width: 280px; margin: 0 auto; }
+
+    /* ========== WHAT YOUR CLIENT GETS ========== */
+    .client-value-section {
+      background: var(--white);
+      padding: 80px 0;
+    }
+    .client-value-section h2 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .client-value-section p.section-sub {
+      font-size: 1.05rem;
+      color: #666;
+      margin-bottom: 50px;
+      line-height: 1.7;
+    }
+    .cv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .cv-card {
+      background: var(--off-white);
+      border-radius: 14px;
+      padding: 36px 28px;
+      border-top: 4px solid var(--evergreen);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cv-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    }
+    .cv-card-icon {
+      width: 50px; height: 50px;
+      background: var(--sage);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+    }
+    .cv-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+    .cv-card p { font-size: 0.88rem; color: #555; line-height: 1.65; }
+
+    /* ========== REFERRAL COMPENSATION ========== */
+    .comp-section {
+      background: var(--charcoal);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .comp-section::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(246,166,35,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .comp-section .container { position: relative; z-index: 2; }
+    .comp-section h2 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .comp-section p.section-sub {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      margin-bottom: 50px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .comp-tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+    .comp-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 40px 28px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s, border-color 0.3s;
+      position: relative;
+    }
+    .comp-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+    .comp-card.featured {
+      border-color: var(--gold);
+      background: rgba(246,166,35,0.06);
+    }
+    .comp-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 50px;
+      letter-spacing: 1px;
+    }
+    .comp-card .tier-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 10px;
+    }
+    .comp-card .tier-value {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .comp-card .tier-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .comp-card .tier-details {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+    .comp-card .tier-details li {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .comp-card .tier-details li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .comp-note {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ========== PROMISE SECTION ========== */
+    .promise-section {
+      background: var(--off-white);
+      padding: 80px 0;
+    }
+    .promise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .promise-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+    .promise-content p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .promise-list {
+      list-style: none;
+      padding: 0;
+    }
+    .promise-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .promise-list li:last-child { border-bottom: none; }
+    .promise-icon {
+      width: 36px; height: 36px;
+      background: var(--sage);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      color: var(--evergreen);
+      font-weight: 700;
+    }
+    .promise-text h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .promise-text p {
+      font-size: 0.82rem;
+      color: #777;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+    .promise-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .pstat-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s;
+    }
+    .pstat-card:hover { transform: translateY(-4px); }
+    .pstat-card .pstat-num {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--evergreen);
+      line-height: 1;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .pstat-card .pstat-label {
+      font-size: 0.78rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    /* ========== TESTIMONIALS ========== */
+    .testimonial-section {
+      background: var(--white);
+      padding: 80px 0;
+    }
+    .testimonial-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 48px;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    .test-card {
+      background: var(--off-white);
+      border-radius: 14px;
+      padding: 36px 32px;
+      position: relative;
+      transition: transform 0.3s;
+    }
+    .test-card:hover { transform: translateY(-4px); }
+    .test-card::before {
+      content: '"';
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--gold);
+      opacity: 0.3;
+      position: absolute;
+      top: 14px; left: 24px;
+      line-height: 1;
+    }
+    .test-card .stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .test-card p.quote {
+      font-size: 0.92rem;
+      color: #555;
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .test-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .test-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--evergreen);
+    }
+    .test-info .name { font-weight: 600; font-size: 0.88rem; }
+    .test-info .role { font-size: 0.75rem; color: #999; }
+
+    /* ========== LEAD FORM ========== */
+    .form-section {
+      background: linear-gradient(160deg, var(--evergreen) 0%, #1e3d26 100%);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(246,166,35,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .form-content h2 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .form-content p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .form-content .form-benefits {
+      list-style: none;
+      padding: 0;
+    }
+    .form-content .form-benefits li {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+      padding: 8px 0;
+      padding-left: 28px;
+      position: relative;
+    }
+    .form-content .form-benefits li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .form-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 44px 36px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    .form-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+    .form-card .form-subtitle {
+      font-size: 0.85rem;
+      color: #999;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      transition: border-color 0.3s, box-shadow 0.3s;
+      background: #fafafa;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(246,166,35,0.12);
+      background: var(--white);
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .form-card .btn-primary {
+      width: 100%;
+      padding: 16px;
+      font-size: 1rem;
+      margin-top: 6px;
+    }
+    .form-privacy {
+      font-size: 0.75rem;
+      color: #aaa;
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    /* ========== FAQ ========== */
+    .faq-section {
+      background: var(--off-white);
+      padding: 80px 0;
+    }
+    .faq-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 48px;
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .faq-item { border-bottom: 1px solid #ddd; }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-align: left;
+      padding: 22px 40px 22px 0;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .faq-question:hover { color: var(--teal); }
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 0; top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--gold);
+      transition: transform 0.3s;
+    }
+    .faq-item.active .faq-question::after { content: '−'; }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding-bottom: 22px;
+    }
+    .faq-answer p { font-size: 0.9rem; color: #666; line-height: 1.7; }
+
+    /* ========== FINAL CTA ========== */
+    .final-cta {
+      background: var(--charcoal);
+      padding: 70px 0;
+      text-align: center;
+    }
+    .final-cta h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .final-cta p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 32px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ========== FOOTER ========== */
+    .site-footer {
+      background: #1a1a1a;
+      padding: 40px 0;
+      text-align: center;
+    }
+    .site-footer p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.6;
+    }
+    .site-footer a { color: rgba(255,255,255,0.5); transition: color 0.3s; }
+    .site-footer a:hover { color: var(--gold); }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 968px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero h1 { font-size: 2.3rem; }
+      .pain-grid, .cv-grid, .comp-tiers, .how-steps { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
+      .how-steps::before { display: none; }
+      .promise-grid { grid-template-columns: 1fr; gap: 40px; }
+      .promise-stats { order: -1; }
+      .form-grid { grid-template-columns: 1fr; gap: 40px; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 50px 0 60px; }
+      .hero h1 { font-size: 1.85rem; }
+      .section-pad { padding: 60px 0; }
+      .form-card { padding: 32px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .promise-stats { grid-template-columns: 1fr 1fr; }
+      .comp-card .tier-value { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="hero-badge">Agent Referral Program</span>
+          <h1>Your Investor Clients Deserve <span class="highlight">Better Management.</span><br/> You Deserve to Get Paid for It.</h1>
+          <p class="subtitle">Refer your landlord and investor clients to a property management team that makes you look good — and compensates you every time. No awkward handoffs. No lost relationships.</p>
+          <div class="hero-cta-row">
+            <a href="#referral-form" class="btn-primary">Join the Referral Program →</a>
+            <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+          </div>
+        </div>
+        <div class="hero-value-cards">
+          <div class="hero-vcard">
+            <div class="hero-vcard-icon">💰</div>
+            <div>
+              <h3>Earn on Every Referral</h3>
+              <p>Competitive referral fees paid promptly — not months later when you've forgotten about it.</p>
+            </div>
+          </div>
+          <div class="hero-vcard">
+            <div class="hero-vcard-icon">🤝</div>
+            <div>
+              <h3>Your Client, Your Relationship</h3>
+              <p>We manage the property. You stay the trusted advisor. We never solicit listing business from your referrals.</p>
+            </div>
+          </div>
+          <div class="hero-vcard">
+            <div class="hero-vcard-icon">📊</div>
+            <div>
+              <h3>Free ROI Audit for Your Clients</h3>
+              <p>We give your investors a full Rental ROI Audit — not a generic analysis — so they see real value immediately.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AGENT PAIN POINTS ===== -->
+  <section class="pain-section section-pad">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-label">Sound Familiar?</span>
+        <h2>You Close the Deal. Then the Landlord Questions Start.</h2>
+        <p class="section-sub">You're a sales agent, not a property manager — but your investor clients keep calling you for help with tenant headaches, maintenance nightmares, and rent pricing.</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <span class="card-icon">📞</span>
+          <h3>"Can You Help Me Find a Tenant?"</h3>
+          <p>You helped them buy the property. Now they expect you to lease it, screen tenants, and handle the move-in. That's a full-time job you're not getting paid for.</p>
+        </div>
+        <div class="pain-card">
+          <span class="card-icon">😰</span>
+          <h3>Bad PM = Blame on You</h3>
+          <p>You referred them to a property manager who ghosted, overcharged, or let the property deteriorate. Now your reputation is on the line — and so is the next listing.</p>
+        </div>
+        <div class="pain-card">
+          <span class="card-icon">🚫</span>
+          <h3>Referral Fees? What Referral Fees?</h3>
+          <p>Most property managers take the referral, say "thanks," and never send you a dime. Or worse — they start pitching your client on selling with them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-section section-pad" id="how-it-works">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">How It Works</span>
+        <h2>Refer in 60 Seconds. Get Paid. Stay the Hero.</h2>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3>Submit a Referral</h3>
+          <p>Fill out the quick form below or text/email us your client's info. We take it from there — no paperwork on your end.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3>We Wow Your Client</h3>
+          <p>We start with a free Rental ROI Audit and deliver white-glove onboarding. Your client sees the value immediately — and credits you for the intro.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h3>You Get Paid</h3>
+          <p>Once your client signs a management agreement, your referral fee is processed and paid within 30 days. Clean, simple, no chasing invoices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT YOUR CLIENT GETS ===== -->
+  <section class="client-value-section section-pad">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Your Client's Experience</span>
+        <h2>We Make You Look Like a Genius for Referring Us</h2>
+        <p class="section-sub">When your client has a great experience, it reinforces their trust in you — and keeps you top of mind for their next transaction.</p>
+      </div>
+      <div class="cv-grid">
+        <div class="cv-card">
+          <div class="cv-card-icon">📈</div>
+          <h3>Free Rental ROI Audit</h3>
+          <p>Every referred client gets a full investment performance assessment — market-rate comparison, expense benchmarking, and projected net yield — before they sign anything.</p>
+        </div>
+        <div class="cv-card">
+          <div class="cv-card-icon">🏠</div>
+          <h3>Full-Service Management</h3>
+          <p>Tenant placement, rent collection, maintenance coordination, lease renewals, financial reporting — we handle everything so your client doesn't call you about a leaky faucet.</p>
+        </div>
+        <div class="cv-card">
+          <div class="cv-card-icon">🔍</div>
+          <h3>Transparent Reporting</h3>
+          <p>Owners get 24/7 access to a real-time portal with financials, maintenance logs, and lease details. No black boxes, no surprises.</p>
+        </div>
+        <div class="cv-card">
+          <div class="cv-card-icon">⚡</div>
+          <h3>Fast Tenant Placement</h3>
+          <p>Our average days-on-market is among the lowest in DFW. Aggressive marketing, professional photos, and thorough screening get quality tenants placed fast.</p>
+        </div>
+        <div class="cv-card">
+          <div class="cv-card-icon">🛡️</div>
+          <h3>Eviction Protection</h3>
+          <p>If a tenant we place needs to be evicted, we manage the entire process — and cover the legal costs. Your client is never left holding the bag.</p>
+        </div>
+        <div class="cv-card">
+          <div class="cv-card-icon">💬</div>
+          <h3>Proactive Communication</h3>
+          <p>We don't wait for owners to chase us. Monthly updates, quarterly reviews, and a dedicated point of contact mean your client always knows where they stand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REFERRAL COMPENSATION ===== -->
+  <section class="comp-section section-pad">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label" style="color: var(--gold);">Referral Compensation</span>
+        <h2>Transparent. Generous. Paid on Time.</h2>
+        <p class="section-sub">No guessing, no "we'll figure it out later." Here's exactly what you earn when you refer an investor client to us.</p>
+      </div>
+      <div class="comp-tiers">
+        <div class="comp-card">
+          <div class="tier-label">Single Property</div>
+          <div class="tier-value">$250</div>
+          <div class="tier-desc">Per property under management</div>
+          <ul class="tier-details">
+            <li>Paid within 30 days of signed agreement</li>
+            <li>SFH, condo, or townhome</li>
+            <li>No minimum lease term required</li>
+          </ul>
+        </div>
+        <div class="comp-card featured">
+          <div class="tier-label">Portfolio Referral</div>
+          <div class="tier-value">$500</div>
+          <div class="tier-desc">Per property for 3+ units</div>
+          <ul class="tier-details">
+            <li>Bigger portfolios, bigger payouts</li>
+            <li>Multi-family and mixed-use included</li>
+            <li>Dedicated onboarding for portfolio clients</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="tier-label">Ongoing Bonus</div>
+          <div class="tier-value">5%</div>
+          <div class="tier-desc">Of monthly management fee — ongoing</div>
+          <ul class="tier-details">
+            <li>Passive income as long as we manage</li>
+            <li>Paid quarterly via direct deposit</li>
+            <li>Stacks with upfront referral fee</li>
+          </ul>
+        </div>
+      </div>
+      <p class="comp-note text-center">All referral fees are paid via direct deposit or check. Referral agreements are provided upfront so there are never surprises. Fees shown are illustrative — exact terms are confirmed in your referral agreement.</p>
+    </div>
+  </section>
+
+  <!-- ===== OUR PROMISE ===== -->
+  <section class="promise-section section-pad">
+    <div class="container">
+      <div class="promise-grid">
+        <div class="promise-content">
+          <span class="section-label">Our Promise to Agents</span>
+          <h2>Your Relationship Is Sacred. We Will Never Cross the Line.</h2>
+          <p>We know the fear: you send a client our way, and suddenly we're pitching them to list or buy through us. That will never happen. Here's what we commit to in writing.</p>
+          <ul class="promise-list">
+            <li>
+              <div class="promise-icon">✓</div>
+              <div class="promise-text">
+                <h4>No Soliciting Your Clients</h4>
+                <p>We will never market listing, buying, or brokerage services to anyone you refer. Ever. It's in the agreement.</p>
+              </div>
+            </li>
+            <li>
+              <div class="promise-icon">✓</div>
+              <div class="promise-text">
+                <h4>You're CC'd on Key Updates</h4>
+                <p>Want to stay in the loop? We'll copy you on onboarding milestones and quarterly reports so you can stay engaged without doing any work.</p>
+              </div>
+            </li>
+            <li>
+              <div class="promise-icon">✓</div>
+              <div class="promise-text">
+                <h4>When They're Ready to Sell, You Get the Call</h4>
+                <p>If a referred client ever decides to sell a property, we direct them straight back to you. That future listing is yours.</p>
+              </div>
+            </li>
+            <li>
+              <div class="promise-icon">✓</div>
+              <div class="promise-text">
+                <h4>Co-Branded Audit Reports</h4>
+                <p>Want your branding on the ROI Audit we send your client? Done. It reinforces you as the trusted advisor who made the intro.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="promise-stats">
+          <div class="pstat-card">
+            <span class="pstat-num">100%</span>
+            <span class="pstat-label">Referrals Protected</span>
+          </div>
+          <div class="pstat-card">
+            <span class="pstat-num">30</span>
+            <span class="pstat-label">Days to Payment</span>
+          </div>
+          <div class="pstat-card">
+            <span class="pstat-num">0</span>
+            <span class="pstat-label">Listing Solicitations</span>
+          </div>
+          <div class="pstat-card">
+            <span class="pstat-num">24/7</span>
+            <span class="pstat-label">Owner Portal Access</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonial-section section-pad">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">What Agents Say</span>
+        <h2>Agents Who Refer. Agents Who Stay.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">I've referred three investor clients so far. Every single one has thanked me for the introduction. The ROI Audit alone impressed them — and I got paid on time, every time. No other PM has ever done that.</p>
+          <div class="test-author">
+            <div class="test-avatar">KM</div>
+            <div class="test-info">
+              <div class="name">Karen M.</div>
+              <div class="role">Realtor · Keller Williams · Plano</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">The biggest thing for me was the no-solicitation guarantee. I've been burned before by PMs who tried to steal the listing. These guys put it in the contract — my clients stay my clients. Period.</p>
+          <div class="test-author">
+            <div class="test-avatar">DR</div>
+            <div class="test-info">
+              <div class="name">David R.</div>
+              <div class="role">Broker Associate · Compass · Dallas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REFERRAL FORM ===== -->
+  <section class="form-section" id="referral-form">
+    <div class="container">
+      <div class="form-grid">
+        <div class="form-content">
+          <span class="section-label" style="color: var(--gold);">Join the Program</span>
+          <h2>Start Referring.<br/>Start Earning.</h2>
+          <p>Fill out the form to join our agent referral network. Once you're in, you can submit referrals anytime by form, text, or email. We handle everything from there.</p>
+          <ul class="form-benefits">
+            <li>Takes less than 2 minutes to join</li>
+            <li>Submit referrals by form, email, or text</li>
+            <li>Referral agreement sent within 24 hours</li>
+            <li>No minimums — refer one client or twenty</li>
+            <li>Co-branded materials available upon request</li>
+          </ul>
+        </div>
+        <div class="form-card">
+          <h3>Join the Referral Network</h3>
+          <p class="form-subtitle">We'll send your referral agreement within 24 hours</p>
+          <form id="agent-referral-form" action="#" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="agent-first">Your First Name *</label>
+                <input type="text" id="agent-first" name="agent_first" placeholder="Karen" required />
+              </div>
+              <div class="form-group">
+                <label for="agent-last">Your Last Name *</label>
+                <input type="text" id="agent-last" name="agent_last" placeholder="Mitchell" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="agent-email">Email Address *</label>
+              <input type="email" id="agent-email" name="agent_email" placeholder="karen@brokerage.com" required />
+            </div>
+            <div class="form-group">
+              <label for="agent-phone">Phone Number *</label>
+              <input type="tel" id="agent-phone" name="agent_phone" placeholder="(214) 555-6789" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="brokerage">Brokerage *</label>
+                <input type="text" id="brokerage" name="brokerage" placeholder="Keller Williams" required />
+              </div>
+              <div class="form-group">
+                <label for="license-num">License # (Optional)</label>
+                <input type="text" id="license-num" name="license_number" placeholder="TX-1234567" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="referral-volume">Estimated Annual Referral Volume</label>
+              <select id="referral-volume" name="referral_volume">
+                <option value="">Select…</option>
+                <option value="1-2">1–2 referrals per year</option>
+                <option value="3-5">3–5 referrals per year</option>
+                <option value="6-10">6–10 referrals per year</option>
+                <option value="10+">10+ referrals per year</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="agent-notes">Have a Client to Refer Now? Tell Us About Them</label>
+              <textarea id="agent-notes" name="agent_notes" placeholder="E.g., investor client closing on a duplex in McKinney next month, needs tenant placement ASAP..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Join the Referral Network →</button>
+            <p class="form-privacy">🔒 Your information is secure. We'll never share your data or solicit your clients.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq-section section-pad">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Questions</span>
+        <h2>Agent FAQ</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">Do I need to be a licensed agent to participate?</button>
+          <div class="faq-answer">
+            <p>Yes — our referral program is designed for licensed Texas real estate agents and brokers. We require a valid license number to execute the referral agreement, and all fees are paid in compliance with TREC guidelines through your brokerage.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Will you try to sell my clients on listing with you?</button>
+          <div class="faq-answer">
+            <p>Never. Our referral agreement includes a written no-solicitation clause. We are a property management company — not a competing brokerage. If your client ever wants to sell, we refer them directly back to you.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">When and how do I get paid?</button>
+          <div class="faq-answer">
+            <p>Your upfront referral fee is paid within 30 days of your client signing a management agreement. Ongoing residual bonuses are paid quarterly. All payments are made via direct deposit or check — your choice.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What if my client isn't ready for management yet?</button>
+          <div class="faq-answer">
+            <p>No problem. We'll start with a free Rental ROI Audit to show them the opportunity. There's no pressure to sign immediately — and your referral is tracked regardless of timing. When they're ready, you still get credit.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I refer clients outside of DFW?</button>
+          <div class="faq-answer">
+            <p>We currently manage properties across the entire North Texas / DFW metroplex. If a property is in our coverage area, we'd love the referral. For properties outside of DFW, reach out anyway — we're expanding and may be able to help.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do you offer co-branded materials?</button>
+          <div class="faq-answer">
+            <p>Yes! We can co-brand the Rental ROI Audit report with your name, headshot, and brokerage logo. It's a great touchpoint that reinforces you as the advisor who made the smart introduction. Just ask when you sign up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Stop Losing Referrals. Start Getting Paid for Them.</h2>
+      <p>Join the agent network that protects your relationships, pays you on time, and makes your investor clients love you even more.</p>
+      <a href="#referral-form" class="btn-primary">Join the Referral Program →</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <p>&copy; 2026 [Your Company Name]. All rights reserved.<br/>North Texas Property Management · Dallas–Fort Worth Metroplex</p>
+    </div>
+  </footer>
+
+  <!-- ===== FAQ TOGGLE + SMOOTH SCROLL ===== -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        var isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(function(el) {
+          el.classList.remove('active');
+        });
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+
+</body>
+</html>
+```
