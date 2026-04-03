@@ -3,8 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | Darling Property Management</title>
+  <title>About Darling Property Management | Investor-Owned DFW Property Managers</title>
+  <meta name="description" content="Darling Property Management is an investor-owned, full-service property management company serving Dallas-Fort Worth. Learn about our mission, values, and what makes us different.">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Darling Property Management | Investor-Owned DFW Property Managers">
+  <meta property="og:description" content="Built by investors, for investors. We manage DFW rental properties the way we'd manage our own — with integrity, expertise, and a relational approach.">
+  <meta property="og:url" content="https://www.darlingpropertymanagement.com/about-us">
+  <meta property="og:site_name" content="Darling Property Management">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Darling Property Management | DFW Property Managers">
+  <meta name="twitter:description" content="Built by investors, for investors. Full-service property management for DFW rental owners.">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.darlingpropertymanagement.com/about-us">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  <!-- Calendly -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
   <style>
     /* ── RESET & BASE ── */
     *, *::before, *::after {
@@ -535,9 +551,12 @@
   <section class="cta">
     <div>
       <h2>Ready to put your investment to work?</h2>
-      <p>Start with a free consultation — no obligation, just clarity.</p>
+      <p>Get a free rental analysis — no obligation, no pressure.</p>
     </div>
-    <a class="cta-btn" href="https://www.darlingpropertymanagement.com/get-started">Get Started</a>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; flex-shrink:0;">
+      <a class="cta-btn" href="https://www.darlingpropertymanagement.com/rental-property-quote">Get Free Analysis</a>
+      <a class="cta-btn" href="#" style="background:transparent; border:2px solid rgba(255,255,255,0.45); color:var(--offwhite);" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+    </div>
   </section>
 
 </div><!-- /page -->
