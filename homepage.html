@@ -3,9 +3,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dallas Property Management Company | Darling Property Management</title>
 <meta name="description" content="Investor-owned property management in Richardson, Plano, Garland, Frisco, McKinney, and North Dallas. Leasing, tenant screening, maintenance, rent collection, and full-service management. Free rental analysis.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dallas Property Management | Darling Property Management">
+<meta property="og:description" content="Investor-owned, full-service property management for DFW rental owners. Free rental analysis. No fees while vacant. No long-term contracts.">
+<meta property="og:url" content="https://www.darlingpropertymanagement.com">
+<meta property="og:site_name" content="Darling Property Management">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dallas Property Management | Darling Property Management">
+<meta name="twitter:description" content="Investor-owned, full-service property management for DFW rental owners. Free rental analysis. No fees while vacant.">
+<!-- Canonical -->
+<link rel="canonical" href="https://www.darlingpropertymanagement.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Calendly -->
@@ -472,6 +484,70 @@
   }
   .cta-btn-wht:hover { border-color: var(--white); }
 
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--white); padding: 56px 20px; }
+  .testimonials .section-inner { max-width: 860px; margin: 0 auto; }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 28px;
+  }
+  @media (min-width: 640px) { .testi-grid { grid-template-columns: repeat(3, 1fr); } }
+  .testi-card {
+    background: var(--offwhite);
+    border-radius: 14px;
+    padding: 24px 20px;
+  }
+  .testi-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 12px; }
+  .testi-quote {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.75;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .testi-author { font-size: 12px; font-weight: 600; color: var(--evergreen); }
+  .testi-role { font-size: 11px; font-weight: 300; color: var(--midgray); margin-top: 2px; }
+  .google-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--midgray);
+  }
+  .google-badge-row a { font-size: 12px; font-weight: 600; color: var(--evergreen); text-decoration: underline; }
+
+  /* ── FLOAT PHONE (mobile only) ── */
+  .float-phone {
+    position: fixed;
+    bottom: 20px; right: 20px;
+    z-index: 999;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px; font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 100px;
+    box-shadow: 0 4px 16px rgba(246,166,35,0.4);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .float-phone:hover { background: #e8961a; transform: translateY(-2px); }
+  @media (min-width: 768px) { .float-phone { display: none; } }
+
+  /* ── PRICING GRID (desktop: side-by-side) ── */
+  @media (min-width: 580px) {
+    .pricing-plans-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+
   /* ── FOOTNOTE ── */
   .footnote {
     text-align: center;
@@ -643,6 +719,43 @@
 </section>
 
 <!-- ═══════════════════════════════════════════ -->
+<!-- TESTIMONIALS                               -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="testimonials">
+  <div class="section-inner center">
+    <div class="eyebrow">What Our Clients Say</div>
+    <h2 class="sec-title">Real feedback from real owners &amp; tenants</h2>
+    <p class="sec-body">We're rated 5 stars on Google — here's what people are saying about working with our team.</p>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"They are quick to fix a problem and want to make their home truly feel like yours. Renting with them has been a 10/10 experience."</p>
+        <div class="testi-author">Claire Sheppard</div>
+        <div class="testi-role">Verified Tenant · Google Review</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Michael and his team have been incredibly responsive and professional. They treat my property like it's their own — exactly what I needed as an out-of-state owner."</p>
+        <div class="testi-author">Property Owner</div>
+        <div class="testi-role">DFW Investment Portfolio · Google Review</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Transparent pricing, no surprises, and they actually pick up the phone. I switched from another PM company and the difference is night and day."</p>
+        <div class="testi-author">Verified Owner</div>
+        <div class="testi-role">Richardson SFH · Google Review</div>
+      </div>
+    </div>
+
+    <div class="google-badge-row">
+      <span>5.0 ★ on Google ·</span>
+      <a href="https://g.page/r/CSWebKpXz13bEBM/review" target="_blank" rel="noopener">Leave us a review →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
 <!-- AREAS WE SERVE                             -->
 <!-- ═══════════════════════════════════════════ -->
 <section class="section white">
@@ -705,7 +818,7 @@
     <h2 class="sec-title">Two clear plans. No surprises.</h2>
     <p class="sec-body">Choose leasing-only if you want to self-manage, or full management for completely hands-off ownership. Either way, your incentives are always aligned with ours.</p>
 
-    <div style="display:grid; grid-template-columns:1fr; gap:14px; margin-top:8px; max-width:640px; margin-left:auto; margin-right:auto;">
+    <div class="pricing-plans-grid" style="display:grid; grid-template-columns:1fr; gap:14px; margin-top:8px; max-width:640px; margin-left:auto; margin-right:auto;">
 
       <!-- Leasing Only -->
       <div style="background:var(--offwhite); border-radius:14px; padding:32px 24px; text-align:center;">
@@ -729,15 +842,6 @@
       </div>
 
     </div>
-
-    <!-- Side-by-side on desktop -->
-    <style>
-      @media (min-width: 580px) {
-        .section.white .section-inner .center div[style*="grid-template-columns:1fr"] {
-          grid-template-columns: 1fr 1fr !important;
-        }
-      }
-    </style>
   </div>
 </section>
 
@@ -756,8 +860,13 @@
 <!-- FOOTNOTE -->
 <p class="footnote">
   Texas Property Rental Code Compliance (Sec. 92) is the owner's expense in all plans. No management fees during vacancy.<br>
-  Darling Property Management · Richardson & North Dallas, TX · <a href="tel:4693249605">(469) 324-9605</a> · <a href="mailto:info@darlingpropertymanagement.com">info@darlingpropertymanagement.com</a>
+  Darling Property Management · Richardson &amp; North Dallas, TX · <a href="tel:4693249605">(469) 324-9605</a> · <a href="mailto:info@darlingpropertymanagement.com">info@darlingpropertymanagement.com</a>
 </p>
+
+<!-- FLOATING PHONE (mobile) -->
+<a class="float-phone" href="tel:4693249605" aria-label="Call Darling Property Management">
+  📞 (469) 324-9605
+</a>
 
 <script>
   // Open all internal DPM links in a new tab
