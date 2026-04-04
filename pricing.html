@@ -314,7 +314,7 @@
   .fg-name { flex: 1; font-weight: 400; }
   .fg-val { font-size: 13px; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
   .fv-yes { color: var(--evergreen); font-size: 16px; }
-  .fv-no  { color: var(--lightgray); font-size: 16px; }
+  .fv-no  { color: #767676; font-size: 16px; } /* min WCAG AA on white: #767676 = 4.5:1 */
   .fv-cost { color: var(--midgray); font-weight: 300; }
   .fv-inc {
     background: var(--sage);
@@ -326,17 +326,17 @@
     letter-spacing: 0.04em;
   }
 
-  /* ── Callout (inside white card) ── */
+  /* ── Callout (inside white card — use DARK text, not white) ── */
   .callout {
     background: rgba(246,166,35,0.08);
     border-left: 4px solid var(--gold);
     padding: 14px 20px;
     font-size: 13px;
     font-weight: 400;
-    color: rgba(255,255,255,0.85);
+    color: var(--charcoal);
     line-height: 1.65;
   }
-  .callout strong { color: var(--gold); font-weight: 600; }
+  .callout strong { color: var(--evergreen); font-weight: 600; }
 
   /* ── Panel CTA (mobile only — inside white card) ── */
   .panel-cta {
@@ -657,7 +657,7 @@
   .ftable tbody td:not(:first-child) { text-align: center; font-weight: 400; }
   .ftable tbody tr:last-child td { border-bottom: none; }
   .fy { color: var(--evergreen); font-weight: 700; font-size: 15px; }
-  .fn { color: var(--lightgray); font-size: 15px; }
+  .fn { color: #767676; font-size: 15px; } /* min WCAG AA on white: #767676 = 4.5:1 */
   .fc { color: var(--midgray); font-size: 12px; }
   .fi { color: var(--evergreen); font-weight: 600; font-size: 11px; }
 
