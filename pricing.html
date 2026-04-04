@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,21 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Property Management Pricing in DFW | Darling Property Management</title>
 <meta name="description" content="Simple, transparent property management pricing for DFW investors. 10% monthly management fee — at or below the DFW average. Leasing-only and full management plans with no hidden fees.">
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Property Management Pricing in DFW | Darling Property Management">
 <meta property="og:description" content="10% monthly management. No hidden fees. No fees while vacant. Two clear plans for DFW rental owners — leasing-only or full management.">
 <meta property="og:url" content="https://www.darlingpropertymanagement.com/pricing">
 <meta property="og:site_name" content="Darling Property Management">
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DFW Property Management Pricing | Darling Property Management">
 <meta name="twitter:description" content="Simple, transparent pricing. 10% monthly fee. No fees while vacant. No hidden costs.">
-<!-- Canonical -->
 <link rel="canonical" href="https://www.darlingpropertymanagement.com/pricing">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Calendly -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
@@ -28,75 +22,95 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --charcoal:  #333333;
-    --offwhite:  #F5F5F5;
-    --gold:      #F6A623;
-    --evergreen: #2F5D3A;
-    --sage:      #D7E3D3;
-    --white:     #FFFFFF;
-    --midgray:   #777777;
-    --lightgray: #E0E0E0;
+    --charcoal:   #333333;
+    --charcoal-d: #2a2a2a;
+    --offwhite:   #F5F5F5;
+    --gold:       #F6A623;
+    --gold-dark:  #e8961a;
+    --evergreen:  #2F5D3A;
+    --sage:       #D7E3D3;
+    --white:      #FFFFFF;
+    --midgray:    #777777;
+    --lightgray:  #E0E0E0;
+    --white-10:   rgba(255,255,255,0.10);
+    --white-15:   rgba(255,255,255,0.15);
+    --white-40:   rgba(255,255,255,0.40);
+    --white-55:   rgba(255,255,255,0.55);
+    --white-70:   rgba(255,255,255,0.70);
   }
 
-  html { overflow-x: hidden; }
+  html { overflow-x: hidden; scroll-behavior: smooth; }
   body {
     font-family: 'Poppins', sans-serif;
-    background: var(--offwhite);
-    color: var(--charcoal);
+    background: var(--charcoal);
+    color: var(--white);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     width: 100%;
   }
 
-  /* ── HERO ── */
+  /* ─────────────────────────────────────────
+     HERO
+  ───────────────────────────────────────── */
   .hero {
-    background: var(--white);
+    background: var(--charcoal);
     border-bottom: 3px solid var(--gold);
-    padding: 44px 20px 36px;
+    padding: 52px 20px 44px;
     text-align: center;
   }
   .hero-tag {
     font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--evergreen);
-    margin-bottom: 12px;
+    color: var(--gold);
+    margin-bottom: 14px;
     display: block;
   }
   .hero h1 {
-    font-size: clamp(24px, 7vw, 52px);
+    font-size: clamp(26px, 7vw, 54px);
     font-weight: 700;
-    color: var(--charcoal);
-    line-height: 1.15;
-    margin-bottom: 10px;
+    color: var(--white);
+    line-height: 1.12;
+    margin-bottom: 12px;
   }
   .hero h1 .gold { color: var(--gold); }
-  .hero p {
-    font-size: 14px;
+  .hero-sub {
+    font-size: 15px;
     font-weight: 300;
-    color: var(--midgray);
-    max-width: 400px;
-    margin: 0 auto 22px;
+    color: var(--white-55);
+    max-width: 420px;
+    margin: 0 auto 24px;
     line-height: 1.7;
   }
   .dfw-note {
     display: inline-flex;
     flex-wrap: wrap;
-    gap: 6px 14px;
+    gap: 6px 18px;
     justify-content: center;
     align-items: center;
-    background: var(--offwhite);
-    border: 1px solid var(--lightgray);
+    background: var(--white-10);
+    border: 1px solid var(--white-15);
     border-radius: 8px;
-    padding: 9px 16px;
+    padding: 10px 20px;
     font-size: 12px;
+    margin-bottom: 14px;
   }
-  .dfw-note span { color: var(--midgray); font-weight: 300; }
-  .dfw-note strong { color: var(--evergreen); font-weight: 700; }
+  .dfw-note span { color: var(--white-55); font-weight: 300; }
+  .dfw-note strong { color: var(--gold); font-weight: 700; }
+  .value-anchor {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--white-40);
+    line-height: 1.6;
+  }
+  .value-anchor em { color: var(--gold); font-style: normal; font-weight: 500; }
 
-  /* ── TOGGLE ── */
+  /* ─────────────────────────────────────────
+     TOGGLE  (mobile only — hidden on desktop)
+  ───────────────────────────────────────── */
   .toggle-section {
+    background: var(--charcoal);
     padding: 28px 20px 0;
     display: flex;
     flex-direction: column;
@@ -105,17 +119,17 @@
   .toggle-label {
     font-size: 10px;
     font-weight: 600;
-    color: var(--midgray);
+    color: var(--white-40);
     margin-bottom: 10px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
   .toggle {
     display: flex;
     width: 100%;
     max-width: 400px;
-    background: var(--white);
-    border: 2px solid var(--evergreen);
+    background: var(--white-10);
+    border: 1.5px solid var(--white-15);
     border-radius: 10px;
     overflow: hidden;
   }
@@ -128,52 +142,89 @@
     border: none;
     cursor: pointer;
     background: transparent;
-    color: var(--evergreen);
+    color: var(--white-55);
     transition: all 0.22s;
     line-height: 1.2;
     text-align: center;
   }
   .tog-btn.active {
-    background: var(--evergreen);
-    color: var(--white);
+    background: var(--gold);
+    color: var(--charcoal);
+  }
+  .tog-badge {
+    display: inline-block;
+    background: var(--charcoal);
+    color: var(--gold);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 100px;
+    margin-left: 5px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
   }
 
-  /* ── PLAN PANELS ── */
+  /* ─────────────────────────────────────────
+     PLAN PANELS
+  ───────────────────────────────────────── */
   .panel-wrap {
+    background: var(--charcoal);
     max-width: 680px;
     margin: 0 auto;
-    padding: 20px 16px 56px;
+    padding: 20px 16px 0;
   }
+
+  /* Mobile: one panel at a time */
   .plan-panel { display: none; }
   .plan-panel.active { display: block; }
 
-  /* price card */
+  /* Plan card is a white card on charcoal */
+  .plan-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.28);
+  }
+
+  /* ── Desktop: side-by-side, no CTAs inside cards ── */
+  @media (min-width: 768px) {
+    .toggle-section { display: none; }
+    .panel-wrap {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 20px;
+      max-width: 1120px;
+      padding: 36px 28px 0;
+    }
+    .plan-panel { display: block !important; flex: 1; }
+    /* Hide in-card CTAs on desktop — shared CTA block takes over */
+    .panel-cta { display: none; }
+    /* Full Management: gold ring = visually "recommended" */
+    #plan-management .plan-card {
+      box-shadow: 0 0 0 2.5px var(--gold), 0 8px 36px rgba(0,0,0,0.32);
+    }
+  }
+
+  /* ── Price hero (top of each card) ── */
   .price-hero {
     background: var(--evergreen);
-    border-radius: 14px;
-    padding: 24px 20px 22px;
+    padding: 26px 22px 22px;
     color: var(--white);
-    margin-bottom: 8px;
     position: relative;
     overflow: hidden;
-    width: 100%;
   }
   .price-hero::before {
     content: '';
     position: absolute;
-    top: -16px; right: -16px;
-    width: 80px; height: 80px;
+    top: -20px; right: -20px;
+    width: 90px; height: 90px;
     border-radius: 50%;
-    background: rgba(246,166,35,0.12);
+    background: rgba(246,166,35,0.10);
     pointer-events: none;
-  }
-  .ph-plan {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 6px;
   }
   .ph-popular {
     display: inline-block;
@@ -183,17 +234,16 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    padding: 5px 16px;
+    padding: 5px 14px;
     border-radius: 100px;
     margin-bottom: 10px;
   }
   .ph-title {
-    font-size: clamp(18px, 5vw, 24px);
+    font-size: clamp(18px, 4vw, 22px);
     font-weight: 700;
     margin-bottom: 14px;
     line-height: 1.2;
   }
-  /* price row: number + unit side by side, wraps cleanly */
   .ph-price {
     display: flex;
     align-items: center;
@@ -202,7 +252,7 @@
     margin-bottom: 4px;
   }
   .ph-num {
-    font-size: clamp(44px, 12vw, 60px);
+    font-size: clamp(46px, 11vw, 58px);
     font-weight: 700;
     color: var(--gold);
     line-height: 1;
@@ -211,30 +261,39 @@
   .ph-unit {
     font-size: 13px;
     font-weight: 300;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.45;
+    color: rgba(255,255,255,0.60);
+    line-height: 1.5;
     flex: 1;
-    min-width: 100px;
+    min-width: 90px;
   }
   .ph-sub {
     font-size: 12px;
     font-weight: 300;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.6;
-    margin-top: 12px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+    margin-top: 10px;
+  }
+  .ph-setup-badge {
+    display: inline-block;
+    background: rgba(246,166,35,0.18);
+    border: 1px solid rgba(246,166,35,0.45);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-top: 10px;
+    letter-spacing: 0.03em;
   }
 
-  /* feature groups */
+  /* ── Feature groups (inside white card) ── */
   .feat-group {
     background: var(--white);
-    border-radius: 12px;
-    margin-top: 10px;
     overflow: hidden;
-    width: 100%;
   }
   .fg-header {
     background: var(--sage);
-    padding: 9px 18px;
+    padding: 9px 20px;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -245,13 +304,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 11px 18px;
+    padding: 12px 20px;
     border-bottom: 1px solid var(--offwhite);
     font-size: 13px;
     gap: 10px;
+    color: var(--charcoal);
   }
   .fg-row:last-child { border-bottom: none; }
-  .fg-name { flex: 1; font-weight: 400; color: var(--charcoal); }
+  .fg-name { flex: 1; font-weight: 400; }
   .fg-val { font-size: 13px; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
   .fv-yes { color: var(--evergreen); font-size: 16px; }
   .fv-no  { color: var(--lightgray); font-size: 16px; }
@@ -266,13 +326,11 @@
     letter-spacing: 0.04em;
   }
 
-  /* callout */
+  /* ── Callout (inside white card) ── */
   .callout {
-    background: rgba(246,166,35,0.1);
+    background: rgba(246,166,35,0.08);
     border-left: 4px solid var(--gold);
-    border-radius: 0 8px 8px 0;
-    padding: 14px 18px;
-    margin-top: 10px;
+    padding: 14px 20px;
     font-size: 13px;
     font-weight: 400;
     color: var(--charcoal);
@@ -280,20 +338,23 @@
   }
   .callout strong { color: var(--evergreen); font-weight: 600; }
 
-  /* ── CTAs ── */
-  .panel-cta { margin-top: 20px; }
+  /* ── Panel CTA (mobile only — inside white card) ── */
+  .panel-cta {
+    padding: 18px 20px 22px;
+    background: var(--white);
+    border-radius: 0 0 16px 16px; /* matches card bottom corners */
+  }
   .cta-primary-row {
     display: flex;
     gap: 10px;
     flex-direction: column;
-    margin-bottom: 10px;
   }
   @media (min-width: 420px) {
     .cta-primary-row { flex-direction: row; }
   }
   .btn-main {
     flex: 1;
-    padding: 15px 16px;
+    padding: 14px 16px;
     background: var(--gold);
     color: var(--charcoal);
     font-family: 'Poppins', sans-serif;
@@ -306,12 +367,11 @@
     text-decoration: none;
     transition: background 0.2s;
     display: block;
-    width: 100%;
   }
-  .btn-main:hover { background: #e8961a; }
+  .btn-main:hover { background: var(--gold-dark); }
   .btn-call {
     flex: 1;
-    padding: 15px 16px;
+    padding: 14px 16px;
     background: transparent;
     color: var(--evergreen);
     border: 2px solid var(--evergreen);
@@ -324,27 +384,72 @@
     text-decoration: none;
     transition: all 0.2s;
     display: block;
-    width: 100%;
   }
   .btn-call:hover { background: var(--evergreen); color: var(--white); }
-  .cta-micro {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 300;
-    color: var(--midgray);
-    padding-top: 4px;
-  }
-  .cta-micro a {
-    color: var(--evergreen);
-    text-decoration: underline;
-    font-weight: 500;
-    cursor: pointer;
-  }
 
-  /* ── EMAIL CAPTURE ── */
-  .capture-strip {
+  /* ─────────────────────────────────────────
+     SHARED CTA  (desktop only — below both cards)
+  ───────────────────────────────────────── */
+  .shared-cta {
+    display: none; /* hidden on mobile */
     background: var(--charcoal);
-    padding: 44px 20px;
+    text-align: center;
+    padding: 28px 28px 52px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) { .shared-cta { display: block; } }
+
+  .shared-cta-label {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--white-40);
+    margin-bottom: 18px;
+    letter-spacing: 0.01em;
+  }
+  .shared-cta-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+  .sc-btn-primary {
+    padding: 15px 36px;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+  .sc-btn-primary:hover { background: var(--gold-dark); }
+  .sc-btn-secondary {
+    padding: 15px 36px;
+    background: transparent;
+    color: var(--white-70);
+    border: 2px solid var(--white-40);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .sc-btn-secondary:hover { border-color: var(--white-70); color: var(--white); }
+
+  /* ─────────────────────────────────────────
+     EMAIL CAPTURE
+  ───────────────────────────────────────── */
+  .capture-strip {
+    background: var(--evergreen);
+    padding: 52px 20px;
     text-align: center;
   }
   .capture-inner { max-width: 520px; margin: 0 auto; }
@@ -357,18 +462,18 @@
     margin-bottom: 10px;
   }
   .capture-heading {
-    font-size: clamp(17px, 5vw, 24px);
+    font-size: clamp(18px, 5vw, 26px);
     font-weight: 700;
     color: var(--white);
     margin-bottom: 8px;
-    line-height: 1.3;
+    line-height: 1.25;
   }
   .capture-sub {
     font-size: 13px;
     font-weight: 300;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 22px;
-    line-height: 1.65;
+    color: rgba(255,255,255,0.60);
+    margin-bottom: 24px;
+    line-height: 1.7;
   }
   .capture-form {
     display: flex;
@@ -385,15 +490,16 @@
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 400;
-    border: 1.5px solid rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.20);
     border-radius: 8px;
-    background: rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.10);
     color: var(--white);
     outline: none;
     transition: border-color 0.2s;
   }
-  .capture-input::placeholder { color: rgba(255,255,255,0.35); }
+  .capture-input::placeholder { color: rgba(255,255,255,0.40); }
   .capture-input:focus { border-color: var(--gold); }
+  .capture-input.error { border-color: #C4623D; }
   .capture-btn {
     width: 100%;
     padding: 13px 20px;
@@ -408,19 +514,19 @@
     transition: background 0.2s;
     white-space: nowrap;
   }
-  .capture-btn:hover { background: #e8961a; }
+  .capture-btn:hover { background: var(--gold-dark); }
   .capture-privacy {
     margin-top: 10px;
     font-size: 11px;
     font-weight: 300;
-    color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.30);
   }
   .capture-success {
     display: none;
-    background: rgba(47,93,58,0.3);
-    border: 1px solid rgba(47,93,58,0.6);
+    background: rgba(0,0,0,0.20);
+    border: 1px solid rgba(255,255,255,0.20);
     border-radius: 10px;
-    padding: 20px 24px;
+    padding: 22px 24px;
     color: var(--white);
     font-size: 14px;
     font-weight: 500;
@@ -428,27 +534,91 @@
   }
   .capture-success .check { font-size: 28px; display: block; margin-bottom: 6px; }
 
-  /* ── COMPARISON TABLE ── */
-  .full-comp {
-    background: var(--white);
-    padding: 48px 16px;
+  /* ─────────────────────────────────────────
+     SOCIAL PROOF
+  ───────────────────────────────────────── */
+  .social-proof {
+    background: var(--offwhite);
+    padding: 56px 20px;
+    text-align: center;
   }
-  .full-comp-inner { max-width: 760px; margin: 0 auto; }
+  .sp-inner { max-width: 760px; margin: 0 auto; }
   .sec-eyebrow {
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--evergreen);
     margin-bottom: 6px;
   }
   .sec-title {
     font-size: clamp(18px, 4vw, 28px);
     font-weight: 700;
     color: var(--charcoal);
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
-  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 10px; }
+  .google-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--white);
+    border: 1px solid var(--lightgray);
+    border-radius: 10px;
+    padding: 12px 22px;
+    margin-bottom: 28px;
+    text-decoration: none;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  }
+  .gb-logo { font-size: 17px; font-weight: 700; letter-spacing: -0.5px; }
+  .gb-logo span:nth-child(1) { color: #4285F4; }
+  .gb-logo span:nth-child(2) { color: #EA4335; }
+  .gb-logo span:nth-child(3) { color: #FBBC05; }
+  .gb-logo span:nth-child(4) { color: #4285F4; }
+  .gb-logo span:nth-child(5) { color: #34A853; }
+  .gb-logo span:nth-child(6) { color: #EA4335; }
+  .gb-divider { width: 1px; height: 28px; background: var(--lightgray); }
+  .gb-info { text-align: left; }
+  .gb-stars { color: var(--gold); font-size: 14px; letter-spacing: 1px; display: block; }
+  .gb-text { font-size: 12px; font-weight: 600; color: var(--charcoal); display: block; margin-top: 2px; }
+  .gb-link { font-size: 11px; color: var(--midgray); font-weight: 300; }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    text-align: left;
+  }
+  @media (min-width: 580px) {
+    .testimonial-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 22px;
+    border-left: 4px solid var(--evergreen);
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  }
+  .tc-stars { color: var(--gold); font-size: 13px; margin-bottom: 10px; letter-spacing: 1px; }
+  .tc-text {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.75;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .tc-author { font-size: 12px; font-weight: 600; color: var(--evergreen); }
+  .tc-detail { font-size: 11px; font-weight: 300; color: var(--midgray); margin-top: 2px; }
+
+  /* ─────────────────────────────────────────
+     COMPARISON TABLE
+  ───────────────────────────────────────── */
+  .full-comp {
+    background: var(--offwhite);
+    padding: 56px 16px;
+    border-top: 1px solid var(--lightgray);
+  }
+  .full-comp-inner { max-width: 760px; margin: 0 auto; }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
   .scroll-hint {
     font-size: 11px;
     color: var(--midgray);
@@ -457,47 +627,120 @@
     padding: 0 0 10px;
   }
   @media (min-width: 520px) { .scroll-hint { display: none; } }
-
   table.ftable {
     width: 100%;
-    min-width: 400px;
+    min-width: 420px;
     border-collapse: collapse;
     font-size: 13px;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
   }
   .ftable thead th {
-    padding: 12px 14px;
+    padding: 13px 16px;
     font-weight: 600;
     font-size: 13px;
     text-align: center;
-    border-bottom: 2px solid var(--lightgray);
-    white-space: nowrap;
     background: var(--evergreen);
     color: var(--white);
+    white-space: nowrap;
   }
   .ftable thead th:first-child { text-align: left; }
   .ftable tbody td {
-    padding: 11px 14px;
-    border-bottom: 1px solid var(--lightgray);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--offwhite);
     color: var(--charcoal);
     font-weight: 300;
     vertical-align: middle;
     font-size: 13px;
   }
   .ftable tbody td:not(:first-child) { text-align: center; font-weight: 400; }
-  .ftable tbody tr:nth-child(even) td { background: var(--offwhite); }
+  .ftable tbody tr:last-child td { border-bottom: none; }
   .fy { color: var(--evergreen); font-weight: 700; font-size: 15px; }
   .fn { color: var(--lightgray); font-size: 15px; }
   .fc { color: var(--midgray); font-size: 12px; }
   .fi { color: var(--evergreen); font-weight: 600; font-size: 11px; }
 
-  /* ── FOOTER CTA ── */
+  /* ─────────────────────────────────────────
+     FAQ
+  ───────────────────────────────────────── */
+  .faq-section {
+    background: var(--charcoal);
+    padding: 56px 20px;
+  }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  .faq-section .sec-eyebrow { color: var(--gold); margin-bottom: 6px; }
+  .faq-section .sec-title { color: var(--white); margin-bottom: 24px; }
+  .faq-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .faq-item.open { border-color: rgba(246,166,35,0.40); }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 16px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white-70);
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    transition: color 0.18s;
+  }
+  .faq-q:hover { color: var(--white); }
+  .faq-item.open .faq-q { color: var(--gold); }
+  .faq-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.10);
+    color: var(--white-55);
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    transition: transform 0.22s, background 0.18s;
+    font-weight: 300;
+  }
+  .faq-item.open .faq-icon {
+    transform: rotate(45deg);
+    background: rgba(246,166,35,0.18);
+    color: var(--gold);
+  }
+  .faq-a {
+    display: none;
+    padding: 0 20px 18px;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--white-55);
+    line-height: 1.8;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 14px;
+  }
+  .faq-item.open .faq-a { display: block; }
+  .faq-a a { color: var(--gold); font-weight: 500; text-decoration: none; }
+  .faq-a a:hover { text-decoration: underline; }
+
+  /* ─────────────────────────────────────────
+     FOOTER CTA
+  ───────────────────────────────────────── */
   .footer-cta {
     background: var(--evergreen);
-    padding: 52px 20px;
+    padding: 60px 20px;
     text-align: center;
   }
   .footer-cta h2 {
-    font-size: clamp(20px, 5vw, 34px);
+    font-size: clamp(22px, 5vw, 36px);
     font-weight: 700;
     color: var(--white);
     margin-bottom: 8px;
@@ -505,13 +748,13 @@
   }
   .footer-cta p {
     font-size: 14px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.55);
     font-weight: 300;
-    margin-bottom: 26px;
+    margin-bottom: 28px;
   }
   .fcta-btns {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
     flex-direction: column;
     max-width: 360px;
@@ -520,7 +763,7 @@
   @media (min-width: 420px) { .fcta-btns { flex-direction: row; max-width: none; } }
   .fc-btn-gold {
     display: block;
-    padding: 14px 24px;
+    padding: 15px 28px;
     background: var(--gold);
     color: var(--charcoal);
     font-family: 'Poppins', sans-serif;
@@ -531,11 +774,11 @@
     text-align: center;
     transition: background 0.2s;
   }
-  .fc-btn-gold:hover { background: #e8961a; }
+  .fc-btn-gold:hover { background: var(--gold-dark); }
   .fc-btn-wht {
     display: block;
-    padding: 14px 24px;
-    border: 2px solid rgba(255,255,255,0.4);
+    padding: 15px 28px;
+    border: 2px solid rgba(255,255,255,0.35);
     color: var(--white);
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
@@ -548,147 +791,223 @@
   }
   .fc-btn-wht:hover { border-color: var(--white); }
 
-  /* ── FOOTNOTE ── */
+  /* ─────────────────────────────────────────
+     FOOTNOTE
+  ───────────────────────────────────────── */
   .footnote {
     text-align: center;
-    padding: 24px 20px;
+    padding: 24px 20px 64px; /* extra bottom for sticky mobile CTA */
     font-size: 11px;
     font-weight: 300;
-    color: var(--midgray);
+    color: rgba(255,255,255,0.25);
     line-height: 1.7;
-    background: var(--offwhite);
+    background: var(--charcoal);
   }
+  @media (min-width: 768px) { .footnote { padding-bottom: 24px; } }
+
+  /* ─────────────────────────────────────────
+     STICKY MOBILE CTA  (hidden on desktop)
+  ───────────────────────────────────────── */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--charcoal-d);
+    border-top: 1px solid rgba(255,255,255,0.10);
+    padding: 10px 14px;
+    display: flex;
+    gap: 8px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.30);
+  }
+  .sticky-cta.visible { transform: translateY(0); }
+  .sc-mob-primary {
+    flex: 1;
+    padding: 12px 10px;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .sc-mob-primary:hover { background: var(--gold-dark); }
+  .sc-mob-secondary {
+    flex: 1;
+    padding: 12px 10px;
+    background: transparent;
+    color: var(--white-70);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .sc-mob-secondary:hover { border-color: var(--white-55); color: var(--white); }
+  @media (min-width: 768px) { .sticky-cta { display: none; } }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <span class="hero-tag">Darling Property Management · Richardson & North Dallas</span>
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section class="hero" id="page-hero">
+  <span class="hero-tag">Darling Property Management · DFW &amp; North Texas</span>
   <h1>Simple pricing.<br><span class="gold">No surprises.</span></h1>
-  <p>Two clear options. One promise: your incentives are always aligned with ours.</p>
+  <p class="hero-sub">Two clear options. One promise: your incentives are always aligned with ours.</p>
   <div class="dfw-note">
     <span>DFW avg: <strong>10–12%</strong></span>
     <span>Our fee: <strong>10%</strong></span>
   </div>
+  <p class="value-anchor">On a $2,000/month rental, that's <em>$200/month</em> — less than what most owners lose to a single vacancy from slow leasing.</p>
 </section>
 
-<!-- TOGGLE -->
+<!-- ═══════════════════════════════════════════
+     TOGGLE  (mobile only)
+═══════════════════════════════════════════ -->
 <div class="toggle-section">
-  <div class="toggle-label">Select a plan to explore</div>
+  <div class="toggle-label">Choose a plan to explore</div>
   <div class="toggle">
     <button class="tog-btn active" onclick="switchPlan('leasing', this)">Leasing Only</button>
-    <button class="tog-btn" onclick="switchPlan('management', this)">Full Management</button>
+    <button class="tog-btn" onclick="switchPlan('management', this)">Full Management <span class="tog-badge">Popular</span></button>
   </div>
 </div>
 
-<!-- PANELS -->
+<!-- ═══════════════════════════════════════════
+     PLAN PANELS
+═══════════════════════════════════════════ -->
 <div class="panel-wrap">
 
-  <!-- ═══════════════════════════════════════ -->
-  <!-- LEASING ONLY                            -->
-  <!-- ═══════════════════════════════════════ -->
+  <!-- ─── LEASING ONLY ─── -->
   <div class="plan-panel active" id="plan-leasing">
-    <div class="price-hero">
-      <!-- "PLAN ONE" removed -->
-      <div class="ph-title">Leasing Only</div>
-      <div class="ph-price">
-        <span class="ph-num">100%</span>
-        <span class="ph-unit">of first month's rent · one-time fee</span>
+    <div class="plan-card">
+
+      <div class="price-hero">
+        <div class="ph-title">Leasing Only</div>
+        <div class="ph-price">
+          <span class="ph-num">100%</span>
+          <span class="ph-unit">of first month's rent · one-time fee</span>
+        </div>
+        <p class="ph-sub">We find, screen, and place your tenant. You manage from move-in forward.</p>
       </div>
-      <p class="ph-sub">We find, screen, and place your tenant. You manage from move-in forward.</p>
-    </div>
 
-    <div class="feat-group">
-      <div class="fg-header">Always Included</div>
-      <div class="fg-row"><span class="fg-name">Property Marketing</span><span class="fg-val fv-yes">✓</span></div>
-      <div class="fg-row"><span class="fg-name">Market Rent Analysis</span><span class="fg-val fv-yes">✓</span></div>
-      <div class="fg-row"><span class="fg-name">Tenant Screening</span><span class="fg-val fv-yes">✓</span></div>
-      <div class="fg-row"><span class="fg-name">Lease Preparation</span><span class="fg-val fv-yes">✓</span></div>
-      <div class="fg-row"><span class="fg-name">Rent Collection (first month)</span><span class="fg-val fv-yes">✓</span></div>
-      <div class="fg-row"><span class="fg-name">Owner & Tenant Portal</span><span class="fg-val fv-yes">✓</span></div>
-      <div class="fg-row"><span class="fg-name">Annual 1099</span><span class="fg-val fv-yes">✓</span></div>
-    </div>
-
-    <div class="feat-group">
-      <div class="fg-header">Additional Services (À La Carte)</div>
-      <div class="fg-row"><span class="fg-name">Move-in Condition Report</span><span class="fg-val fv-cost">$250</span></div>
-      <div class="fg-row"><span class="fg-name">Move-out Condition Report</span><span class="fg-val fv-cost">$250</span></div>
-      <div class="fg-row"><span class="fg-name">Lease Renewal</span><span class="fg-val fv-cost">$300</span></div>
-      <div class="fg-row"><span class="fg-name">Eviction Administration</span><span class="fg-val fv-cost">$500</span></div>
-    </div>
-
-    <div class="callout">
-      <strong>Good fit if:</strong> you want professional tenant placement and prefer to self-manage day-to-day operations.
-    </div>
-
-    <div class="panel-cta">
-      <div class="cta-primary-row">
-        <!-- Quote → redirects to existing quote page -->
-        <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="btn-main">📋 Get My Free Quote</a>
-        <!-- Call → opens Calendly popup -->
-        <a href="#" class="btn-call" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">📞 Schedule a Call</a>
+      <div class="feat-group">
+        <div class="fg-header">Always Included</div>
+        <div class="fg-row"><span class="fg-name">Property Marketing</span><span class="fg-val fv-yes">✓</span></div>
+        <div class="fg-row"><span class="fg-name">Market Rent Analysis</span><span class="fg-val fv-yes">✓</span></div>
+        <div class="fg-row"><span class="fg-name">Tenant Screening</span><span class="fg-val fv-yes">✓</span></div>
+        <div class="fg-row"><span class="fg-name">Lease Preparation</span><span class="fg-val fv-yes">✓</span></div>
+        <div class="fg-row"><span class="fg-name">Rent Collection (first month)</span><span class="fg-val fv-yes">✓</span></div>
+        <div class="fg-row"><span class="fg-name">Owner &amp; Tenant Portal</span><span class="fg-val fv-yes">✓</span></div>
+        <div class="fg-row"><span class="fg-name">Annual 1099</span><span class="fg-val fv-yes">✓</span></div>
       </div>
-      <!-- "Not ready yet?" CTA removed -->
+
+      <div class="feat-group">
+        <div class="fg-header">Additional Services (À La Carte)</div>
+        <div class="fg-row"><span class="fg-name">Move-in Condition Report</span><span class="fg-val fv-cost">$250</span></div>
+        <div class="fg-row"><span class="fg-name">Move-out Condition Report</span><span class="fg-val fv-cost">$250</span></div>
+        <div class="fg-row"><span class="fg-name">Lease Renewal</span><span class="fg-val fv-cost">$300</span></div>
+        <div class="fg-row"><span class="fg-name">Eviction Administration</span><span class="fg-val fv-cost">$500</span></div>
+      </div>
+
+      <div class="callout">
+        <strong>Good fit if:</strong> you want professional tenant placement and prefer to self-manage day-to-day operations.
+      </div>
+
+      <!-- Mobile CTA (hidden on desktop via CSS) -->
+      <div class="panel-cta">
+        <div class="cta-primary-row">
+          <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="btn-main">Get My Free Quote</a>
+          <a href="#" class="btn-call" onclick="Calendly.initPopupWidget({url:'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════ -->
-  <!-- FULL MANAGEMENT                         -->
-  <!-- ═══════════════════════════════════════ -->
+  <!-- ─── FULL MANAGEMENT ─── -->
   <div class="plan-panel" id="plan-management">
-    <div class="price-hero">
-      <!-- "PLAN TWO" removed · "MOST POPULAR" kept as prominent gold badge -->
-      <div class="ph-popular">★ Most Popular</div>
-      <div class="ph-title">Full Management</div>
-      <div class="ph-price">
-        <span class="ph-num">10%</span>
-        <span class="ph-unit">of monthly rent · ongoing</span>
+    <div class="plan-card">
+
+      <div class="price-hero">
+        <div class="ph-popular">★ Most Popular</div>
+        <div class="ph-title">Full Management</div>
+        <div class="ph-price">
+          <span class="ph-num">10%</span>
+          <span class="ph-unit">of monthly rent · ongoing</span>
+        </div>
+        <p class="ph-sub">+ Tenant placement at 75% of first month's rent ($1,000 min).</p>
+        <span class="ph-setup-badge">$150 setup fee — waived for 5+ properties</span>
       </div>
-      <p class="ph-sub">+ Tenant placement at 75% of first month's rent ($1,000 min). $150 setup fee — waived for 5+ properties.</p>
-    </div>
 
-    <div class="feat-group">
-      <div class="fg-header">Everything in Leasing, Plus</div>
-      <div class="fg-row"><span class="fg-name">Ongoing Rent Collection</span><span class="fg-val fv-yes">✓</span></div>
-      <div class="fg-row"><span class="fg-name">Maintenance Coordination</span><span class="fg-val fv-yes">✓</span></div>
-      <div class="fg-row"><span class="fg-name">Monthly Owner Statements</span><span class="fg-val fv-yes">✓</span></div>
-      <div class="fg-row"><span class="fg-name">Move-in Condition Report</span><span class="fg-val"><span class="fv-inc">Included</span></span></div>
-      <div class="fg-row"><span class="fg-name">Move-out Condition Report</span><span class="fg-val"><span class="fv-inc">Included</span></span></div>
-      <div class="fg-row"><span class="fg-name">No Fees While Vacant</span><span class="fg-val fv-yes">✓</span></div>
-    </div>
-
-    <div class="feat-group">
-      <div class="fg-header">Additional Services</div>
-      <div class="fg-row"><span class="fg-name">Lease Renewal</span><span class="fg-val fv-cost">$200</span></div>
-      <div class="fg-row"><span class="fg-name">Eviction Administration</span><span class="fg-val fv-cost">$300</span></div>
-    </div>
-
-    <div class="callout">
-      <strong>Good fit if:</strong> you want completely hands-off ownership while maximizing your investment's performance.
-    </div>
-
-    <div class="panel-cta">
-      <div class="cta-primary-row">
-        <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="btn-main">📋 Get My Free Quote</a>
-        <a href="#" class="btn-call" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">📞 Schedule a Call</a>
+      <div class="feat-group">
+        <div class="fg-header">Everything in Leasing, Plus</div>
+        <div class="fg-row"><span class="fg-name">Ongoing Rent Collection</span><span class="fg-val fv-yes">✓</span></div>
+        <div class="fg-row"><span class="fg-name">Maintenance Coordination</span><span class="fg-val fv-yes">✓</span></div>
+        <div class="fg-row"><span class="fg-name">Monthly Owner Statements</span><span class="fg-val fv-yes">✓</span></div>
+        <div class="fg-row"><span class="fg-name">Move-in Condition Report</span><span class="fg-val"><span class="fv-inc">Included</span></span></div>
+        <div class="fg-row"><span class="fg-name">Move-out Condition Report</span><span class="fg-val"><span class="fv-inc">Included</span></span></div>
+        <div class="fg-row"><span class="fg-name">Annual 1099</span><span class="fg-val"><span class="fv-inc">Included</span></span></div>
+        <div class="fg-row"><span class="fg-name">No Fees While Vacant</span><span class="fg-val fv-yes">✓</span></div>
       </div>
-      <p class="cta-micro">Not ready yet? <a onclick="document.getElementById('email-strip').scrollIntoView({behavior:'smooth'})">Get our free rental pricing guide →</a></p>
+
+      <div class="feat-group">
+        <div class="fg-header">Additional Services</div>
+        <div class="fg-row"><span class="fg-name">Lease Renewal</span><span class="fg-val fv-cost">$200</span></div>
+        <div class="fg-row"><span class="fg-name">Eviction Administration</span><span class="fg-val fv-cost">$300</span></div>
+      </div>
+
+      <div class="callout">
+        <strong>Good fit if:</strong> you want completely hands-off ownership while maximizing your investment's performance.
+      </div>
+
+      <!-- Mobile CTA (hidden on desktop via CSS) -->
+      <div class="panel-cta">
+        <div class="cta-primary-row">
+          <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="btn-main">Get My Free Quote</a>
+          <a href="#" class="btn-call" onclick="Calendly.initPopupWidget({url:'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+        </div>
+      </div>
+
     </div>
   </div>
 
 </div>
 
-<!-- EMAIL CAPTURE -->
+<!-- ═══════════════════════════════════════════
+     SHARED CTA  (desktop only — single block below both cards)
+═══════════════════════════════════════════ -->
+<div class="shared-cta">
+  <p class="shared-cta-label">No obligation. No pressure. Free rental analysis included.</p>
+  <div class="shared-cta-btns">
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="sc-btn-primary">Get My Free Quote</a>
+    <a href="#" class="sc-btn-secondary" onclick="Calendly.initPopupWidget({url:'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     EMAIL CAPTURE
+     DEVELOPER NOTE: Wire submitCapture() to your email service
+     (Mailchimp, HubSpot, Wix Contacts, etc.) before going live.
+═══════════════════════════════════════════ -->
 <section class="capture-strip" id="email-strip">
   <div class="capture-inner">
     <div class="capture-eyebrow">Free Resource</div>
-    <h2 class="capture-heading">Not ready to talk yet?<br>That's totally fine.</h2>
-    <p class="capture-sub">Get our free <strong style="color:var(--gold)">North Texas Rental Pricing Guide</strong> — current market rates, what to expect from a property manager, and questions to ask before signing anything.</p>
+    <h2 class="capture-heading">Get the North Texas<br>Rental Pricing Guide</h2>
+    <p class="capture-sub">Current DFW market rates, what to expect from a property manager, and the questions every owner should ask before signing with anyone.</p>
     <div id="capture-form-wrap">
       <div class="capture-form">
-        <input class="capture-input" type="text" id="cap-name" placeholder="Your first name" autocomplete="given-name">
-        <input class="capture-input" type="email" id="cap-email" placeholder="Your email address" autocomplete="email">
+        <input class="capture-input" type="text" id="cap-name" placeholder="Your first name" autocomplete="given-name" required>
+        <input class="capture-input" type="email" id="cap-email" placeholder="Your email address" autocomplete="email" required>
         <button class="capture-btn" onclick="submitCapture()">Send Me the Guide</button>
       </div>
       <p class="capture-privacy">🔒 No spam, ever. Unsubscribe anytime.</p>
@@ -700,20 +1019,60 @@
   </div>
 </section>
 
-<!-- COMPARISON TABLE -->
+<!-- ═══════════════════════════════════════════
+     SOCIAL PROOF
+     PLACEHOLDER: Replace testimonials with real client reviews.
+     Update the Google badge href with your Google Business Profile URL.
+═══════════════════════════════════════════ -->
+<section class="social-proof">
+  <div class="sp-inner">
+    <div class="sec-eyebrow">What Owners Say</div>
+    <h2 class="sec-title">DFW investors trust us with their properties.</h2>
+
+    <div style="display:flex;justify-content:center;margin-bottom:28px;">
+      <a href="https://g.page/r/YOUR-GOOGLE-BUSINESS-ID/review" target="_blank" rel="noopener" class="google-badge">
+        <div class="gb-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
+        <div class="gb-divider"></div>
+        <div class="gb-info">
+          <span class="gb-stars">★★★★★</span>
+          <span class="gb-text">5.0 · Google Reviews</span>
+          <span class="gb-link">See all reviews →</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"We were overwhelmed managing our rental from out of state. Darling took over everything — leasing, maintenance, monthly statements — and we haven't had to think about it since. Best decision we made."</p>
+        <div class="tc-author">[Owner Name] — Replace with real review</div>
+        <div class="tc-detail">Full Management · [City], TX</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Michael found us a qualified tenant in under two weeks, handled all the paperwork, and made the whole process painless. The transparency and communication are unlike anything we've experienced."</p>
+        <div class="tc-author">[Owner Name] — Replace with real review</div>
+        <div class="tc-detail">Leasing Only · [City], TX</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     COMPARISON TABLE
+═══════════════════════════════════════════ -->
 <section class="full-comp">
   <div class="full-comp-inner">
     <div class="sec-eyebrow">Side by Side</div>
     <h2 class="sec-title">Full plan comparison</h2>
-    <p class="scroll-hint">← Swipe to see both plans →</p>
+    <p class="scroll-hint">← Swipe to compare plans →</p>
     <div class="table-scroll">
       <table class="ftable">
         <thead>
           <tr>
-            <!-- All three header cells now share the same evergreen background -->
             <th>Feature</th>
-            <th>Leasing</th>
-            <th>Full Mgmt</th>
+            <th>Leasing Only</th>
+            <th>Full Management</th>
           </tr>
         </thead>
         <tbody>
@@ -721,48 +1080,97 @@
           <tr><td>Market Rent Analysis</td><td><span class="fy">✓</span></td><td><span class="fy">✓</span></td></tr>
           <tr><td>Tenant Screening</td><td><span class="fy">✓</span></td><td><span class="fy">✓</span></td></tr>
           <tr><td>Lease Preparation</td><td><span class="fy">✓</span></td><td><span class="fy">✓</span></td></tr>
-          <tr><td>Owner & Tenant Portal</td><td><span class="fy">✓</span></td><td><span class="fy">✓</span></td></tr>
+          <tr><td>Owner &amp; Tenant Portal</td><td><span class="fy">✓</span></td><td><span class="fy">✓</span></td></tr>
           <tr><td>Annual 1099</td><td><span class="fy">✓</span></td><td><span class="fy">✓</span></td></tr>
-          <!-- Rent Collection: "Monthly" now uses consistent 12px/600 to match other cell text -->
-          <tr><td>Rent Collection</td><td><span class="fc">1st month</span></td><td><span class="fy">✓</span> <span style="font-size:12px;font-weight:600;color:var(--evergreen);">Monthly</span></td></tr>
+          <tr><td>Rent Collection</td><td><span class="fc">1st month only</span></td><td><span class="fy">✓</span> <span style="font-size:11px;font-weight:600;color:var(--evergreen);">Monthly</span></td></tr>
           <tr><td>Move-in Report</td><td><span class="fc">$250</span></td><td><span class="fi">Included</span></td></tr>
           <tr><td>Move-out Report</td><td><span class="fc">$250</span></td><td><span class="fi">Included</span></td></tr>
           <tr><td>Maintenance Coordination</td><td><span class="fn">—</span></td><td><span class="fy">✓</span></td></tr>
-          <tr><td>Monthly Statements</td><td><span class="fn">—</span></td><td><span class="fy">✓</span></td></tr>
+          <tr><td>Monthly Owner Statements</td><td><span class="fn">—</span></td><td><span class="fy">✓</span></td></tr>
           <tr><td>Lease Renewal</td><td><span class="fc">$300</span></td><td><span class="fc">$200</span></td></tr>
           <tr><td>Eviction Admin</td><td><span class="fc">$500</span></td><td><span class="fc">$300</span></td></tr>
-          <tr><td>Fees While Vacant</td><td><span class="fy" style="font-size:12px;font-weight:600;">None</span></td><td><span class="fy" style="font-size:12px;font-weight:600;">None</span></td></tr>
+          <tr><td>Fees While Vacant</td><td><span style="font-size:12px;font-weight:600;color:var(--evergreen);">None</span></td><td><span style="font-size:12px;font-weight:600;color:var(--evergreen);">None</span></td></tr>
+          <tr><td>Account Setup Fee</td><td><span class="fn">—</span></td><td><span class="fc">$150 <span style="font-size:10px;color:var(--evergreen);font-weight:600;">waived 5+ props</span></span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<!-- FOOTER CTA -->
+<!-- ═══════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="sec-eyebrow">Common Questions</div>
+    <h2 class="sec-title">Everything you want to know before signing.</h2>
+
+    <div class="faq-item">
+      <button class="faq-q">Are there any fees while my property is vacant?<span class="faq-icon">+</span></button>
+      <div class="faq-a">No. We don't charge a monthly management fee during vacancy. Our incentive is the same as yours — get your property leased quickly to a qualified tenant. You only pay us when your property is generating income.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Who approves repairs, and do you mark up invoices?<span class="faq-icon">+</span></button>
+      <div class="faq-a">We pass vendor invoices through at cost — no markup, ever. For repairs under $150 we handle it and keep you informed. Between $150 and $300, we notify you and proceed unless you object within 4 hours. Anything over $300 requires your explicit approval before we dispatch anyone. For jobs over $1,000, we get two estimates when possible.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">What's actually included in "maintenance coordination"?<span class="faq-icon">+</span></button>
+      <div class="faq-a">We handle the entire process — from the tenant's initial request through vendor assignment, work completion, and invoice logging. We classify every request by priority (emergency, urgent, or routine), communicate with your tenant so you don't have to, and track everything in your owner portal. You get notified of the important stuff without being buried in the small stuff.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Can I switch from Leasing Only to Full Management later?<span class="faq-icon">+</span></button>
+      <div class="faq-a">Yes. If you start with Leasing Only and decide you want ongoing management, we can transition you at any time. The $150 setup fee applies at that point (waived for 5+ properties). Just reach out and we'll walk you through it.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Is there a long-term contract?<span class="faq-icon">+</span></button>
+      <div class="faq-a">We operate on a month-to-month Property Management Agreement — we believe in earning your business every month, not locking you in. Our goal is to make working with us so easy and transparent that you never want to leave. We'll cover the details during your free consultation.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Do you serve all of the Dallas-Fort Worth area?<span class="faq-icon">+</span></button>
+      <div class="faq-a">Yes. We serve the full DFW metro and surrounding North Texas communities — including Plano, Richardson, Frisco, McKinney, Garland, Allen, Rockwall, and more. If you're unsure whether your property falls in our service area, <a href="https://www.darlingpropertymanagement.com/rental-property-quote" target="_blank" rel="noopener">request a free quote</a> and we'll confirm right away.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER CTA
+═══════════════════════════════════════════ -->
 <section class="footer-cta">
   <h2>Let's talk about your property.</h2>
   <p>Free rental analysis — no obligation, no pressure.</p>
   <div class="fcta-btns">
-    <!-- Quote → redirects · emojis removed for visibility on dark green -->
     <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="fc-btn-gold">Get My Free Quote</a>
-    <!-- Call → Calendly popup · phone emoji removed -->
-    <a href="#" class="fc-btn-wht" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+    <a href="#" class="fc-btn-wht" onclick="Calendly.initPopupWidget({url:'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
   </div>
 </section>
 
 <p class="footnote">
   Texas Property Rental Code Compliance (Sec. 92) is the owner's expense in all plans. No management fees during vacancy.<br>
-  Darling Property Management · Richardson & North Dallas, TX
+  Darling Property Management · DFW &amp; North Texas
 </p>
 
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" id="sticky-cta">
+  <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="sc-mob-primary">Get My Free Quote</a>
+  <a href="#" class="sc-mob-secondary" onclick="Calendly.initPopupWidget({url:'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+</div>
+
 <script>
-  // Open all internal DPM page links in a new tab
+  // Open all DPM links in new tab
   document.querySelectorAll('a[href*="darlingpropertymanagement.com"]').forEach(function(link) {
     link.setAttribute('target', '_blank');
     link.setAttribute('rel', 'noopener');
   });
 
+  // Mobile plan toggle — no-op on desktop (both panels always visible)
   function switchPlan(plan, btn) {
+    if (window.innerWidth >= 768) return;
     document.querySelectorAll('.plan-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tog-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('plan-' + plan).classList.add('active');
@@ -770,12 +1178,50 @@
     window.scrollTo({ top: document.querySelector('.toggle-section').offsetTop - 16, behavior: 'smooth' });
   }
 
+  // Email capture
+  // TODO: Replace the body of this function with your actual email service API call
+  // (Mailchimp, HubSpot, Wix Contacts, etc.) before going live.
   function submitCapture() {
-    const email = document.getElementById('cap-email').value.trim();
-    if (!email) { document.getElementById('cap-email').focus(); return; }
+    const nameEl  = document.getElementById('cap-name');
+    const emailEl = document.getElementById('cap-email');
+    const name    = nameEl.value.trim();
+    const email   = emailEl.value.trim();
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    nameEl.classList.remove('error');
+    emailEl.classList.remove('error');
+
+    if (!name)    { nameEl.classList.add('error');  nameEl.focus();  return; }
+    if (!emailOk) { emailEl.classList.add('error'); emailEl.focus(); return; }
+
+    // TODO: POST { name, email } to your email service here
+    // fetch('/api/subscribe', { method:'POST', headers:{'Content-Type':'application/json'},
+    //   body: JSON.stringify({ name, email }) })
+
     document.getElementById('capture-form-wrap').style.display = 'none';
-    document.getElementById('capture-success').style.display = 'block';
+    document.getElementById('capture-success').style.display   = 'block';
   }
+
+  // Sticky mobile CTA — appears after scrolling past hero
+  (function () {
+    const hero = document.getElementById('page-hero');
+    const bar  = document.getElementById('sticky-cta');
+    if (!hero || !bar) return;
+    function check() {
+      bar.classList.toggle('visible', hero.getBoundingClientRect().bottom < 0);
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    check();
+  })();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    item.querySelector('.faq-q').addEventListener('click', function () {
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    });
+  });
 </script>
 </body>
 </html>
