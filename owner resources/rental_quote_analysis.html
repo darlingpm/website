@@ -20,17 +20,21 @@
         }
 
         :root {
-            --primary: #ffbd59;
-            --primary-dark: #e8a840;
+            --primary: #F6A623;
+            --primary-dark: #e8961a;
             --dark-gray: #333333;
             --light-gray: #e1e1e1;
-            --bg: #fafafa;
-            --card: #ffffff;
-            --text: #333333;
-            --text-light: #666666;
-            --border: #e1e1e1;
+            --bg: #333333;
+            --card: rgba(255,255,255,0.07);
+            --text: #ffffff;
+            --text-light: rgba(255,255,255,0.65);
+            --border: rgba(255,255,255,0.12);
             --success: #52b788;
-            --shadow: rgba(255, 189, 89, 0.15);
+            --shadow: rgba(0,0,0,0.3);
+            --charcoal-d: #2a2a2a;
+            --white: #ffffff;
+            --white-10: rgba(255,255,255,0.10);
+            --white-15: rgba(255,255,255,0.15);
         }
 
         body {
@@ -56,7 +60,7 @@
 
         .header h1 {
             font-size: clamp(24px, 6vw, 48px);
-            color: var(--dark-gray);
+            color: var(--white);
             margin-bottom: 8px;
             font-weight: 700;
             letter-spacing: -0.5px;
@@ -91,7 +95,7 @@
 
         .section-title {
             font-size: clamp(20px, 4vw, 28px);
-            color: var(--dark-gray);
+            color: var(--white);
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -103,7 +107,7 @@
             width: 32px;
             height: 32px;
             background: var(--primary);
-            color: var(--dark-gray);
+            color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -139,7 +143,7 @@
             padding: 20px;
             border: 2px solid var(--border);
             border-radius: 12px;
-            background: white;
+            background: rgba(255,255,255,0.07);
             transition: all 0.3s ease;
             min-height: 120px;
             display: flex;
@@ -149,20 +153,20 @@
 
         .tier-option input[type="radio"]:checked + .tier-card {
             border-color: var(--primary);
-            background: #fffbf5;
-            box-shadow: 0 4px 12px rgba(255, 189, 89, 0.2);
+            background: rgba(246, 166, 35, 0.1);
+            box-shadow: 0 4px 12px rgba(246, 166, 35, 0.2);
         }
 
         .tier-card h3 {
             font-size: 18px;
-            color: var(--dark-gray);
+            color: var(--white);
             margin-bottom: 8px;
             font-weight: 600;
         }
 
         .tier-card p {
             font-size: 13px;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.70);
             margin-bottom: 10px;
             line-height: 1.4;
         }
@@ -170,7 +174,7 @@
         .tier-badge {
             display: inline-block;
             background: var(--primary);
-            color: var(--dark-gray);
+            color: var(--white);
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 11px;
@@ -205,7 +209,7 @@
             font-size: 16px;
             font-family: 'Poppins', sans-serif;
             transition: all 0.3s ease;
-            background: white;
+            background: rgba(255,255,255,0.08);
             color: var(--text);
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -213,7 +217,7 @@
         }
 
         select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 12px center;
             padding-right: 36px;
@@ -222,7 +226,8 @@
         input:focus, select:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(255, 189, 89, 0.1);
+            background: rgba(255,255,255,0.12);
+            box-shadow: 0 0 0 4px rgba(246, 166, 35, 0.2);
         }
 
         input:hover, select:hover {
@@ -231,7 +236,7 @@
 
         .btn {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--dark-gray);
+            color: var(--white);
             border: none;
             padding: 16px 24px;
             border-radius: 12px;
@@ -243,7 +248,7 @@
             font-family: 'Poppins', sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 12px rgba(255, 189, 89, 0.3);
+            box-shadow: 0 4px 12px rgba(246, 166, 35, 0.3);
             touch-action: manipulation;
             text-decoration: none;
             display: block;
@@ -270,7 +275,7 @@
 
         .rental-estimate {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--dark-gray);
+            color: var(--white);
             padding: 28px 20px;
             border-radius: 16px;
             text-align: center;
@@ -281,7 +286,7 @@
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            opacity: 0.8;
+            opacity: 0.85;
             margin-bottom: 8px;
             font-weight: 600;
         }
@@ -295,21 +300,21 @@
 
         .estimate-range {
             font-size: 14px;
-            opacity: 0.8;
+            opacity: 0.85;
             font-weight: 500;
         }
 
         .estimate-disclaimer {
             font-size: 11px;
-            opacity: 0.7;
+            opacity: 0.75;
             margin-top: 16px;
             padding-top: 16px;
-            border-top: 1px solid rgba(51, 51, 51, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             line-height: 1.4;
         }
 
         .tier-display {
-            background: var(--bg);
+            background: #2a2a2a;
             padding: 16px;
             border-radius: 12px;
             margin-bottom: 20px;
@@ -320,7 +325,7 @@
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.60);
             margin-bottom: 8px;
             font-weight: 600;
         }
@@ -349,13 +354,13 @@
 
         .service-info h4 {
             font-weight: 600;
-            color: var(--text);
+            color: var(--white);
             margin-bottom: 4px;
             font-size: 15px;
         }
 
         .service-info p {
-            color: var(--text-light);
+            color: rgba(255,255,255,0.70);
             font-size: 13px;
             line-height: 1.4;
         }
@@ -372,7 +377,7 @@
         }
 
         .total-section {
-            background: var(--bg);
+            background: #2a2a2a;
             padding: 20px;
             border-radius: 12px;
             margin-top: 20px;
@@ -385,7 +390,7 @@
         .total-label {
             font-size: 16px;
             font-weight: 600;
-            color: var(--text);
+            color: var(--white);
         }
 
         .total-value {
@@ -412,7 +417,7 @@
             padding: 28px 20px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             border-radius: 16px;
-            color: var(--dark-gray);
+            color: var(--white);
         }
 
         .cta-section h3 {
@@ -425,18 +430,18 @@
         .cta-section p {
             margin-bottom: 20px;
             font-size: 14px;
-            opacity: 0.8;
+            opacity: 0.85;
             line-height: 1.4;
         }
 
         .btn-secondary {
-            background: white;
+            background: var(--white);
             color: var(--primary);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         .property-count {
-            background: var(--bg);
+            background: #2a2a2a;
             padding: 16px;
             border-radius: 12px;
             margin-top: 16px;
@@ -458,7 +463,7 @@
             width: 48px;
             height: 48px;
             border: 2px solid var(--primary);
-            background: white;
+            background: rgba(255,255,255,0.08);
             color: var(--primary);
             border-radius: 12px;
             font-size: 24px;
@@ -474,7 +479,7 @@
 
         .counter-btn:active {
             background: var(--primary);
-            color: var(--dark-gray);
+            color: var(--white);
             transform: scale(0.95);
         }
 
@@ -489,7 +494,7 @@
         .service-tag {
             display: inline-block;
             background: var(--primary);
-            color: var(--dark-gray);
+            color: var(--white);
             padding: 4px 12px;
             border-radius: 12px;
             font-size: 11px;
@@ -508,7 +513,7 @@
         }
 
         .spinner {
-            border: 3px solid var(--border);
+            border: 3px solid rgba(255,255,255,0.15);
             border-top: 3px solid var(--primary);
             border-radius: 50%;
             width: 50px;

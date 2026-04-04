@@ -312,7 +312,8 @@
     padding: 22px 18px;
     text-align: center;
   }
-  .svc-card-icon { font-size: 28px; margin-bottom: 10px; color: var(--gold); }
+  .svc-card-icon { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; margin: 0 auto 14px; color: var(--gold); }
+  .svc-card-icon svg { width: 28px; height: 28px; display: block; }
   .svc-card h3 {
     font-size: 14px;
     font-weight: 700;
@@ -352,7 +353,7 @@
   .faq-q {
     font-size: 14px;
     font-weight: 600;
-    color: var(--charcoal);
+    color: var(--white);
     margin-bottom: 8px;
     cursor: pointer;
     display: flex;
@@ -372,7 +373,7 @@
   .faq-a {
     font-size: 13px;
     font-weight: 300;
-    color: var(--midgray);
+    color: rgba(255,255,255,0.80);
     line-height: 1.7;
     display: none;
   }
@@ -386,11 +387,11 @@
     padding: 18px 20px;
     font-size: 14px;
     font-weight: 400;
-    color: var(--charcoal);
+    color: rgba(255,255,255,0.85);
     line-height: 1.65;
     margin-top: 24px;
   }
-  .callout-box strong { color: var(--evergreen); font-weight: 600; }
+  .callout-box strong { color: var(--gold); font-weight: 600; }
 
   /* ── CTA SECTION ── */
   .cta-section {
@@ -471,9 +472,9 @@
     padding: 24px 20px;
     font-size: 11px;
     font-weight: 300;
-    color: var(--midgray);
+    color: rgba(255,255,255,0.45);
     line-height: 1.7;
-    background: var(--offwhite);
+    background: var(--charcoal-d);
   }
 </style>
 </head>
@@ -507,32 +508,32 @@
       <div class="mcard">
         <div class="mcard-label">Median Rent (All Types)</div>
         <div class="mcard-val">$1,965</div>
-        <div class="mcard-sub">Source: <a href="https://www.zumper.com/rent-research/richardson-tx" target="_blank" rel="noopener" style="color:var(--evergreen);text-decoration:underline;">Zumper</a>, Mar 2026</div>
+        <div class="mcard-sub">Source: <a href="https://www.zumper.com/rent-research/richardson-tx" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;">Zumper</a>, Mar 2026</div>
       </div>
       <div class="mcard">
         <div class="mcard-label">Avg. Rent (3-Bed House)</div>
         <div class="mcard-val">$2,715</div>
-        <div class="mcard-sub">Source: <a href="https://www.rentometer.com/average-rent-in/tx/richardson-tx" target="_blank" rel="noopener" style="color:var(--evergreen);text-decoration:underline;">Rentometer</a>, Mar 2026</div>
+        <div class="mcard-sub">Source: <a href="https://www.rentometer.com/average-rent-in/tx/richardson-tx" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;">Rentometer</a>, Mar 2026</div>
       </div>
       <div class="mcard">
         <div class="mcard-label">Median Home Value</div>
         <div class="mcard-val">$440K</div>
-        <div class="mcard-sub">Source: <a href="https://www.redfin.com/city/30861/TX/Richardson/housing-market" target="_blank" rel="noopener" style="color:var(--evergreen);text-decoration:underline;">Redfin</a>, Feb 2026</div>
+        <div class="mcard-sub">Source: <a href="https://www.redfin.com/city/30861/TX/Richardson/housing-market" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;">Redfin</a>, Feb 2026</div>
       </div>
       <div class="mcard">
         <div class="mcard-label">Population</div>
         <div class="mcard-val">~123,600</div>
-        <div class="mcard-sub">Source: <a href="https://realestate.usnews.com/places/texas/richardson" target="_blank" rel="noopener" style="color:var(--evergreen);text-decoration:underline;">U.S. Census Bureau</a></div>
+        <div class="mcard-sub">Source: <a href="https://realestate.usnews.com/places/texas/richardson" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;">U.S. Census Bureau</a></div>
       </div>
       <div class="mcard">
         <div class="mcard-label">Renter Households</div>
         <div class="mcard-val">44%</div>
-        <div class="mcard-sub">Source: <a href="https://www.zumper.com/rent-research/richardson-tx" target="_blank" rel="noopener" style="color:var(--evergreen);text-decoration:underline;">U.S. Census / Zumper</a></div>
+        <div class="mcard-sub">Source: <a href="https://www.zumper.com/rent-research/richardson-tx" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;">U.S. Census / Zumper</a></div>
       </div>
       <div class="mcard">
         <div class="mcard-label">Avg. Days on Market</div>
         <div class="mcard-val">54</div>
-        <div class="mcard-sub">Source: <a href="https://www.redfin.com/city/30861/TX/Richardson/housing-market" target="_blank" rel="noopener" style="color:var(--evergreen);text-decoration:underline;">Redfin</a>, Feb 2026</div>
+        <div class="mcard-sub">Source: <a href="https://www.redfin.com/city/30861/TX/Richardson/housing-market" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;">Redfin</a>, Feb 2026</div>
       </div>
     </div>
 
@@ -573,32 +574,36 @@
 
     <div class="svc-grid">
       <div class="svc-card">
-        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6M3 22v-6h6M3 14a8 8 0 0 1 12-7M15 2a8 8 0 0 1-8 12"/></svg></div>
+        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
         <h3>Leasing & Screening</h3>
         <p>Professional photos, 3D tours, Zillow syndication, and rigorous background/credit/income checks to fill vacancies fast with quality tenants.</p>
       </div>
       <div class="svc-card">
-        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M12 8v-1m4.22-1.22l.707-.707m1.415 1.415l.707.707M16 12h1m1.22 4.22l-.707.707m-1.415-1.415l-.707-.707M12 16v1m-4.22 1.22l-.707.707m-1.415-1.415l-.707-.707M8 12H7M5.78 7.78l.707-.707m1.415 1.415l.707.707"/></svg></div>
+        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <h3>Rent Collection</h3>
         <p>Automated online payments, late fee enforcement, and direct deposits to you — so rent shows up on time, every time.</p>
       </div>
       <div class="svc-card">
-        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19H5c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v8M3 7h18M10 12h4M9 16h6"/></svg></div>
+        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
         <h3>Maintenance</h3>
         <p>24/7 emergency response with vetted local vendors. No markups. Full photo documentation for every job.</p>
       </div>
       <div class="svc-card">
-        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
         <h3>Financial Reporting</h3>
         <p>Monthly owner statements, custom dashboards, year-end 1099s, and tax-ready P&L summaries.</p>
       </div>
       <div class="svc-card">
-        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3>Legal Compliance</h3>
         <p>Texas Property Code compliance, fair housing adherence, lease enforcement, and eviction support when needed.</p>
       </div>
       <div class="svc-card">
-        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h3>Market Analysis</h3>
+        <p>Free rental analysis using real-time comp data to price your Richardson property for maximum income with minimal vacancy.</p>
+      </div>
+    </div>
         <h3>Market Analysis</h3>
         <p>Free rental analysis using real-time comp data to price your Richardson property for maximum income with minimal vacancy.</p>
       </div>
@@ -637,7 +642,7 @@
     </div>
 
     <div class="callout-box" style="margin-top:24px;">
-      <strong>Also serving nearby:</strong> North Dallas, Plano, Garland, Addison, Carrollton, and throughout the DFW Metroplex. <a href="https://www.darlingpropertymanagement.com/rental-property-quote" style="color:var(--evergreen);font-weight:600;text-decoration:underline;">Get a free analysis for your property →</a>
+      <strong>Also serving nearby:</strong> North Dallas, Plano, Garland, Addison, Carrollton, and throughout the DFW Metroplex. <a href="https://www.darlingpropertymanagement.com/rental-property-quote" style="color:var(--gold);font-weight:600;text-decoration:underline;">Get a free analysis for your property →</a>
     </div>
   </div>
 </section>
@@ -652,7 +657,7 @@
 
     <div class="faq-item open">
       <div class="faq-q" onclick="toggleFaq(this)">How much does property management cost in Richardson?</div>
-      <div class="faq-a">Our full management fee is <strong>10% of monthly rent</strong> — right in line with the DFW average of 10–12%. Tenant placement is 75% of the first month's rent ($1,000 minimum). There are no fees while your property is vacant. For leasing-only services, the fee is 100% of the first month's rent. <a href="https://www.darlingpropertymanagement.com/pricing" style="color:var(--evergreen);font-weight:600;text-decoration:underline;">See full pricing details →</a></div>
+      <div class="faq-a">Our full management fee is <strong>10% of monthly rent</strong> — right in line with the DFW average of 10–12%. Tenant placement is 75% of the first month's rent ($1,000 minimum). There are no fees while your property is vacant. For leasing-only services, the fee is 100% of the first month's rent. <a href="https://www.darlingpropertymanagement.com/pricing" style="color:var(--gold);font-weight:600;text-decoration:underline;">See full pricing details →</a></div>
     </div>
 
     <div class="faq-item">
@@ -667,7 +672,7 @@
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">How much can I rent my Richardson home for?</div>
-      <div class="faq-a">As of March 2026, the median rent in Richardson is approximately $1,965/month across all property types. Three-bedroom single-family homes average around $2,500–$2,715/month. We offer a free rental analysis that uses real-time comp data to pinpoint the optimal price for your specific property. <a href="https://www.darlingpropertymanagement.com/rental-property-quote" style="color:var(--evergreen);font-weight:600;text-decoration:underline;">Get your free analysis →</a></div>
+      <div class="faq-a">As of March 2026, the median rent in Richardson is approximately $1,965/month across all property types. Three-bedroom single-family homes average around $2,500–$2,715/month. We offer a free rental analysis that uses real-time comp data to pinpoint the optimal price for your specific property. <a href="https://www.darlingpropertymanagement.com/rental-property-quote" style="color:var(--gold);font-weight:600;text-decoration:underline;">Get your free analysis →</a></div>
     </div>
 
     <div class="faq-item">
