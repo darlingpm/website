@@ -16,8 +16,8 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Poppins', sans-serif;
-      color: #333333;
-      background: #FFFFFF;
+      color: var(--white);
+      background: var(--charcoal);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
@@ -27,15 +27,22 @@
     /* ========== COLOR VARIABLES ========== */
     :root {
       --charcoal: #333333;
+      --charcoal-d: #2a2a2a;
       --off-white: #F5F5F5;
       --gold: #F6A623;
       --gold-hover: #e5951a;
+      --gold-dark: #e8961a;
       --evergreen: #2F5D3A;
       --sage: #D7E3D3;
       --teal: #3F7E7E;
       --brick: #C4623D;
       --sky: #6C8FA8;
       --white: #FFFFFF;
+      --white-10: rgba(255,255,255,0.10);
+      --white-15: rgba(255,255,255,0.15);
+      --white-40: rgba(255,255,255,0.40);
+      --white-55: rgba(255,255,255,0.55);
+      --white-70: rgba(255,255,255,0.70);
     }
 
     /* ========== UTILITY ========== */
@@ -113,9 +120,10 @@
     /* ========== HERO ========== */
     .hero {
       position: relative;
-      background: linear-gradient(160deg, #1a1a1a 0%, var(--charcoal) 40%, var(--teal) 100%);
+      background: var(--charcoal);
       padding: 80px 0 90px;
       overflow: hidden;
+      border-bottom: 3px solid var(--gold);
     }
     .hero::before {
       content: '';
@@ -220,7 +228,7 @@
 
     /* ========== AGENT PAIN POINTS ========== */
     .pain-section {
-      background: var(--white);
+      background: #2a2a2a;
       padding: 80px 0;
     }
     .pain-section .section-header {
@@ -232,10 +240,11 @@
       font-weight: 700;
       line-height: 1.25;
       margin-bottom: 16px;
+      color: var(--white);
     }
     .pain-section p.section-sub {
       font-size: 1.05rem;
-      color: #666;
+      color: rgba(255,255,255,0.65);
       line-height: 1.7;
     }
     .pain-grid {
@@ -244,26 +253,28 @@
       gap: 28px;
     }
     .pain-card {
-      background: var(--off-white);
+      background: rgba(255,255,255,0.07);
       border-radius: 12px;
       padding: 36px 28px;
-      border-left: 4px solid var(--sky);
+      border: 1px solid rgba(255,255,255,0.12);
       transition: transform 0.3s;
+      color: var(--white);
     }
-    .pain-card:hover { transform: translateY(-4px); }
+    .pain-card:hover { transform: translateY(-4px); border-color: var(--gold); }
     .pain-card .card-icon { font-size: 1.6rem; margin-bottom: 14px; display: block; }
-    .pain-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
-    .pain-card p { font-size: 0.9rem; color: #666; line-height: 1.6; }
+    .pain-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--white); }
+    .pain-card p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
 
     /* ========== HOW IT WORKS ========== */
     .how-section {
-      background: linear-gradient(180deg, var(--off-white) 0%, var(--white) 100%);
+      background: var(--charcoal);
       padding: 80px 0;
     }
     .how-section h2 {
       font-size: 2.1rem;
       font-weight: 700;
       margin-bottom: 60px;
+      color: var(--white);
     }
     .how-steps {
       display: grid;
@@ -277,7 +288,7 @@
       top: 40px;
       left: 16%; right: 16%;
       height: 2px;
-      background: linear-gradient(90deg, var(--sage), var(--gold), var(--sage));
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
     .how-step {
       text-align: center;
@@ -285,8 +296,8 @@
     }
     .how-step-num {
       width: 80px; height: 80px;
-      background: var(--evergreen);
-      color: var(--white);
+      background: var(--gold);
+      color: var(--charcoal);
       font-size: 1.5rem;
       font-weight: 800;
       border-radius: 50%;
@@ -296,24 +307,25 @@
       margin-bottom: 24px;
       position: relative;
       z-index: 2;
-      box-shadow: 0 4px 20px rgba(47,93,58,0.3);
+      box-shadow: 0 4px 20px rgba(246,166,35,0.3);
     }
-    .how-step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
-    .how-step p { font-size: 0.88rem; color: #666; line-height: 1.6; max-width: 280px; margin: 0 auto; }
+    .how-step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--white); }
+    .how-step p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; max-width: 280px; margin: 0 auto; }
 
     /* ========== WHAT YOUR CLIENT GETS ========== */
     .client-value-section {
-      background: var(--white);
+      background: #2a2a2a;
       padding: 80px 0;
     }
     .client-value-section h2 {
       font-size: 2.1rem;
       font-weight: 700;
       margin-bottom: 16px;
+      color: var(--white);
     }
     .client-value-section p.section-sub {
       font-size: 1.05rem;
-      color: #666;
+      color: rgba(255,255,255,0.65);
       margin-bottom: 50px;
       line-height: 1.7;
     }
@@ -323,28 +335,31 @@
       gap: 30px;
     }
     .cv-card {
-      background: var(--off-white);
+      background: rgba(255,255,255,0.07);
       border-radius: 14px;
       padding: 36px 28px;
-      border-top: 4px solid var(--evergreen);
+      border: 1px solid rgba(255,255,255,0.12);
       transition: transform 0.3s, box-shadow 0.3s;
+      color: var(--white);
     }
     .cv-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+      border-color: var(--gold);
+      box-shadow: 0 10px 35px rgba(246,166,35,0.15);
     }
     .cv-card-icon {
       width: 50px; height: 50px;
-      background: var(--sage);
+      background: rgba(246,166,35,0.15);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.4rem;
       margin-bottom: 18px;
+      color: var(--gold);
     }
-    .cv-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
-    .cv-card p { font-size: 0.88rem; color: #555; line-height: 1.65; }
+    .cv-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--white); }
+    .cv-card p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.65; }
 
     /* ========== REFERRAL COMPENSATION ========== */
     .comp-section {
@@ -464,7 +479,7 @@
 
     /* ========== PROMISE SECTION ========== */
     .promise-section {
-      background: var(--off-white);
+      background: var(--charcoal);
       padding: 80px 0;
     }
     .promise-grid {
@@ -478,10 +493,11 @@
       font-weight: 700;
       margin-bottom: 16px;
       line-height: 1.25;
+      color: var(--white);
     }
     .promise-content p {
       font-size: 0.95rem;
-      color: #555;
+      color: rgba(255,255,255,0.65);
       line-height: 1.7;
       margin-bottom: 24px;
     }
@@ -494,29 +510,30 @@
       align-items: flex-start;
       gap: 14px;
       padding: 14px 0;
-      border-bottom: 1px solid #e0e0e0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
     .promise-list li:last-child { border-bottom: none; }
     .promise-icon {
       width: 36px; height: 36px;
-      background: var(--sage);
+      background: rgba(246,166,35,0.15);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.9rem;
       flex-shrink: 0;
-      color: var(--evergreen);
+      color: var(--gold);
       font-weight: 700;
     }
     .promise-text h4 {
       font-size: 0.95rem;
       font-weight: 700;
       margin-bottom: 2px;
+      color: var(--white);
     }
     .promise-text p {
       font-size: 0.82rem;
-      color: #777;
+      color: rgba(255,255,255,0.65);
       margin-bottom: 0;
       line-height: 1.5;
     }
@@ -526,25 +543,25 @@
       gap: 20px;
     }
     .pstat-card {
-      background: var(--white);
+      background: rgba(255,255,255,0.07);
       border-radius: 14px;
       padding: 32px 24px;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
       transition: transform 0.3s;
     }
     .pstat-card:hover { transform: translateY(-4px); }
     .pstat-card .pstat-num {
       font-size: 2.4rem;
       font-weight: 800;
-      color: var(--evergreen);
+      color: var(--gold);
       line-height: 1;
       margin-bottom: 6px;
       display: block;
     }
     .pstat-card .pstat-label {
       font-size: 0.78rem;
-      color: #888;
+      color: rgba(255,255,255,0.55);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       font-weight: 500;
@@ -552,13 +569,14 @@
 
     /* ========== TESTIMONIALS ========== */
     .testimonial-section {
-      background: var(--white);
+      background: #2a2a2a;
       padding: 80px 0;
     }
     .testimonial-section h2 {
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 48px;
+      color: var(--white);
     }
     .testimonial-grid {
       display: grid;
@@ -566,11 +584,12 @@
       gap: 30px;
     }
     .test-card {
-      background: var(--off-white);
+      background: rgba(255,255,255,0.07);
       border-radius: 14px;
       padding: 36px 32px;
       position: relative;
       transition: transform 0.3s;
+      border: 1px solid rgba(255,255,255,0.12);
     }
     .test-card:hover { transform: translateY(-4px); }
     .test-card::before {
@@ -578,7 +597,7 @@
       font-size: 4rem;
       font-weight: 800;
       color: var(--gold);
-      opacity: 0.3;
+      opacity: 0.2;
       position: absolute;
       top: 14px; left: 24px;
       line-height: 1;
@@ -591,7 +610,7 @@
     }
     .test-card p.quote {
       font-size: 0.92rem;
-      color: #555;
+      color: rgba(255,255,255,0.70);
       line-height: 1.7;
       font-style: italic;
       margin-bottom: 20px;
@@ -606,20 +625,20 @@
     .test-avatar {
       width: 44px; height: 44px;
       border-radius: 50%;
-      background: var(--sage);
+      background: rgba(246,166,35,0.15);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
       font-size: 0.85rem;
-      color: var(--evergreen);
+      color: var(--gold);
     }
-    .test-info .name { font-weight: 600; font-size: 0.88rem; }
-    .test-info .role { font-size: 0.75rem; color: #999; }
+    .test-info .name { font-weight: 600; font-size: 0.88rem; color: var(--white); }
+    .test-info .role { font-size: 0.75rem; color: rgba(255,255,255,0.55); }
 
     /* ========== LEAD FORM ========== */
     .form-section {
-      background: linear-gradient(160deg, var(--evergreen) 0%, #1e3d26 100%);
+      background: var(--charcoal);
       padding: 80px 0;
       position: relative;
       overflow: hidden;
@@ -740,19 +759,20 @@
 
     /* ========== FAQ ========== */
     .faq-section {
-      background: var(--off-white);
+      background: var(--charcoal);
       padding: 80px 0;
     }
     .faq-section h2 {
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 48px;
+      color: var(--white);
     }
     .faq-list {
       max-width: 760px;
       margin: 0 auto;
     }
-    .faq-item { border-bottom: 1px solid #ddd; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.12); }
     .faq-question {
       width: 100%;
       background: none;
@@ -760,14 +780,14 @@
       font-family: 'Poppins', sans-serif;
       font-size: 1rem;
       font-weight: 600;
-      color: var(--charcoal);
+      color: var(--white);
       text-align: left;
       padding: 22px 40px 22px 0;
       cursor: pointer;
       position: relative;
       transition: color 0.3s;
     }
-    .faq-question:hover { color: var(--teal); }
+    .faq-question:hover { color: var(--gold); }
     .faq-question::after {
       content: '+';
       position: absolute;
@@ -788,7 +808,7 @@
       max-height: 300px;
       padding-bottom: 22px;
     }
-    .faq-answer p { font-size: 0.9rem; color: #666; line-height: 1.7; }
+    .faq-answer p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
 
     /* ========== FINAL CTA ========== */
     .final-cta {
@@ -871,21 +891,21 @@
         </div>
         <div class="hero-value-cards">
           <div class="hero-vcard">
-            <div class="hero-vcard-icon">💰</div>
+            <div class="hero-vcard-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
             <div>
               <h3>Earn on Every Referral</h3>
               <p>Competitive referral fees paid promptly — not months later when you've forgotten about it.</p>
             </div>
           </div>
           <div class="hero-vcard">
-            <div class="hero-vcard-icon">🤝</div>
+            <div class="hero-vcard-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
             <div>
               <h3>Your Client, Your Relationship</h3>
               <p>We manage the property. You stay the trusted advisor. We never solicit listing business from your referrals.</p>
             </div>
           </div>
           <div class="hero-vcard">
-            <div class="hero-vcard-icon">📊</div>
+            <div class="hero-vcard-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
             <div>
               <h3>Free ROI Audit for Your Clients</h3>
               <p>We give your investors a full Rental ROI Audit — not a generic analysis — so they see real value immediately.</p>
@@ -906,17 +926,17 @@
       </div>
       <div class="pain-grid">
         <div class="pain-card">
-          <span class="card-icon">📞</span>
+          <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18L6.61 2a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.45 9.46a16 16 0 0 0 6.29 6.29l1.42-1.42a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
           <h3>"Can You Help Me Find a Tenant?"</h3>
           <p>You helped them buy the property. Now they expect you to lease it, screen tenants, and handle the move-in. That's a full-time job you're not getting paid for.</p>
         </div>
         <div class="pain-card">
-          <span class="card-icon">😰</span>
+          <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
           <h3>Bad PM = Blame on You</h3>
           <p>You referred them to a property manager who ghosted, overcharged, or let the property deteriorate. Now your reputation is on the line — and so is the next listing.</p>
         </div>
         <div class="pain-card">
-          <span class="card-icon">🚫</span>
+          <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></span>
           <h3>Referral Fees? What Referral Fees?</h3>
           <p>Most property managers take the referral, say "thanks," and never send you a dime. Or worse — they start pitching your client on selling with them.</p>
         </div>
@@ -961,32 +981,32 @@
       </div>
       <div class="cv-grid">
         <div class="cv-card">
-          <div class="cv-card-icon">📈</div>
+          <div class="cv-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
           <h3>Free Rental ROI Audit</h3>
           <p>Every referred client gets a full investment performance assessment — market-rate comparison, expense benchmarking, and projected net yield — before they sign anything.</p>
         </div>
         <div class="cv-card">
-          <div class="cv-card-icon">🏠</div>
+          <div class="cv-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <h3>Full-Service Management</h3>
           <p>Tenant placement, rent collection, maintenance coordination, lease renewals, financial reporting — we handle everything so your client doesn't call you about a leaky faucet.</p>
         </div>
         <div class="cv-card">
-          <div class="cv-card-icon">🔍</div>
+          <div class="cv-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
           <h3>Transparent Reporting</h3>
           <p>Owners get 24/7 access to a real-time portal with financials, maintenance logs, and lease details. No black boxes, no surprises.</p>
         </div>
         <div class="cv-card">
-          <div class="cv-card-icon">⚡</div>
+          <div class="cv-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
           <h3>Fast Tenant Placement</h3>
           <p>Our average days-on-market is among the lowest in DFW. Aggressive marketing, professional photos, and thorough screening get quality tenants placed fast.</p>
         </div>
         <div class="cv-card">
-          <div class="cv-card-icon">🛡️</div>
+          <div class="cv-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
           <h3>Eviction Protection</h3>
           <p>If a tenant we place needs to be evicted, we manage the entire process — and cover the legal costs. Your client is never left holding the bag.</p>
         </div>
         <div class="cv-card">
-          <div class="cv-card-icon">💬</div>
+          <div class="cv-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
           <h3>Proactive Communication</h3>
           <p>We don't wait for owners to chase us. Monthly updates, quarterly reviews, and a dedicated point of contact mean your client always knows where they stand.</p>
         </div>
@@ -1196,7 +1216,7 @@
               <textarea id="agent-notes" name="agent_notes" placeholder="E.g., investor client closing on a duplex in McKinney next month, needs tenant placement ASAP..."></textarea>
             </div>
             <button type="submit" class="btn-primary">Join the Referral Network →</button>
-            <p class="form-privacy">🔒 Your information is secure. We'll never share your data or solicit your clients.</p>
+            <p class="form-privacy">Your information is secure. We'll never share your data or solicit your clients.</p>
           </form>
         </div>
       </div>

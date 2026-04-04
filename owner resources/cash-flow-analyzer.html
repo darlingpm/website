@@ -45,17 +45,24 @@
 ============================================================ */
 :root {
   --charcoal:  #333333;
+  --charcoal-d: #2a2a2a;
   --off-white: #F5F5F5;
   --gold:      #F6A623;
+  --gold-dark: #e8961a;
   --evergreen: #2F5D3A;
   --sage:      #D7E3D3;
   --teal:      #3F7E7E;
   --brick:     #C4623D;
   --sky:       #6C8FA8;
   --white:     #FFFFFF;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,.08);
-  --shadow-md: 0 6px 24px rgba(0,0,0,.12);
-  --shadow-lg: 0 16px 48px rgba(0,0,0,.18);
+  --white-10: rgba(255,255,255,0.10);
+  --white-15: rgba(255,255,255,0.15);
+  --white-40: rgba(255,255,255,0.40);
+  --white-55: rgba(255,255,255,0.55);
+  --white-70: rgba(255,255,255,0.70);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.2);
+  --shadow-md: 0 6px 24px rgba(0,0,0,.3);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,.4);
   --radius:    12px;
   --radius-sm: 8px;
   --gold-glow: 0 0 0 3px rgba(246,166,35,.25);
@@ -69,8 +76,8 @@
 html{scroll-behavior:smooth}
 body{
   font-family:'Poppins',sans-serif;
-  background:var(--off-white);
-  color:var(--charcoal);
+  background:#333333;
+  color:#ffffff;
   min-height:100vh;
   line-height:1.6;
   overflow-x:hidden;
@@ -85,6 +92,7 @@ body{
   overflow:hidden;
   padding:clamp(36px,6vw,56px) 20px clamp(52px,7vw,68px);
   text-align:center;
+  border-bottom:3px solid #F6A623;
 }
 .hero::before{
   content:'';
@@ -138,7 +146,8 @@ body{
    CARDS
 ============================================================ */
 .card{
-  background:var(--white);
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.10);
   border-radius:var(--radius);
   box-shadow:var(--shadow-md);
   overflow:hidden;
@@ -150,20 +159,20 @@ body{
 .card-header{
   display:flex;align-items:center;gap:10px;
   padding:16px 20px;
-  border-bottom:1px solid #f0f0f0;
-  background:var(--white);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.04);
 }
 .card-icon{
   width:34px;height:34px;border-radius:9px;
   display:flex;align-items:center;justify-content:center;
   font-size:.95rem;flex-shrink:0;
 }
-.card-icon.green {background:rgba(47,93,58,.1); color:var(--evergreen);}
-.card-icon.gold  {background:rgba(246,166,35,.15);color:#c9870e;}
-.card-icon.teal  {background:rgba(63,126,126,.1); color:var(--teal);}
-.card-icon.brick {background:rgba(196,98,61,.1);  color:var(--brick);}
-.card-header h2{font-size:.88rem;font-weight:700;color:var(--charcoal);line-height:1.2;}
-.card-header p {font-size:.68rem;color:#aaa;font-weight:400;line-height:1;margin-top:2px;}
+.card-icon.green {background:rgba(246,166,35,.15); color:var(--gold);}
+.card-icon.gold  {background:rgba(246,166,35,.15);color:var(--gold);}
+.card-icon.teal  {background:rgba(246,166,35,.15); color:var(--gold);}
+.card-icon.brick {background:rgba(246,166,35,.15);  color:var(--gold);}
+.card-header h2{font-size:.88rem;font-weight:700;color:#ffffff;line-height:1.2;}
+.card-header p {font-size:.68rem;color:rgba(255,255,255,0.60);font-weight:400;line-height:1;margin-top:2px;}
 .card-body{padding:20px;}
 
 /* ============================================================
@@ -172,13 +181,13 @@ body{
 .field{margin-bottom:15px;}
 .field:last-child{margin-bottom:0;}
 label{
-  display:block;font-size:.68rem;font-weight:600;color:#777;
+  display:block;font-size:.68rem;font-weight:600;color:rgba(255,255,255,0.80);
   letter-spacing:.04em;margin-bottom:5px;text-transform:uppercase;
 }
 .input-wrap{position:relative;display:flex;align-items:center;}
 .input-prefix,.input-suffix{
   position:absolute;font-size:.82rem;font-weight:600;
-  color:#bbb;pointer-events:none;z-index:1;
+  color:rgba(255,255,255,0.55);pointer-events:none;z-index:1;
 }
 .input-prefix{left:11px;}
 .input-suffix{right:11px;}
@@ -187,17 +196,18 @@ input[type="number"]{
   font-family:'Poppins',sans-serif;
   /* 16px prevents iOS zoom — overridden on desktop */
   font-size:16px;
-  font-weight:500;color:var(--charcoal);
-  background:var(--off-white);
-  border:1.5px solid #e4e4e4;
+  font-weight:500;color:#ffffff;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
   border-radius:var(--radius-sm);
   outline:none;
   transition:border-color var(--ease),box-shadow var(--ease),background var(--ease);
   -moz-appearance:textfield;
 }
+input[type="number"]::placeholder{color:rgba(255,255,255,0.40);}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;}
-input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(--white);}
+input:focus{border-color:var(--gold);background:rgba(255,255,255,0.12);
 .has-prefix input{padding-left:26px;}
 .has-suffix input{padding-right:34px;}
 
@@ -236,9 +246,9 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
   gap:8px;align-items:end;margin-bottom:12px;
   animation:fadeIn .3s ease both;
 }
-.expense-row .input-wrap input{background:var(--white);}
+.expense-row .input-wrap input{background:rgba(255,255,255,0.04);}
 .expense-row .row-label{
-  font-size:.66rem;font-weight:600;color:#777;
+  font-size:.66rem;font-weight:600;color:rgba(255,255,255,0.80);
   letter-spacing:.04em;text-transform:uppercase;
 }
 
@@ -260,14 +270,14 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
 }
 .info-icon .tooltip-box::after{
   content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
-  border:5px solid transparent;border-top-color:var(--charcoal);
+  border:5px solid transparent;border-top-color:#ffffff;
 }
 .info-icon:hover .tooltip-box{display:block;}
 .row-label-wrap{display:flex;align-items:center;gap:2px;margin-bottom:4px;}
 
 .btn-remove{
   width:30px;height:30px;border-radius:7px;
-  border:1.5px solid #ebebeb;background:var(--white);color:#ccc;
+  border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55);
   cursor:pointer;display:flex;align-items:center;justify-content:center;
   font-size:.88rem;transition:all var(--ease);flex-shrink:0;align-self:end;
 }
@@ -302,38 +312,38 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
 .results-section{
   padding:0 20px 48px;max-width:1080px;margin:0 auto;width:100%;
 }
-.section-title{font-size:1rem;font-weight:800;color:var(--charcoal);margin-bottom:4px;}
-.section-sub{font-size:.76rem;color:#bbb;margin-bottom:18px;}
+.section-title{font-size:1rem;font-weight:800;color:#ffffff;margin-bottom:4px;}
+.section-sub{font-size:.76rem;color:rgba(255,255,255,0.60);margin-bottom:18px;}
 
 /* ============================================================
    CASH FLOW SUMMARY BAR
 ============================================================ */
 .cashflow-bar{
-  background:var(--white);border-radius:var(--radius);
+  background:rgba(255,255,255,0.04);border-radius:var(--radius);
   box-shadow:var(--shadow-md);padding:22px 24px;margin-bottom:18px;
   display:flex;align-items:center;justify-content:space-between;
   gap:16px;flex-wrap:wrap;animation:slideUp .5s .3s both;
 }
 .cashflow-main{flex:1;min-width:150px;}
 .cashflow-main .label{
-  font-size:.66rem;font-weight:600;color:#bbb;
+  font-size:.66rem;font-weight:600;color:rgba(255,255,255,0.60);
   text-transform:uppercase;letter-spacing:.08em;
 }
 .cashflow-main .amount{
   font-size:clamp(1.6rem,4vw,2.3rem);font-weight:800;line-height:1;
   margin:4px 0;transition:color .3s;
 }
-.cashflow-main .sub{font-size:.73rem;color:#ccc;}
+.cashflow-main .sub{font-size:.73rem;color:rgba(255,255,255,0.55);}
 .cashflow-positive{color:var(--evergreen);}
 .cashflow-negative{color:var(--brick);}
-.cashflow-neutral {color:var(--charcoal);}
+.cashflow-neutral {color:#ffffff;}
 .cashflow-dividers{display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
 .cashflow-item{text-align:center;}
 .cashflow-item .ci-label{
-  font-size:.6rem;font-weight:600;color:#ccc;
+  font-size:.6rem;font-weight:600;color:rgba(255,255,255,0.55);
   text-transform:uppercase;letter-spacing:.07em;
 }
-.cashflow-item .ci-val{font-size:.95rem;font-weight:700;color:var(--charcoal);margin-top:2px;}
+.cashflow-item .ci-val{font-size:.95rem;font-weight:700;color:#ffffff;margin-top:2px;}
 .cashflow-item .ci-val.neg{color:var(--brick);}
 .cashflow-item .ci-val.pos{color:var(--evergreen);}
 .divider-line{width:1px;height:36px;background:#eee;flex-shrink:0;}
@@ -347,7 +357,7 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
   gap:14px;margin-bottom:18px;
 }
 .roi-card{
-  background:var(--white);border-radius:var(--radius);
+  background:rgba(255,255,255,0.04);border-radius:var(--radius);
   box-shadow:var(--shadow-sm);padding:18px 15px;
   position:relative;overflow:hidden;min-width:0;
   animation:slideUp .5s cubic-bezier(.4,0,.2,1) both;
@@ -370,11 +380,11 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
 .roi-card:nth-child(5){animation-delay:.63s}
 .roi-name{
   font-size:.6rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:.07em;color:#ccc;margin-bottom:5px;padding-right:18px;
+  letter-spacing:.07em;color:rgba(255,255,255,0.55);margin-bottom:5px;padding-right:18px;
 }
-.roi-value{font-size:clamp(1.2rem,2vw,1.55rem);font-weight:800;line-height:1;color:var(--charcoal);}
+.roi-value{font-size:clamp(1.2rem,2vw,1.55rem);font-weight:800;line-height:1;color:#ffffff;}
 .roi-desc{
-  font-size:.6rem;color:#ccc;line-height:1.4;
+  font-size:.6rem;color:rgba(255,255,255,0.55);line-height:1.4;
   margin-top:8px;padding-top:8px;border-top:1px solid #f4f4f4;
 }
 .roi-tooltip{
@@ -388,21 +398,21 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
    WATERFALL
 ============================================================ */
 .waterfall-card{
-  background:var(--white);border-radius:var(--radius);
+  background:rgba(255,255,255,0.04);border-radius:var(--radius);
   box-shadow:var(--shadow-sm);padding:22px;margin-bottom:18px;
   animation:slideUp .5s .7s both;overflow-x:auto;
 }
-.waterfall-title{font-size:.8rem;font-weight:700;color:var(--charcoal);margin-bottom:16px;}
+.waterfall-title{font-size:.8rem;font-weight:700;color:#ffffff;margin-bottom:16px;}
 .waterfall-chart{display:flex;flex-direction:column;gap:5px;min-width:300px;}
 .wf-row{display:grid;grid-template-columns:150px 1fr 80px;align-items:center;gap:10px;font-size:.74rem;}
-.wf-label{font-weight:500;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.wf-label{font-weight:500;color:rgba(255,255,255,0.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .wf-bar-wrap{height:20px;border-radius:4px;overflow:hidden;background:#f5f5f5;}
 .wf-bar{height:100%;border-radius:4px;transition:width .6s cubic-bezier(.4,0,.2,1);min-width:2px;}
 .wf-bar.income {background:var(--evergreen);}
 .wf-bar.expense{background:var(--brick);}
 .wf-bar.netpos {background:var(--teal);}
 .wf-bar.netneg {background:#e07060;}
-.wf-amount{font-weight:700;font-size:.74rem;color:var(--charcoal);text-align:right;}
+.wf-amount{font-weight:700;font-size:.74rem;color:#ffffff;text-align:right;}
 .wf-amount.neg{color:var(--brick);}
 .wf-divider{grid-column:1/-1;height:1px;background:#f2f2f2;margin:2px 0;}
 
@@ -413,7 +423,7 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
   background:rgba(246,166,35,.06);border:1px solid rgba(246,166,35,.2);
   border-radius:var(--radius-sm);padding:12px 16px;
   display:flex;gap:10px;align-items:flex-start;
-  font-size:.68rem;color:#999;line-height:1.5;
+  font-size:.68rem;color:rgba(255,255,255,0.55);line-height:1.5;
   animation:slideUp .5s .8s both;margin-bottom:16px;
 }
 .disclaimer-icon{font-size:.9rem;margin-top:1px;flex-shrink:0;}
@@ -478,7 +488,7 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
 .cta-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
 .btn-primary{
   display:inline-flex;align-items:center;gap:7px;
-  background:var(--gold);color:var(--charcoal);
+  background:var(--gold);color:#ffffff;
   font-family:'Poppins',sans-serif;font-size:.83rem;font-weight:700;
   padding:12px 22px;border-radius:var(--radius-sm);border:none;
   cursor:pointer;text-decoration:none;transition:all var(--ease);
@@ -533,7 +543,7 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
 }
 .calendly-popup-wrapper.open{display:flex;}
 .calendly-popup-inner{
-  background:var(--white);border-radius:var(--radius);
+  background:rgba(255,255,255,0.04);border-radius:var(--radius);
   box-shadow:0 24px 64px rgba(0,0,0,.35);
   width:100%;max-width:680px;height:min(700px,92vh);
   overflow:hidden;position:relative;
@@ -641,7 +651,7 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
   <!-- MORTGAGE -->
   <div class="card">
     <div class="card-header">
-      <div class="card-icon green">🏠</div>
+      <div class="card-icon green"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
       <div><h2>Mortgage Calculator</h2><p>Estimate your monthly loan payment</p></div>
     </div>
     <div class="card-body">
@@ -658,7 +668,7 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
           <span class="input-prefix">$</span>
           <input type="number" id="downPayment" value="70000" min="0" step="1000" inputmode="numeric" />
         </div>
-        <div style="margin-top:4px;font-size:.66rem;color:#bbb;" id="downPctNote">20.0% of purchase price</div>
+        <div style="margin-top:4px;font-size:.66rem;color:rgba(255,255,255,0.60);" id="downPctNote">20.0% of purchase price</div>
       </div>
       <div class="field">
         <label>Annual Interest Rate</label>
@@ -688,7 +698,7 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
   <!-- EXPENSES -->
   <div class="card">
     <div class="card-header">
-      <div class="card-icon brick">📋</div>
+      <div class="card-icon brick"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
       <div><h2>Monthly Expenses</h2><p>All costs beyond your mortgage payment</p></div>
     </div>
     <div class="card-body">
@@ -705,7 +715,7 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
   <!-- INCOME — full width -->
   <div class="card income-card">
     <div class="card-header">
-      <div class="card-icon gold">💵</div>
+      <div class="card-icon gold"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
       <div><h2>Rental Income &amp; Assumptions</h2><p>Monthly income and long-term projection inputs</p></div>
     </div>
     <div class="card-body">
@@ -723,7 +733,7 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
             <span class="input-prefix">$</span>
             <input type="number" id="otherIncome" value="0" min="0" step="25" inputmode="numeric" />
           </div>
-          <div style="margin-top:4px;font-size:.66rem;color:#bbb;">Parking, pets, laundry, etc.</div>
+          <div style="margin-top:4px;font-size:.66rem;color:rgba(255,255,255,0.60);">Parking, pets, laundry, etc.</div>
         </div>
         <div class="field">
           <label>Annual Rent Growth</label>
@@ -762,7 +772,7 @@ input:focus{border-color:var(--gold);box-shadow:var(--gold-glow);background:var(
 <!-- ═══════════════ RESULTS ═══════════════ -->
 <div class="results-section">
 
-  <div class="section-title">📊 Investment Analysis</div>
+  <div class="section-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="display:inline; margin-right:8px; vertical-align:text-bottom;"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg> Investment Analysis</div>
   <div class="section-sub">Results update automatically as you adjust your numbers above.</div>
 
   <!-- SUMMARY BAR -->
@@ -933,7 +943,7 @@ function renderExpenses() {
     const val = (exp.value !== null && exp.value !== undefined) ? exp.value : 0;
     const info = exp.info ? `<span class="info-icon">i<span class="tooltip-box">${exp.info}</span></span>` : '';
     const hint = (exp.pctDefault !== null && exp.pctDefault !== undefined)
-      ? `<div style="margin-top:3px;font-size:.6rem;color:#bbb;">Default: ${(exp.pctDefault*100).toFixed(0)}% of rent = $${(rent*exp.pctDefault).toFixed(0)}/mo</div>`
+      ? `<div style="margin-top:3px;font-size:.6rem;color:rgba(255,255,255,0.60);">Default: ${(exp.pctDefault*100).toFixed(0)}% of rent = $${(rent*exp.pctDefault).toFixed(0)}/mo</div>`
       : '';
     row.innerHTML = `
       <div>

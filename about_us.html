@@ -31,13 +31,21 @@
 
     :root {
       --charcoal:   #333333;
+      --charcoal-d: #2a2a2a;
       --offwhite:   #F5F5F5;
       --gold:       #F6A623;
+      --gold-dark:  #e8961a;
       --gold-dim:   rgba(246, 166, 35, 0.12);
       --evergreen:  #2F5D3A;
       --sage:       #D7E3D3;
       --teal:       #3F7E7E;
       --brick:      #C4623D;
+      --white:      #FFFFFF;
+      --white-10:   rgba(255, 255, 255, 0.10);
+      --white-15:   rgba(255, 255, 255, 0.15);
+      --white-40:   rgba(255, 255, 255, 0.40);
+      --white-55:   rgba(255, 255, 255, 0.55);
+      --white-70:   rgba(255, 255, 255, 0.70);
     }
 
     html {
@@ -46,8 +54,8 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--offwhite);
-      color: var(--charcoal);
+      background: var(--charcoal);
+      color: var(--white);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -91,6 +99,7 @@
     ════════════════════════════════ */
     .hero {
       background: var(--charcoal);
+      border-bottom: 3px solid var(--gold);
       padding: 5rem 4rem 4rem;
       position: relative;
       overflow: hidden;
@@ -180,13 +189,13 @@
     }
 
     .mv-card {
-      background: var(--offwhite);
+      background: var(--charcoal-d);
+      border: 1px solid var(--white-15);
       padding: 3rem;
-      border-bottom: 1px solid rgba(51, 51, 51, 0.1);
     }
 
     .mv-card:first-child {
-      border-right: 1px solid rgba(51, 51, 51, 0.1);
+      border-right: 1px solid var(--white-15);
     }
 
     .mv-pip {
@@ -201,7 +210,7 @@
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--charcoal);
+      color: var(--gold);
       margin-bottom: 0.9rem;
     }
 
@@ -209,7 +218,7 @@
       font-size: 14px;
       font-weight: 300;
       line-height: 1.85;
-      color: #555555;
+      color: var(--white-70);
     }
 
     /* ════════════════════════════════
@@ -293,19 +302,19 @@
        WHY DARLING
     ════════════════════════════════ */
     .why-section {
-      background: var(--sage);
+      background: #2a2a2a;
       padding: 4rem;
     }
 
     .why-section .eyebrow {
-      color: var(--evergreen);
+      color: var(--gold);
       margin-bottom: 1.25rem;
     }
 
     .why-section h2 {
       font-size: clamp(1.5rem, 3vw, 2rem);
       font-weight: 600;
-      color: var(--evergreen);
+      color: var(--white);
       margin-bottom: 2rem;
     }
 
@@ -318,18 +327,18 @@
       align-items: flex-start;
       gap: 1.5rem;
       padding: 1.5rem 0;
-      border-bottom: 1px solid rgba(47, 93, 58, 0.15);
+      border-bottom: 1px solid var(--white-15);
     }
 
     .why-item:first-child {
-      border-top: 1px solid rgba(47, 93, 58, 0.15);
+      border-top: 1px solid var(--white-15);
     }
 
     .why-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--evergreen);
+      background: var(--gold);
       margin-top: 7px;
       flex-shrink: 0;
     }
@@ -337,7 +346,7 @@
     .why-item h4 {
       font-size: 11px;
       font-weight: 600;
-      color: var(--evergreen);
+      color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-bottom: 4px;
@@ -347,14 +356,14 @@
       font-size: 13.5px;
       font-weight: 300;
       line-height: 1.75;
-      color: #3d5040;
+      color: var(--white-70);
     }
 
     /* ════════════════════════════════
        CTA
     ════════════════════════════════ */
     .cta {
-      background: var(--evergreen);
+      background: #2a2a2a;
       padding: 3.5rem 4rem;
       display: flex;
       align-items: center;
@@ -365,7 +374,7 @@
     .cta h2 {
       font-size: clamp(1.2rem, 2.5vw, 1.6rem);
       font-weight: 600;
-      color: var(--offwhite);
+      color: var(--white);
       line-height: 1.3;
       margin-bottom: 0.4rem;
     }
@@ -373,7 +382,7 @@
     .cta p {
       font-size: 13px;
       font-weight: 300;
-      color: rgba(245, 245, 245, 0.5);
+      color: var(--white-70);
     }
 
     .cta-btn {
@@ -420,7 +429,7 @@
 
       .mv-card:first-child {
         border-right: none;
-        border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+        border-bottom: 1px solid var(--white-15);
       }
 
       .values-section,

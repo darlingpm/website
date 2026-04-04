@@ -20,25 +20,26 @@
         }
 
         :root {
-            --primary: #ffbd59;
-            --primary-dark: #e8a840;
+            --primary: #F6A623;
+            --primary-dark: #e8961a;
             --dark-gray: #333333;
             --light-gray: #e1e1e1;
-            --bg: #fafafa;
-            --card: #ffffff;
-            --text: #333333;
-            --text-light: #666666;
-            --border: #e1e1e1;
+            --bg: #333333;
+            --card: rgba(255,255,255,0.07);
+            --text: #ffffff;
+            --text-light: rgba(255,255,255,0.70);
+            --border: rgba(255,255,255,0.10);
             --success: #52b788;
-            --rent-color: #ffbd59;
-            --sell-color: #333333;
-            --shadow: rgba(255, 189, 89, 0.15);
+            --rent-color: #F6A623;
+            --sell-color: #666666;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --white: #ffffff;
         }
 
         body {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            background: #333333;
+            color: #ffffff;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
@@ -55,18 +56,20 @@
             text-align: center;
             margin-bottom: 40px;
             animation: fadeInDown 0.6s ease-out;
+            padding-bottom: 24px;
+            border-bottom: 3px solid #F6A623;
         }
         .header h1 {
             font-size: clamp(28px, 5vw, 48px);
-            color: var(--dark-gray);
+            color: #ffffff;
             margin-bottom: 12px;
             font-weight: 700;
             letter-spacing: -0.5px;
             line-height: 1.2;
         }
-        .header .highlight { color: var(--primary); }
+        .header .highlight { color: #F6A623; }
         .header p {
-            color: var(--text-light);
+            color: rgba(255,255,255,0.70);
             font-size: clamp(14px, 3vw, 18px);
             max-width: 800px;
             margin: 0 auto;
@@ -82,18 +85,19 @@
 
         /* ── Cards ── */
         .card {
-            background: var(--card);
+            background: rgba(255,255,255,0.07);
             border-radius: 20px;
             padding: 32px 24px;
-            box-shadow: 0 4px 20px var(--shadow);
-            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.10);
             animation: fadeInUp 0.6s ease-out both;
         }
 
         /* ── Result Banner ── */
         .result-banner {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--dark-gray);
+            background: rgba(246,166,35,0.12);
+            color: #F6A623;
+            border: 1px solid rgba(246,166,35,0.30);
             padding: 32px 24px;
             border-radius: 16px;
             text-align: center;
@@ -122,7 +126,7 @@
         .verdict-badge {
             display: inline-block;
             background: rgba(255,255,255,0.3);
-            color: var(--dark-gray);
+            color: #ffffff;
             padding: 6px 18px;
             border-radius: 20px;
             font-size: 12px;
@@ -150,7 +154,7 @@
             text-align: center;
             margin-bottom: 14px;
             font-size: 13px;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.70);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             font-weight: 500;
@@ -215,14 +219,14 @@
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.70);
             margin-bottom: 8px;
             font-weight: 600;
         }
         .kpi-value {
             font-size: clamp(18px, 3vw, 26px);
             font-weight: 700;
-            color: var(--dark-gray);
+            color: #ffffff;
         }
         .kpi-value.rent { color: var(--rent-color); }
         .kpi-value.sell { color: var(--sell-color); }
@@ -239,7 +243,7 @@
         .section-title {
             font-size: 16px;
             font-weight: 700;
-            color: var(--dark-gray);
+            color: #ffffff;
             margin-bottom: 18px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--primary);
@@ -250,7 +254,7 @@
         .section-number {
             width: 28px; height: 28px;
             background: var(--primary);
-            color: var(--dark-gray);
+            color: #ffffff;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             font-size: 13px; font-weight: 700; flex-shrink: 0;
@@ -262,7 +266,7 @@
             display: block;
             font-size: 12px;
             font-weight: 600;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.70);
             margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 0.4px;
@@ -284,7 +288,7 @@
         .input-affix {
             padding: 0 10px;
             font-size: 13px; font-weight: 600;
-            color: #999; background: #f9f9f9;
+            color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.04);
             white-space: nowrap; user-select: none;
             border-right: 1px solid var(--border);
             align-self: stretch;
@@ -340,7 +344,7 @@
         /* ── Buttons ── */
         .btn {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--dark-gray);
+            color: #ffffff;
             border: none;
             padding: 14px 24px;
             border-radius: 12px;
@@ -362,7 +366,7 @@
         .btn-ghost {
             background: transparent;
             border: 2px solid var(--border);
-            color: var(--text-light);
+            color: rgba(255,255,255,0.70);
             box-shadow: none;
             font-size: 13px;
             padding: 11px 24px;
@@ -394,7 +398,7 @@
             gap: 8px;
             font-size: 13px;
             font-weight: 600;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.70);
         }
         .legend-color {
             width: 16px; height: 16px;
@@ -413,11 +417,11 @@
         .table-title {
             font-size: 15px;
             font-weight: 700;
-            color: var(--dark-gray);
+            color: #ffffff;
         }
         .table-subtitle {
             font-size: 12px;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.70);
         }
         .data-table {
             width: 100%;
@@ -448,22 +452,22 @@
             font-weight: 700;
             color: var(--primary);
         }
-        .data-table tr:hover td { background: #fffbf5; }
+        .data-table tr:hover td { background: rgba(255,255,255,0.04); }
         .data-table .positive-val { color: var(--success); font-weight: 600; }
         .data-table .negative-val { color: #e05c5c; font-weight: 600; }
 
         /* ── Disclaimer ── */
         .disclaimer {
-            background: #fffbf5;
+            background: rgba(255,255,255,0.04);
             border-left: 4px solid var(--primary);
             padding: 14px 16px;
             margin: 24px 0;
             border-radius: 0 8px 8px 0;
             font-size: 11.5px;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.70);
             line-height: 1.6;
         }
-        .disclaimer strong { color: var(--dark-gray); }
+        .disclaimer strong { color: #ffffff; }
 
         /* ── CTA Section ── */
         .cta-section {
@@ -472,7 +476,7 @@
             padding: 32px 24px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             border-radius: 16px;
-            color: var(--dark-gray);
+            color: #ffffff;
         }
         .cta-section h3 {
             font-size: clamp(20px, 4vw, 28px);
@@ -559,7 +563,7 @@
                 <div class="card">
                     <!-- Result Banner -->
                     <div class="result-banner">
-                        <div class="verdict-badge" id="verdictBadge">📈 Renting Wins</div>
+                        <div class="verdict-badge" id="verdictBadge"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="display:inline; margin-right:6px; vertical-align:text-bottom;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Renting Wins</div>
                         <h2>If you <strong>RENT OUT</strong> your property, you'll have</h2>
                         <div class="amount">$<span id="diff">0</span></div>
                         <div class="subtext">more wealth in <span id="years">20</span> years</div>
@@ -995,7 +999,7 @@
             // Update verdict badge
             const badge = document.getElementById('verdictBadge');
             if (lastRow.diff >= 0) {
-                badge.textContent = '📈 Renting Wins';
+                badge.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="display:inline; margin-right:6px; vertical-align:text-bottom;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Renting Wins';
                 badge.style.background = 'rgba(255,255,255,0.3)';
             } else {
                 badge.textContent = '🏷 Selling Wins';

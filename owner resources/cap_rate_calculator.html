@@ -20,23 +20,31 @@
       --primary-dark: #1e3d27;
       --primary-light: #3d7a4d;
       --gold: #F6A623;
-      --gold-dark: #e8940e;
+      --gold-dark: #e8961a;
       --dark-gray: #333333;
+      --charcoal: #333333;
+      --charcoal-d: #2a2a2a;
       --light-gray: #e1e1e1;
-      --bg: #fafafa;
-      --card: #ffffff;
-      --text: #333333;
-      --text-light: #666666;
-      --border: #e1e1e1;
+      --bg: #1a1a1a;
+      --card: #242424;
+      --text: #ffffff;
+      --text-light: #b3b3b3;
+      --border: #404040;
       --sage: #D7E3D3;
       --success: #52b788;
-      --shadow: rgba(47, 93, 58, 0.12);
+      --shadow: rgba(0, 0, 0, 0.3);
+      --white: #ffffff;
+      --white-10: rgba(255,255,255,0.10);
+      --white-15: rgba(255,255,255,0.15);
+      --white-40: rgba(255,255,255,0.40);
+      --white-55: rgba(255,255,255,0.55);
+      --white-70: rgba(255,255,255,0.70);
     }
 
     body {
       font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: #333333;
+      color: #ffffff;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
@@ -53,18 +61,20 @@
       text-align: center;
       margin-bottom: 32px;
       animation: fadeInDown 0.6s ease-out;
+      padding-bottom: 24px;
+      border-bottom: 3px solid #F6A623;
     }
     .header h1 {
       font-size: clamp(24px, 6vw, 48px);
-      color: var(--dark-gray);
+      color: #ffffff;
       margin-bottom: 8px;
       font-weight: 700;
       letter-spacing: -0.5px;
       line-height: 1.2;
     }
-    .header .highlight { color: var(--primary); }
+    .header .highlight { color: #F6A623; }
     .header p {
-      color: var(--text-light);
+      color: rgba(255,255,255,0.70);
       font-size: clamp(14px, 3vw, 18px);
       max-width: 600px;
       margin: 0 auto;
@@ -73,12 +83,12 @@
 
     /* ── Cards ── */
     .card {
-      background: var(--card);
+      background: rgba(255,255,255,0.07);
       border-radius: 16px;
       padding: 24px 20px;
-      box-shadow: 0 4px 20px var(--shadow);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
       margin-bottom: 20px;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255,255,255,0.1);
       animation: fadeInUp 0.6s ease-out both;
     }
     .card:nth-child(2) { animation-delay: 0.1s; }
@@ -87,7 +97,7 @@
     /* ── Section Title ── */
     .section-title {
       font-size: clamp(18px, 4vw, 24px);
-      color: var(--dark-gray);
+      color: #ffffff;
       margin-bottom: 20px;
       display: flex;
       align-items: center;
@@ -96,8 +106,8 @@
     }
     .section-number {
       width: 32px; height: 32px;
-      background: var(--primary);
-      color: #fff;
+      background: #F6A623;
+      color: #333333;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 15px; font-weight: 700; flex-shrink: 0;
@@ -115,7 +125,7 @@
     label {
       font-weight: 500;
       margin-bottom: 8px;
-      color: var(--text);
+      color: rgba(255,255,255,0.80);
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -126,31 +136,32 @@
     .info-icon {
       width: 16px; height: 16px;
       border-radius: 50%;
-      border: 1.5px solid #aac3a5;
+      border: 1.5px solid rgba(255,255,255,0.40);
       display: inline-flex; align-items: center; justify-content: center;
-      font-size: 9px; color: #888; font-style: italic; font-weight: 700;
+      font-size: 9px; color: rgba(255,255,255,0.55); font-style: italic; font-weight: 700;
       cursor: default; flex-shrink: 0;
     }
 
     .input-wrap {
       display: flex;
       align-items: center;
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      background: white;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.08);
       transition: border-color 0.3s, box-shadow 0.3s;
       overflow: hidden;
     }
     .input-wrap:focus-within {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(47,93,58,0.08);
+      border-color: #F6A623;
+      background: rgba(255,255,255,0.12);
+      outline: none;
     }
-    .input-wrap:hover { border-color: var(--primary-light); }
+    .input-wrap:hover { border-color: rgba(255,255,255,0.25); }
 
     .input-affix {
       padding: 0 12px;
       font-size: 14px; font-weight: 500;
-      color: #999; background: transparent;
+      color: rgba(255,255,255,0.55); background: transparent;
       white-space: nowrap; user-select: none;
     }
 
@@ -160,10 +171,13 @@
       background: transparent;
       font-family: 'Poppins', sans-serif;
       font-size: 16px; font-weight: 500;
-      color: var(--text);
-      padding: 13px 4px;
+      color: #ffffff;
+      padding: 10px 4px;
       outline: none;
       min-width: 0;
+    }
+    input[type="text"]::placeholder {
+      color: rgba(255,255,255,0.40);
     }
 
     /* ── Slider ── */
@@ -172,35 +186,35 @@
       -webkit-appearance: none;
       width: 100%; height: 4px;
       border-radius: 4px;
-      background: var(--sage);
+      background: rgba(255,255,255,0.15);
       outline: none; cursor: pointer;
     }
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
       width: 20px; height: 20px;
       border-radius: 50%;
-      background: var(--primary);
-      border: 3px solid white;
-      box-shadow: 0 2px 8px rgba(47,93,58,0.3);
+      background: #F6A623;
+      border: 2px solid #333333;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
       transition: transform 0.15s, box-shadow 0.15s;
     }
     input[type="range"]::-webkit-slider-thumb:hover {
       transform: scale(1.15);
-      box-shadow: 0 3px 12px rgba(47,93,58,0.4);
+      box-shadow: 0 3px 12px rgba(246,166,35,0.4);
     }
     input[type="range"]::-moz-range-thumb {
       width: 20px; height: 20px;
       border-radius: 50%;
-      background: var(--primary);
-      border: 3px solid white;
-      box-shadow: 0 2px 8px rgba(47,93,58,0.3);
+      background: #F6A623;
+      border: 2px solid #333333;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
       cursor: pointer;
     }
 
     /* ── Button ── */
     .btn {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: white;
+      background: #F6A623;
+      color: #333333;
       border: none;
       padding: 16px 24px;
       border-radius: 12px;
@@ -211,23 +225,23 @@
       font-family: 'Poppins', sans-serif;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      box-shadow: 0 4px 12px rgba(47,93,58,0.3);
+      box-shadow: 0 4px 12px rgba(246,166,35,0.3);
       touch-action: manipulation;
     }
     .btn:active { transform: scale(0.98); }
-    .btn:hover { background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%); }
+    .btn:hover { background: #e8961a; }
 
     .btn-ghost {
       background: transparent;
-      border: 1.5px solid var(--border);
-      color: #999;
+      border: 1.5px solid rgba(255,255,255,0.20);
+      color: rgba(255,255,255,0.70);
       box-shadow: none;
       margin-top: 14px;
       font-size: 12px;
       padding: 10px 24px;
       letter-spacing: 0.05em;
     }
-    .btn-ghost:hover { border-color: var(--primary); color: var(--primary); background: transparent; }
+    .btn-ghost:hover { border-color: #F6A623; color: #F6A623; background: transparent; }
 
     /* ── Results ── */
     .results-container { display: none; }
@@ -235,8 +249,9 @@
 
     /* Gold highlight bar */
     .highlight-bar {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-      color: var(--dark-gray);
+      background: rgba(246,166,35,0.15);
+      color: #F6A623;
+      border: 1px solid rgba(246,166,35,0.30);
       padding: 28px 20px;
       border-radius: 16px;
       text-align: center;
@@ -244,7 +259,7 @@
     }
     .highlight-bar .bar-label {
       font-size: 12px; text-transform: uppercase;
-      letter-spacing: 1px; opacity: 0.75;
+      letter-spacing: 1px; opacity: 0.80;
       margin-bottom: 6px; font-weight: 600;
     }
     .highlight-bar .bar-value {
@@ -253,7 +268,7 @@
       margin-bottom: 6px;
     }
     .highlight-bar .bar-sub {
-      font-size: 14px; opacity: 0.8; font-weight: 500;
+      font-size: 14px; opacity: 0.75; font-weight: 500;
     }
 
     /* Metrics row */
@@ -264,31 +279,31 @@
       margin-bottom: 24px;
     }
     .metric-tile {
-      background: var(--bg);
-      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 12px;
       padding: 16px;
       display: flex; align-items: center; gap: 12px;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     .metric-tile:hover {
-      border-color: var(--sage);
-      box-shadow: 0 2px 10px rgba(47,93,58,0.06);
+      border-color: rgba(246,166,35,0.3);
+      box-shadow: 0 2px 10px rgba(246,166,35,0.1);
     }
     .metric-icon {
       width: 40px; height: 40px;
       border-radius: 10px;
-      background: var(--sage);
+      background: rgba(246,166,35,0.15);
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px; flex-shrink: 0;
+      font-size: 18px; flex-shrink: 0; color: #F6A623;
     }
     .metric-value {
       font-size: 20px; font-weight: 700;
-      color: var(--primary);
+      color: #F6A623;
     }
     .metric-label {
       font-size: 11px; font-weight: 600;
-      color: var(--text-light);
+      color: rgba(255,255,255,0.65);
       text-transform: uppercase; letter-spacing: 0.06em;
     }
 
@@ -298,33 +313,33 @@
       flex-direction: column;
       gap: 6px;
       padding: 16px 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
     }
     .service-item:last-child { border-bottom: none; }
-    .service-info h4 { font-weight: 600; font-size: 15px; color: var(--text); margin-bottom: 2px; }
-    .service-info p { color: var(--text-light); font-size: 13px; line-height: 1.4; }
+    .service-info h4 { font-weight: 600; font-size: 15px; color: #ffffff; margin-bottom: 2px; }
+    .service-info p { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.4; }
     .service-price {
       font-weight: 700; font-size: 18px;
-      color: var(--primary); margin-top: 4px;
+      color: #F6A623; margin-top: 4px;
     }
 
     .service-tag {
       display: inline-block;
-      background: var(--sage);
-      color: var(--primary);
+      background: rgba(246,166,35,0.20);
+      color: #F6A623;
       padding: 3px 10px;
       border-radius: 12px;
       font-size: 11px; font-weight: 600;
       margin-top: 4px;
     }
     .service-tag.gold-tag {
-      background: rgba(246,166,35,0.15);
-      color: var(--gold-dark);
+      background: rgba(246,166,35,0.20);
+      color: #F6A623;
     }
 
     /* Total */
     .total-section {
-      background: var(--bg);
+      background: rgba(255,255,255,0.06);
       padding: 20px;
       border-radius: 12px;
       margin-top: 20px;
@@ -332,28 +347,30 @@
       flex-direction: column;
       gap: 10px;
       text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
     }
-    .total-label { font-size: 15px; font-weight: 600; color: var(--text); }
-    .total-value { font-size: 36px; font-weight: 700; color: var(--primary); line-height: 1; }
+    .total-label { font-size: 15px; font-weight: 600; color: #ffffff; }
+    .total-value { font-size: 36px; font-weight: 700; color: #F6A623; line-height: 1; }
 
     /* CTA */
     .cta-section {
       text-align: center;
       margin-top: 24px;
       padding: 28px 20px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      background: #2a2a2a;
       border-radius: 16px;
       color: white;
+      border: 1px solid rgba(246,166,35,0.20);
     }
     .cta-section h3 {
       font-size: clamp(18px, 5vw, 26px);
       margin-bottom: 10px; font-weight: 700; line-height: 1.2;
     }
-    .cta-section p { margin-bottom: 20px; font-size: 14px; opacity: 0.8; line-height: 1.4; }
+    .cta-section p { margin-bottom: 20px; font-size: 14px; opacity: 0.80; line-height: 1.4; }
     .btn-cta {
-      background: var(--gold);
-      color: var(--dark-gray);
-      box-shadow: 0 4px 12px rgba(246,166,35,0.4);
+      background: #F6A623;
+      color: #333333;
+      box-shadow: 0 4px 12px rgba(246,166,35,0.3);
       display: inline-block;
       text-decoration: none;
       padding: 14px 32px;
@@ -364,14 +381,15 @@
       transition: all 0.3s;
       width: 100%;
       cursor: pointer;
+      border: none;
     }
-    .btn-cta:hover { background: var(--gold-dark); }
+    .btn-cta:hover { background: #e8961a; }
 
     /* Formula note */
     .formula-note {
       text-align: center;
       font-size: 11.5px;
-      color: #aaa;
+      color: rgba(255,255,255,0.50);
       font-style: italic;
       margin-top: 6px;
     }
@@ -505,7 +523,7 @@
 
     </div>
 
-    <button class="btn btn-ghost" onclick="resetAll()">↺ Reset to Defaults</button>
+    <button class="btn btn-ghost" onclick="resetAll()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="display:inline; margin-right:6px; vertical-align:text-bottom;"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg> Reset to Defaults</button>
   </div>
 
   <!-- Results -->
@@ -526,14 +544,14 @@
       <!-- GOI + NOI tiles -->
       <div class="metrics-row">
         <div class="metric-tile">
-          <div class="metric-icon">📊</div>
+          <div class="metric-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
           <div>
             <div class="metric-value" id="goiDisplay">$30,780</div>
             <div class="metric-label">Gross Operating Income</div>
           </div>
         </div>
         <div class="metric-tile">
-          <div class="metric-icon">📅</div>
+          <div class="metric-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
           <div>
             <div class="metric-value" id="noiDisplay">$30,780</div>
             <div class="metric-label">Net Operating Income (NOI)</div>

@@ -49,21 +49,28 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --charcoal:  #333333;
-    --offwhite:  #F5F5F5;
-    --gold:      #F6A623;
-    --evergreen: #2F5D3A;
-    --sage:      #D7E3D3;
-    --white:     #FFFFFF;
-    --midgray:   #777777;
-    --lightgray: #E0E0E0;
+    --charcoal:      #333333;
+    --charcoal-d:    #2a2a2a;
+    --offwhite:      #F5F5F5;
+    --gold:          #F6A623;
+    --gold-dark:     #e8961a;
+    --evergreen:     #2F5D3A;
+    --sage:          #D7E3D3;
+    --white:         #FFFFFF;
+    --white-10:      rgba(255,255,255,0.10);
+    --white-15:      rgba(255,255,255,0.15);
+    --white-40:      rgba(255,255,255,0.40);
+    --white-55:      rgba(255,255,255,0.55);
+    --white-70:      rgba(255,255,255,0.70);
+    --midgray:       #777777;
+    --lightgray:     #E0E0E0;
   }
 
   html { overflow-x: hidden; scroll-behavior: smooth; }
   body {
     font-family: 'Poppins', sans-serif;
-    background: var(--offwhite);
-    color: var(--charcoal);
+    background: var(--charcoal);
+    color: var(--white);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     width: 100%;
@@ -71,7 +78,8 @@
 
   /* ── HERO ── */
   .hero {
-    background: var(--evergreen);
+    background: var(--charcoal);
+    border-bottom: 3px solid var(--gold);
     padding: 60px 20px 52px;
     text-align: center;
     position: relative;
@@ -156,7 +164,7 @@
 
   /* ── STATS BAR ── */
   .stats-bar {
-    background: var(--white);
+    background: var(--charcoal-d);
     border-bottom: 3px solid var(--gold);
     padding: 28px 20px;
   }
@@ -176,21 +184,21 @@
   .stat-num {
     font-size: clamp(22px, 5vw, 30px);
     font-weight: 700;
-    color: var(--evergreen);
+    color: var(--gold);
     line-height: 1.2;
   }
   .stat-label {
     font-size: 11px;
     font-weight: 400;
-    color: var(--midgray);
+    color: var(--white-55);
     margin-top: 4px;
     line-height: 1.4;
   }
 
   /* ── SECTION HELPERS ── */
   .section { padding: 52px 20px; }
-  .section.white { background: var(--white); }
-  .section.off { background: var(--offwhite); }
+  .section.white { background: var(--charcoal-d); color: var(--white); }
+  .section.off { background: var(--charcoal); color: var(--white); }
   .section.dark { background: var(--charcoal); }
   .section.green { background: var(--evergreen); }
   .section-inner { max-width: 800px; margin: 0 auto; }
@@ -205,7 +213,7 @@
   .sec-title {
     font-size: clamp(20px, 5vw, 30px);
     font-weight: 700;
-    color: var(--charcoal);
+    color: var(--white);
     margin-bottom: 16px;
     line-height: 1.25;
   }
@@ -213,11 +221,11 @@
   .sec-body {
     font-size: 14px;
     font-weight: 300;
-    color: var(--midgray);
+    color: var(--white-70);
     line-height: 1.75;
     margin-bottom: 20px;
   }
-  .sec-body.light { color: rgba(255,255,255,0.6); }
+  .sec-body.light { color: var(--white-70); }
 
   /* ── MARKET DATA CARDS ── */
   .market-grid {
@@ -233,8 +241,8 @@
     .market-grid { grid-template-columns: repeat(3, 1fr); }
   }
   .mcard {
-    background: var(--white);
-    border: 1px solid var(--lightgray);
+    background: var(--white-10);
+    border: 1px solid var(--white-15);
     border-radius: 12px;
     padding: 20px;
     text-align: center;
@@ -242,7 +250,7 @@
   .mcard-label {
     font-size: 11px;
     font-weight: 600;
-    color: var(--midgray);
+    color: var(--white-55);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: 8px;
@@ -250,13 +258,13 @@
   .mcard-val {
     font-size: 24px;
     font-weight: 700;
-    color: var(--evergreen);
+    color: var(--gold);
     line-height: 1.2;
   }
   .mcard-sub {
     font-size: 11px;
     font-weight: 300;
-    color: var(--midgray);
+    color: var(--white-55);
     margin-top: 4px;
   }
 
@@ -271,19 +279,19 @@
     padding-left: 26px;
     font-size: 14px;
     font-weight: 400;
-    color: var(--charcoal);
+    color: var(--white-70);
     line-height: 1.7;
     margin-bottom: 14px;
   }
   .reason-list li::before {
-    content: '✓';
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--evergreen);
+    color: var(--gold);
     font-weight: 700;
     font-size: 15px;
   }
-  .reason-list li strong { color: var(--evergreen); font-weight: 600; }
+  .reason-list li strong { color: var(--gold); font-weight: 600; }
 
   /* ── SERVICES SNAPSHOT ── */
   .svc-grid {
@@ -299,22 +307,22 @@
     .svc-grid { grid-template-columns: repeat(3, 1fr); }
   }
   .svc-card {
-    background: var(--offwhite);
+    background: var(--white-10);
     border-radius: 12px;
     padding: 22px 18px;
     text-align: center;
   }
-  .svc-card-icon { font-size: 28px; margin-bottom: 10px; }
+  .svc-card-icon { font-size: 28px; margin-bottom: 10px; color: var(--gold); }
   .svc-card h3 {
     font-size: 14px;
     font-weight: 700;
-    color: var(--charcoal);
+    color: var(--white);
     margin-bottom: 6px;
   }
   .svc-card p {
     font-size: 12px;
     font-weight: 300;
-    color: var(--midgray);
+    color: var(--white-55);
     line-height: 1.6;
   }
 
@@ -326,8 +334,8 @@
     margin-top: 20px;
   }
   .hood-chip {
-    background: var(--sage);
-    color: var(--evergreen);
+    background: var(--white-10);
+    color: var(--gold);
     font-size: 12px;
     font-weight: 600;
     padding: 7px 16px;
@@ -565,32 +573,32 @@
 
     <div class="svc-grid">
       <div class="svc-card">
-        <div class="svc-card-icon">🔑</div>
+        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6M3 22v-6h6M3 14a8 8 0 0 1 12-7M15 2a8 8 0 0 1-8 12"/></svg></div>
         <h3>Leasing & Screening</h3>
         <p>Professional photos, 3D tours, Zillow syndication, and rigorous background/credit/income checks to fill vacancies fast with quality tenants.</p>
       </div>
       <div class="svc-card">
-        <div class="svc-card-icon">💰</div>
+        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M12 8v-1m4.22-1.22l.707-.707m1.415 1.415l.707.707M16 12h1m1.22 4.22l-.707.707m-1.415-1.415l-.707-.707M12 16v1m-4.22 1.22l-.707.707m-1.415-1.415l-.707-.707M8 12H7M5.78 7.78l.707-.707m1.415 1.415l.707.707"/></svg></div>
         <h3>Rent Collection</h3>
         <p>Automated online payments, late fee enforcement, and direct deposits to you — so rent shows up on time, every time.</p>
       </div>
       <div class="svc-card">
-        <div class="svc-card-icon">🔧</div>
+        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19H5c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v8M3 7h18M10 12h4M9 16h6"/></svg></div>
         <h3>Maintenance</h3>
         <p>24/7 emergency response with vetted local vendors. No markups. Full photo documentation for every job.</p>
       </div>
       <div class="svc-card">
-        <div class="svc-card-icon">📊</div>
+        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>Financial Reporting</h3>
         <p>Monthly owner statements, custom dashboards, year-end 1099s, and tax-ready P&L summaries.</p>
       </div>
       <div class="svc-card">
-        <div class="svc-card-icon">⚖️</div>
+        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <h3>Legal Compliance</h3>
         <p>Texas Property Code compliance, fair housing adherence, lease enforcement, and eviction support when needed.</p>
       </div>
       <div class="svc-card">
-        <div class="svc-card-icon">📋</div>
+        <div class="svc-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         <h3>Market Analysis</h3>
         <p>Free rental analysis using real-time comp data to price your Richardson property for maximum income with minimal vacancy.</p>
       </div>

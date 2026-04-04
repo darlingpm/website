@@ -35,13 +35,20 @@
     --white:     #FFFFFF;
     --midgray:   #777777;
     --lightgray: #E0E0E0;
+    --charcoal-d: #2a2a2a;
+    --gold-dark: #e8961a;
+    --white-10: rgba(255,255,255,0.10);
+    --white-15: rgba(255,255,255,0.15);
+    --white-40: rgba(255,255,255,0.40);
+    --white-55: rgba(255,255,255,0.55);
+    --white-70: rgba(255,255,255,0.70);
   }
 
   html { overflow-x: hidden; scroll-behavior: smooth; }
   body {
     font-family: 'Poppins', sans-serif;
-    background: var(--offwhite);
-    color: var(--charcoal);
+    background: var(--charcoal);
+    color: var(--white);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     width: 100%;
@@ -49,7 +56,8 @@
 
   /* ── HERO ── */
   .hero {
-    background: var(--evergreen);
+    background: var(--charcoal);
+    border-bottom: 3px solid var(--gold);
     padding: 56px 20px 48px;
     text-align: center;
     position: relative;
@@ -134,7 +142,7 @@
 
   /* ── HOW IT WORKS ── */
   .how-it-works {
-    background: var(--white);
+    background: rgba(255,255,255,0.04);
     padding: 48px 20px;
     border-bottom: 3px solid var(--gold);
   }
@@ -151,7 +159,7 @@
   .section-title {
     font-size: clamp(20px, 5vw, 32px);
     font-weight: 700;
-    color: var(--charcoal);
+    color: var(--white);
     margin-bottom: 36px;
     text-align: center;
     line-height: 1.25;
@@ -168,7 +176,8 @@
     text-align: center;
     padding: 28px 20px;
     border-radius: 14px;
-    background: var(--offwhite);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
     position: relative;
   }
   .step-num {
@@ -186,13 +195,13 @@
   .step h3 {
     font-size: 15px;
     font-weight: 700;
-    color: var(--charcoal);
+    color: var(--white);
     margin-bottom: 8px;
   }
   .step p {
     font-size: 13px;
     font-weight: 300;
-    color: var(--midgray);
+    color: rgba(255,255,255,0.6);
     line-height: 1.65;
   }
   /* connector arrow between steps (desktop only) */
@@ -204,7 +213,7 @@
       top: 50%;
       transform: translateY(-50%);
       font-size: 20px;
-      color: var(--lightgray);
+      color: rgba(255,255,255,0.2);
       font-weight: 300;
     }
   }
@@ -213,8 +222,8 @@
   .svc-section {
     padding: 56px 20px;
   }
-  .svc-section:nth-child(odd) { background: var(--white); }
-  .svc-section:nth-child(even) { background: var(--offwhite); }
+  .svc-section:nth-child(odd) { background: #2a2a2a; }
+  .svc-section:nth-child(even) { background: rgba(255,255,255,0.02); }
   .svc-inner {
     max-width: 900px;
     margin: 0 auto;
@@ -233,7 +242,8 @@
   .svc-icon {
     width: 72px;
     height: 72px;
-    background: var(--sage);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -241,6 +251,7 @@
     font-size: 32px;
     flex-shrink: 0;
     margin: 0 auto;
+    color: var(--gold);
   }
   @media (min-width: 700px) {
     .svc-icon { margin: 0; }
@@ -257,14 +268,14 @@
   .svc-content h2 {
     font-size: clamp(20px, 4vw, 26px);
     font-weight: 700;
-    color: var(--charcoal);
+    color: var(--white);
     margin-bottom: 12px;
     line-height: 1.25;
   }
   .svc-content > p {
     font-size: 14px;
     font-weight: 300;
-    color: var(--midgray);
+    color: rgba(255,255,255,0.6);
     line-height: 1.75;
     margin-bottom: 18px;
   }
@@ -280,13 +291,14 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: var(--sage);
-    color: var(--evergreen);
+    background: rgba(246,166,35,0.15);
+    color: var(--gold);
     font-size: 12px;
     font-weight: 600;
     padding: 7px 14px;
     border-radius: 100px;
     letter-spacing: 0.02em;
+    border: 1px solid rgba(246,166,35,0.25);
   }
   .svc-chip .check { font-size: 13px; }
 
@@ -301,40 +313,44 @@
     padding-left: 22px;
     font-size: 13px;
     font-weight: 400;
-    color: var(--charcoal);
+    color: rgba(255,255,255,0.7);
     line-height: 1.7;
     margin-bottom: 8px;
+  }
+  .svc-points li strong {
+    color: var(--white);
   }
   .svc-points li::before {
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--evergreen);
+    color: var(--gold);
     font-weight: 700;
     font-size: 14px;
   }
 
   /* differentiator callout */
   .svc-diff {
-    background: rgba(246,166,35,0.1);
+    background: rgba(246,166,35,0.08);
     border-left: 4px solid var(--gold);
     border-radius: 0 8px 8px 0;
     padding: 14px 18px;
     margin-bottom: 20px;
     font-size: 13px;
     font-weight: 400;
-    color: var(--charcoal);
+    color: rgba(255,255,255,0.7);
     line-height: 1.65;
   }
-  .svc-diff strong { color: var(--evergreen); font-weight: 600; }
+  .svc-diff strong { color: var(--gold); font-weight: 600; }
+  .svc-diff a { color: var(--gold); font-weight: 600; text-decoration: underline; }
 
   /* mini CTA */
   .svc-cta {
     display: inline-block;
     padding: 11px 22px;
     background: transparent;
-    color: var(--evergreen);
-    border: 2px solid var(--evergreen);
+    color: var(--gold);
+    border: 2px solid var(--gold);
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
     font-weight: 600;
@@ -343,7 +359,7 @@
     transition: all 0.2s;
     cursor: pointer;
   }
-  .svc-cta:hover { background: var(--evergreen); color: var(--white); }
+  .svc-cta:hover { background: var(--gold); color: var(--charcoal); }
 
   /* ── DIY vs PRO COMPARISON ── */
   .compare-section {
@@ -424,7 +440,7 @@
 
   /* ── FINAL CTA ── */
   .final-cta {
-    background: var(--evergreen);
+    background: #2a2a2a;
     padding: 56px 20px;
     text-align: center;
     position: relative;
@@ -507,9 +523,9 @@
     padding: 24px 20px;
     font-size: 11px;
     font-weight: 300;
-    color: var(--midgray);
+    color: rgba(255,255,255,0.4);
     line-height: 1.7;
-    background: var(--offwhite);
+    background: #1a1a1a;
   }
 </style>
 </head>
@@ -560,7 +576,7 @@
 <!-- ════════════════════════════════════════════ -->
 <section class="svc-section">
   <div class="svc-inner">
-    <div class="svc-icon">🔑</div>
+    <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
     <div class="svc-content">
       <h2>Leasing & Tenant Screening</h2>
       <p>We market your DFW properties aggressively and fill vacancies in under 30 days. Our rigorous screening process secures reliable tenants who pay on time and take care of your property.</p>
@@ -592,7 +608,7 @@
 <!-- ════════════════════════════════════════════ -->
 <section class="svc-section">
   <div class="svc-inner reverse">
-    <div class="svc-icon">🏠</div>
+    <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
     <div class="svc-content">
       <h2>Full-Service Property Management</h2>
       <p>We take the hassle out of owning rental properties in DFW — handling everything from tenant placement to financial reporting so your investment works harder for you.</p>
@@ -624,7 +640,7 @@
 <!-- ════════════════════════════════════════════ -->
 <section class="svc-section">
   <div class="svc-inner">
-    <div class="svc-icon">🔧</div>
+    <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
     <div class="svc-content">
       <h2>Maintenance & Repairs</h2>
       <p>Our vetted vendor network handles routine inspections to emergency fixes promptly and cost-effectively. We coordinate everything 24/7 — approving work only with your input to avoid unnecessary expenses.</p>
@@ -656,7 +672,7 @@
 <!-- ════════════════════════════════════════════ -->
 <section class="svc-section">
   <div class="svc-inner reverse">
-    <div class="svc-icon">⚖️</div>
+    <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
     <div class="svc-content">
       <h2>Compliance & Legal Support</h2>
       <p>Navigating Texas rental laws and HOA rules can be complex. We ensure full compliance to shield you from fines, lawsuits, or disputes — handling everything from fair housing adherence to eviction proceedings if necessary.</p>
@@ -688,7 +704,7 @@
 <!-- ════════════════════════════════════════════ -->
 <section class="svc-section">
   <div class="svc-inner">
-    <div class="svc-icon">📊</div>
+    <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
     <div class="svc-content">
       <h2>Accounting & Financial Reporting</h2>
       <p>Crystal-clear financial oversight that turns complex data into actionable insights for your DFW properties. We manage all bookkeeping — from rent tracking to expense categorization — ensuring you're tax-ready year-round.</p>

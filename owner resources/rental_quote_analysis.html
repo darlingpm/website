@@ -20,23 +20,27 @@
         }
 
         :root {
-            --primary: #ffbd59;
-            --primary-dark: #e8a840;
+            --primary: #F6A623;
+            --primary-dark: #e8961a;
             --dark-gray: #333333;
+            --charcoal: #333333;
             --light-gray: #e1e1e1;
-            --bg: #fafafa;
-            --card: #ffffff;
-            --text: #333333;
-            --text-light: #666666;
-            --border: #e1e1e1;
+            --bg: #333333;
+            --card: rgba(255,255,255,0.07);
+            --text: #ffffff;
+            --text-light: rgba(255,255,255,0.70);
+            --border: rgba(255,255,255,0.10);
             --success: #52b788;
-            --shadow: rgba(255, 189, 89, 0.15);
+            --shadow: rgba(0, 0, 0, 0.3);
+            --white: #ffffff;
+            --white-10: rgba(255,255,255,0.10);
+            --white-15: rgba(255,255,255,0.15);
         }
 
         body {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            background: #333333;
+            color: #ffffff;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
@@ -52,11 +56,13 @@
             text-align: center;
             margin-bottom: 32px;
             animation: fadeInDown 0.6s ease-out;
+            padding-bottom: 24px;
+            border-bottom: 3px solid #F6A623;
         }
 
         .header h1 {
             font-size: clamp(24px, 6vw, 48px);
-            color: var(--dark-gray);
+            color: #ffffff;
             margin-bottom: 8px;
             font-weight: 700;
             letter-spacing: -0.5px;
@@ -64,11 +70,11 @@
         }
 
         .header .highlight {
-            color: var(--primary);
+            color: #F6A623;
         }
 
         .header p {
-            color: var(--text-light);
+            color: rgba(255,255,255,0.70);
             font-size: clamp(14px, 3vw, 18px);
             max-width: 600px;
             margin: 0 auto;
@@ -76,12 +82,12 @@
         }
 
         .card {
-            background: var(--card);
+            background: rgba(255,255,255,0.07);
             border-radius: 16px;
             padding: 24px 20px;
-            box-shadow: 0 4px 20px var(--shadow);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             margin-bottom: 20px;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(255,255,255,0.10);
             animation: fadeInUp 0.6s ease-out;
             animation-fill-mode: both;
         }
@@ -91,7 +97,7 @@
 
         .section-title {
             font-size: clamp(20px, 4vw, 28px);
-            color: var(--dark-gray);
+            color: #ffffff;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -103,7 +109,7 @@
             width: 32px;
             height: 32px;
             background: var(--primary);
-            color: var(--dark-gray);
+            color: #ffffff;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -149,13 +155,13 @@
 
         .tier-option input[type="radio"]:checked + .tier-card {
             border-color: var(--primary);
-            background: #fffbf5;
+            background: rgba(255,255,255,0.04);
             box-shadow: 0 4px 12px rgba(255, 189, 89, 0.2);
         }
 
         .tier-card h3 {
             font-size: 18px;
-            color: var(--dark-gray);
+            color: #ffffff;
             margin-bottom: 8px;
             font-weight: 600;
         }
@@ -170,7 +176,7 @@
         .tier-badge {
             display: inline-block;
             background: var(--primary);
-            color: var(--dark-gray);
+            color: #ffffff;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 11px;
@@ -231,7 +237,7 @@
 
         .btn {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--dark-gray);
+            color: #ffffff;
             border: none;
             padding: 16px 24px;
             border-radius: 12px;
@@ -270,7 +276,7 @@
 
         .rental-estimate {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--dark-gray);
+            color: #ffffff;
             padding: 28px 20px;
             border-radius: 16px;
             text-align: center;
@@ -412,7 +418,7 @@
             padding: 28px 20px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             border-radius: 16px;
-            color: var(--dark-gray);
+            color: #ffffff;
         }
 
         .cta-section h3 {
@@ -474,7 +480,7 @@
 
         .counter-btn:active {
             background: var(--primary);
-            color: var(--dark-gray);
+            color: #ffffff;
             transform: scale(0.95);
         }
 
@@ -489,7 +495,7 @@
         .service-tag {
             display: inline-block;
             background: var(--primary);
-            color: var(--dark-gray);
+            color: #ffffff;
             padding: 4px 12px;
             border-radius: 12px;
             font-size: 11px;
