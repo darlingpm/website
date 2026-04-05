@@ -44,58 +44,7 @@
     overflow-x: hidden;
   }
 
-  .top-bar {
-    background: var(--navy);
-    padding: 10px 24px;
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-  .top-bar a {
-    color: var(--gold-light);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: color 0.2s;
-  }
-  .top-bar a:hover { color: var(--white); }
-  .top-bar svg { width: 14px; height: 14px; }
-
-  nav {
-    background: var(--charcoal-d);
-    padding: 16px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: var(--shadow-sm);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .logo-mark {
-    width: 40px; height: 40px;
-    background: var(--gold);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .logo-mark span { color: var(--charcoal); font-size: 20px; font-weight: 700; }
-  .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
-  .logo-text strong { font-size: 16px; color: var(--white); font-weight: 700; }
-  .logo-text small { font-size: 11px; color: var(--white-70); font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; }
-  .nav-cta {
-    background: var(--gold); color: var(--charcoal);
-    padding: 10px 22px; border-radius: 6px;
-    text-decoration: none; font-weight: 600; font-size: 14px;
-    transition: background 0.2s, transform 0.15s; white-space: nowrap;
-  }
-  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+  /* FIX 1: top-bar and nav removed — site already has a sticky header */
 
   .hero {
     background: var(--charcoal);
@@ -156,10 +105,11 @@
   .form-card-header { margin-bottom: 24px; }
   .form-card-header h2 { font-size: 20px; color: var(--white); font-weight: 700; margin-bottom: 6px; }
   .form-card-header p { font-size: 13.5px; color: var(--white-70); line-height: 1.5; }
-  .form-card-header p strong { color: var(--success); }
+  /* FIX 2: "We respond same business day." now uses gold instead of dark green */
+  .form-card-header p strong { color: var(--gold-light); }
   .form-group { margin-bottom: 16px; }
   .form-group label {
-    display: block; font-size: 11px; font-weight: 600; color: var(--text-mid);
+    display: block; font-size: 11px; font-weight: 600; color: var(--white-70);
     letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 6px;
   }
   .form-group input, .form-group select {
@@ -183,16 +133,16 @@
   .submit-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(246,166,35,0.35); }
   .submit-btn svg { width: 18px; height: 18px; }
   .form-trust { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 14px; font-size: 12px; color: var(--white-70); }
-  .form-trust svg { width: 13px; height: 13px; color: var(--success); }
+  .form-trust svg { width: 13px; height: 13px; color: var(--gold); }
 
   .success-state { display: none; text-align: center; padding: 20px 0; }
   .success-state.active { display: block; }
   .form-fields.hidden { display: none; }
   .success-icon {
-    width: 64px; height: 64px; background: rgba(109, 255, 152, 0.15); border-radius: 50%;
+    width: 64px; height: 64px; background: rgba(246,166,35,0.15); border-radius: 50%;
     display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
   }
-  .success-icon svg { width: 30px; height: 30px; color: #6dff98; }
+  .success-icon svg { width: 30px; height: 30px; color: var(--gold); }
   .success-state h3 { font-size: 20px; color: var(--white); margin-bottom: 8px; font-weight: 700; }
   .success-state p { font-size: 14px; color: var(--white-70); line-height: 1.6; }
 
@@ -249,10 +199,21 @@
   .step h3 { font-size: 17px; color: var(--white); font-weight: 600; margin-bottom: 10px; }
   .step p { font-size: 14px; color: var(--white-55); line-height: 1.65; }
 
+  /* FIX 4: "What We Handle" section — removed white background, kept dark theme,
+     tightened padding so there's no dead whitespace above the cards */
+  .services-section {
+    background: var(--charcoal-d);
+    padding: 72px 24px;
+  }
+  .services-section .section-inner { max-width: 1100px; margin: 0 auto; }
+  .services-section .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .services-section h2 { font-size: clamp(26px, 3.2vw, 38px); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 12px; }
+  .services-section .section-sub { font-size: 16px; color: var(--white-70); line-height: 1.7; max-width: 600px; font-weight: 300; margin-bottom: 36px; }
+
   .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .service-item {
     display: flex; gap: 16px; align-items: flex-start; padding: 24px;
-    background: var(--charcoal-d); border: 1.5px solid var(--white-15); border-radius: 12px;
+    background: var(--charcoal); border: 1.5px solid var(--white-15); border-radius: 12px;
     transition: border-color 0.2s, transform 0.2s;
   }
   .service-item:hover { border-color: var(--gold); transform: translateY(-2px); }
@@ -265,6 +226,9 @@
   .service-item p { font-size: 13px; color: var(--white-70); line-height: 1.55; }
 
   .audience-section { background: var(--charcoal-d); padding: 80px 24px; }
+  .audience-section .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .audience-section h2 { font-size: clamp(26px, 3.2vw, 38px); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 16px; }
+  .audience-section .section-sub { font-size: 16px; color: var(--white-70); line-height: 1.7; max-width: 600px; font-weight: 300; margin-bottom: 36px; }
   .tabs { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
   .tab-btn {
     padding: 10px 22px; border-radius: 100px; border: 1.5px solid var(--white-15);
@@ -298,7 +262,7 @@
   .estimate-row span:last-child { font-weight: 600; color: var(--white); }
   .estimate-row.highlight span:last-child { color: var(--gold-light); }
 
-  /* REVIEWS */
+  /* REVIEWS — FIX 5: heading color corrected for dark background */
   .testimonials-section { padding: 80px 24px; background: var(--charcoal-d); }
   .reviews-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
   .google-badge {
@@ -352,16 +316,19 @@
   .social-proof-list li:last-child { border-bottom: none; }
   .social-proof-list li svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
 
+  /* FIX 6: City tags are now links */
   .areas-section { background: var(--charcoal); padding: 56px 24px; text-align: center; }
   .areas-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
   .areas-section h2 { font-size: 24px; color: var(--white); font-weight: 600; margin-bottom: 28px; }
   .areas-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
   .area-tag {
     padding: 8px 18px; border: 1px solid var(--white-15); border-radius: 100px;
-    color: var(--white-70); font-size: 13px; font-weight: 500; transition: all 0.2s; cursor: default;
+    color: var(--white-70); font-size: 13px; font-weight: 500; transition: all 0.2s;
+    text-decoration: none; display: inline-block;
   }
-  .area-tag:hover { border-color: var(--gold); color: var(--gold-light); }
+  .area-tag:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(246,166,35,0.06); }
 
+  /* FIX 7: bottom CTA button linked + phone number contrast fixed */
   .bottom-cta { padding: 80px 24px; text-align: center; background: var(--charcoal); }
   .bottom-cta-card {
     max-width: 680px; margin: 0 auto; background: var(--charcoal-d);
@@ -379,9 +346,12 @@
   }
   .cta-big-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(246,166,35,0.35); }
   .cta-big-btn svg { width: 20px; height: 20px; }
+  /* FIX 7b: phone number uses white-70 for label + gold for the number */
   .cta-footnote { font-size: 13px; color: var(--white-70); }
+  .cta-footnote a { color: var(--gold-light); font-weight: 600; text-decoration: none; }
+  .cta-footnote a:hover { color: var(--gold); }
 
-  footer { background: var(--charcoal); padding: 24px; text-align: center; font-size: 12px; color: var(--white-40); line-height: 1.7; border-top: 1px solid var(--white-10); }
+  footer { background: var(--charcoal-d); padding: 24px; text-align: center; font-size: 12px; color: var(--white-40); line-height: 1.7; border-top: 1px solid var(--white-10); }
   footer a { color: var(--white-55); text-decoration: none; }
   footer a:hover { color: var(--white-70); }
 
@@ -421,27 +391,7 @@
 </head>
 <body>
 
-<div class="top-bar">
-  <a href="tel:4693249605">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.71a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-    (469) 324-9605
-  </a>
-  <a href="mailto:info@darlingpropertymanagement.com">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-    info@darlingpropertymanagement.com
-  </a>
-</div>
-
-<nav>
-  <a class="nav-logo" href="#">
-    <div class="logo-mark"><span>D</span></div>
-    <div class="logo-text">
-      <strong>Darling Property Management</strong>
-      <small>Dallas–Fort Worth</small>
-    </div>
-  </a>
-  <a href="#analysis-form" class="nav-cta">Get Free Analysis →</a>
-</nav>
+<!-- FIX 1: top-bar and nav removed — site already has a sticky header -->
 
 <section class="hero">
   <div class="hero-inner">
@@ -470,6 +420,7 @@
     <div class="form-card" id="analysis-form">
       <div class="form-card-header">
         <h2>Get Your Free Rental Analysis</h2>
+        <!-- FIX 2: "We respond same business day." changed from green to gold -->
         <p>Takes 60 seconds. <strong>We respond same business day.</strong></p>
       </div>
       <div class="form-fields">
@@ -520,6 +471,7 @@
             <option>Other</option>
           </select>
         </div>
+        <!-- FIX 3: button now redirects to rental-property-quote in new tab -->
         <button class="submit-btn" onclick="handleSubmit()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           Get My Free Analysis
@@ -534,7 +486,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
         <h3>You're all set!</h3>
-        <p>We've received your request and will send your personalized rental analysis within one business day.<br><br>In the meantime, feel free to call us at <strong>(469) 324-9605</strong>.</p>
+        <p>We've received your request and will send your personalized rental analysis within one business day.<br><br>In the meantime, feel free to call us at <strong style="color:var(--gold-light)">(469) 324-9605</strong>.</p>
       </div>
     </div>
   </div>
@@ -621,7 +573,8 @@
   </div>
 </section>
 
-<section class="section" style="background:var(--white);">
+<!-- FIX 4: "What We Handle" — dark background, no whitespace gap, tight section-sub margin -->
+<section class="services-section">
   <div class="section-inner">
     <div class="section-label">What We Handle</div>
     <h2>Everything. So You Don't Have To.</h2>
@@ -638,7 +591,7 @@
       </div>
       <div class="service-item fade-up">
         <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
         </div>
         <div>
           <h3>Rent Collection & Disbursement</h3>
@@ -747,11 +700,11 @@
   </div>
 </section>
 
-<!-- REVIEWS -->
+<!-- FIX 5: "Real Feedback From Real People" h2 color fixed to white -->
 <section class="testimonials-section">
   <div class="section-inner">
     <div class="section-label">What People Say</div>
-    <h2 style="font-size:clamp(26px,3.2vw,38px);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:48px;">Real Feedback From Real People</h2>
+    <h2 style="font-size:clamp(26px,3.2vw,38px);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:48px;">Real Feedback From Real People</h2>
     <div class="reviews-layout">
       <div class="review-left">
         <div class="google-badge">
@@ -820,29 +773,37 @@
   </div>
 </section>
 
+<!-- FIX 6: City tags are now anchor links to city-specific pages -->
 <section class="areas-section">
   <div class="areas-label">Service Area</div>
   <h2>Proudly Serving the DFW Metroplex</h2>
   <div class="areas-list">
-    <span class="area-tag">Richardson</span><span class="area-tag">Plano</span>
-    <span class="area-tag">Garland</span><span class="area-tag">Frisco</span>
-    <span class="area-tag">McKinney</span><span class="area-tag">Allen</span>
-    <span class="area-tag">Murphy</span><span class="area-tag">Wylie</span>
-    <span class="area-tag">Sachse</span><span class="area-tag">Dallas</span>
-    <span class="area-tag">Irving</span><span class="area-tag">Carrollton</span>
+    <a href="https://www.darlingpropertymanagement.com/richardson-property-management" target="_blank" class="area-tag">Richardson</a>
+    <a href="https://www.darlingpropertymanagement.com/plano-property-management" target="_blank" class="area-tag">Plano</a>
+    <a href="https://www.darlingpropertymanagement.com/garland-property-management" target="_blank" class="area-tag">Garland</a>
+    <a href="https://www.darlingpropertymanagement.com/frisco-property-management" target="_blank" class="area-tag">Frisco</a>
+    <a href="https://www.darlingpropertymanagement.com/mckinney-property-management" target="_blank" class="area-tag">McKinney</a>
+    <span class="area-tag">Allen</span>
+    <span class="area-tag">Murphy</span>
+    <span class="area-tag">Wylie</span>
+    <span class="area-tag">Sachse</span>
+    <span class="area-tag">Dallas</span>
+    <span class="area-tag">Irving</span>
+    <span class="area-tag">Carrollton</span>
   </div>
 </section>
 
+<!-- FIX 7: CTA button linked + phone number contrast corrected -->
 <section class="bottom-cta">
   <div class="bottom-cta-card">
     <span class="section-label">Ready to Get Started?</span>
     <h2>Find Out What Your Property Should Be Earning.</h2>
     <p>Your free rental analysis takes 60 seconds to request and tells you everything you need to make a smart, confident decision about your DFW property.</p>
-    <a href="#analysis-form" class="cta-big-btn">
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote" target="_blank" class="cta-big-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       Get My Free Analysis
     </a>
-    <div class="cta-footnote">Or call us directly: <a href="tel:4693249605" style="color:var(--navy);font-weight:600;">(469) 324-9605</a></div>
+    <div class="cta-footnote">Or call us directly: <a href="tel:4693249605">(469) 324-9605</a></div>
   </div>
 </section>
 
@@ -868,30 +829,9 @@
     btn.classList.add('active');
   }
 
+  // FIX 3: form submit opens rental-property-quote in new tab, then shows success state
   function handleSubmit() {
-    const address   = document.getElementById('field-address').value || '(not provided)';
-    const name      = document.getElementById('field-name').value || '(not provided)';
-    const phone     = document.getElementById('field-phone').value || '(not provided)';
-    const email     = document.getElementById('field-email').value || '(not provided)';
-    const beds      = document.getElementById('field-beds').value || '(not provided)';
-    const type      = document.getElementById('field-type').value || '(not provided)';
-    const situation = document.getElementById('field-situation').value || '(not provided)';
-
-    const subject = encodeURIComponent('New Rental Analysis Request — ' + address);
-    const body = encodeURIComponent(
-      'NEW RENTAL ANALYSIS REQUEST\n\n' +
-      'Name: ' + name + '\n' +
-      'Phone: ' + phone + '\n' +
-      'Email: ' + email + '\n\n' +
-      'Property Address: ' + address + '\n' +
-      'Bedrooms: ' + beds + '\n' +
-      'Property Type: ' + type + '\n\n' +
-      'Situation: ' + situation + '\n\n' +
-      '---\nSubmitted via darlingpropertymanagement.com landing page'
-    );
-
-    window.location.href = 'mailto:info@darlingpropertymanagement.com?subject=' + subject + '&body=' + body;
-
+    window.open('https://www.darlingpropertymanagement.com/rental-property-quote', '_blank');
     document.querySelector('.form-fields').classList.add('hidden');
     document.querySelector('.success-state').classList.add('active');
   }
