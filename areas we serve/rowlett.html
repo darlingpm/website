@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Calendly CSS -->
-  <link href="https://assets.calendly.com/assets/external/calendar.css" rel="stylesheet">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
@@ -23,8 +23,8 @@
     "image": "https://www.darlingpropertymanagement.com/logo.png",
     "description": "Full-service residential property management for Rowlett, TX investors.",
     "url": "https://www.darlingpropertymanagement.com",
-    "telephone": "+1-214-555-0123",
-    "email": "hello@darlingpropertymanagement.com",
+    "telephone": "(469) 324-9605",
+    "email": "info@darlingpropertymanagement.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Rowlett",
@@ -459,18 +459,88 @@
         width: 100%;
       }
     }
-  </style>
+  
+  .hero-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .hero h1 .gold { color: var(--gold); }
+  .hero-cta {
+    display: inline-flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn-gold {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-gold:hover { background: #e8961a; }
+  .btn-outline {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 2px solid rgba(255,255,255,0.35);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn-outline:hover { border-color: var(--white); }
+  .cta-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  @media (min-width: 440px) { .cta-btns { flex-direction: row; max-width: none; } }
+  .cta-btn-wht {
+    display: block;
+    padding: 14px 28px;
+    border: 2px solid rgba(255,255,255,0.35);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .cta-btn-wht:hover { border-color: var(--white); }
+</style>
 </head>
 <body>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>Rowlett Property Management</h1>
-      <p>Lake Ray Hubbard waterfront living at an affordable price point</p>
-      <a href="https://calendly.com/darlingpm/discovery" class="hero-cta" target="_blank">Schedule a Free Consultation</a>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-tag">Areas We Serve · Rowlett, TX</span>
+  <h1>Rowlett <span class="gold">Property Management</span><br>Built for Investors</h1>
+  <p>Full-service property management for single-family and multi-family owners in Rowlett — Lake Ray Hubbard waterfront living at an affordable price point.</p>
+  <div class="hero-cta">
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="btn-gold">Get a Free Rental Analysis</a>
+    <a href="#" class="btn-outline" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+  </div>
+</section>
 
   <!-- MARKET SNAPSHOT -->
   <section class="section off">
@@ -608,9 +678,9 @@
         </div>
       </div>
 
-      <p style="text-align: center; font-size: 13px; color: var(--white-70); margin-top: 24px;">
-        <a href="/services" style="color: var(--gold); text-decoration: none;">See All Services →</a>
-      </p>
+      <div style="text-align:center; margin-top:28px;">
+        <a href="https://www.darlingpropertymanagement.com/services" class="btn-gold" style="display:inline-block;">See All Services →</a>
+      </div>
     </div>
   </section>
 
@@ -680,14 +750,15 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="cta-section-inner">
-      <h2>Ready to Stop Managing Your Rowlett Property?</h2>
-      <p>Let our team handle the details. Free consultation, no obligation.</p>
-      <a href="https://calendly.com/darlingpm/discovery" class="cta-btn-gold" target="_blank">Schedule a Consultation</a>
-    </div>
-  </section>
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <h2>Own a rental in Rowlett?<br>Let's talk.</h2>
+  <p>Get a free rental analysis — no obligation, no pressure. Just straight answers about what your property could earn.</p>
+  <div class="cta-btns">
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="cta-btn-gold">Get My Free Rental Analysis</a>
+    <a href="#" class="cta-btn-wht" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+  </div>
+</section>
 
   <!-- FOOTNOTE -->
   <footer class="footnote">
@@ -696,7 +767,7 @@
   </footer>
 
   <!-- Calendly JS -->
-  <script src="https://assets.calendly.com/assets/external/calendar.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js"></script>
 
   <!-- FAQ Toggle Script -->
   <script>
