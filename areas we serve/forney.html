@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forney Property Management | Darling PM</title>
+  <meta name="description" content="Expert property management in Forney, TX. One of Texas's fastest-growing cities with affordable new construction and strong Dallas commuter demand. We manage your investment.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Calendly CSS -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Darling Property Management",
+    "image": "https://www.darlingpropertymanagement.com/logo.png",
+    "description": "Full-service residential property management for Forney, TX investors.",
+    "url": "https://www.darlingpropertymanagement.com",
+    "telephone": "(469) 324-9605",
+    "email": "info@darlingpropertymanagement.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Forney",
+      "addressRegion": "TX",
+      "postalCode": "75126",
+      "addressCountry": "US"
+    },
+    "areaServed": ["Forney", "Rockwall", "Mesquite", "Dallas", "Rowlett", "Balch Springs"],
+    "sameAs": [
+      "https://www.facebook.com/darlingpropertymanagement",
+      "https://www.instagram.com/darlingpropertymanagement"
+    ]
+  }
+  </script>
+
+  <style>
+    /* CSS Variables */
+    :root {
+      --charcoal: #333333;
+      --charcoal-d: #2a2a2a;
+      --gold: #F6A623;
+      --gold-dark: #e8961a;
+      --white: #FFFFFF;
+      --white-10: rgba(255, 255, 255, 0.10);
+      --white-15: rgba(255, 255, 255, 0.15);
+      --white-55: rgba(255, 255, 255, 0.55);
+      --white-70: rgba(255, 255, 255, 0.70);
+      --white-80: rgba(255, 255, 255, 0.80);
+      --white-90: rgba(255, 255, 255, 0.90);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--charcoal);
+      border-bottom: 3px solid var(--gold);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 8vw, 52px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .hero p {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--white-70);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .hero-cta {
+      /* container — overridden by injected styles below */
+    }
+
+    /* Sections */
+    .section {
+      padding: 60px 20px;
+    }
+
+    .section.white {
+      background: var(--charcoal-d);
+    }
+
+    .section.off {
+      background: var(--charcoal);
+    }
+
+    .section-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .sec-title {
+      font-size: clamp(20px, 5vw, 30px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .sec-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--white-70);
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    /* Market Cards Grid */
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .mcard {
+      background: var(--white-10);
+      border: 1px solid var(--white-15);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .mcard-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--white-70);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .mcard-val {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+
+    /* Service Cards Grid */
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+
+    .svc-card {
+      background: var(--white-10);
+      border: 1px solid var(--white-15);
+      border-radius: 12px;
+      padding: 22px 18px;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .svc-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .svc-card-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 14px;
+      color: var(--gold);
+    }
+
+    .svc-card-icon svg {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    .svc-card h3 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--white-90);
+    }
+
+    .svc-card p {
+      font-size: 12px;
+      color: var(--white-70);
+      line-height: 1.5;
+    }
+
+    /* Reason List */
+    .reason-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .reason-item {
+      padding: 16px;
+      background: var(--white-10);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .reason-item strong {
+      color: var(--white);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .reason-item p {
+      font-size: 13px;
+      color: var(--white-70);
+      line-height: 1.6;
+    }
+
+    /* Neighborhoods */
+    .hood-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .hood-chip {
+      background: var(--white-10);
+      border: 1px solid var(--white-15);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 100px;
+    }
+
+    .callout-box {
+      background: var(--white-10);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 20px;
+      margin-top: 24px;
+    }
+
+    .callout-box strong {
+      color: var(--gold);
+    }
+
+    .callout-box p {
+      font-size: 13px;
+      color: var(--white-80);
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--white-10);
+      border: 1px solid var(--white-15);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .faq-q {
+      color: var(--white);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .faq-q::after {
+      content: '+';
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .faq-item.open .faq-q::after {
+      content: '−';
+    }
+
+    .faq-a {
+      display: none;
+      color: var(--white-70);
+      font-size: 13px;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    .faq-item.open .faq-a {
+      display: block;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--charcoal-d);
+      border-top: 3px solid var(--gold);
+      padding: 56px 20px;
+      text-align: center;
+    }
+
+    .cta-section-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(20px, 5vw, 28px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .cta-section p {
+      font-size: 14px;
+      color: var(--white-70);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .cta-btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s;
+      margin: 0 8px;
+    }
+
+    .cta-btn-gold:hover {
+      background: var(--gold-dark);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s;
+      margin: 0 8px;
+    }
+
+    .btn-secondary:hover {
+      background: var(--gold);
+      color: var(--charcoal);
+    }
+
+    /* Footnote */
+    .footnote {
+      background: var(--charcoal-d);
+      color: var(--white-55);
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .footnote a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .footnote a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .market-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .svc-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .section {
+        padding: 40px 20px;
+      }
+
+      .cta-btn-gold,
+      .btn-secondary {
+        display: block;
+        margin: 8px auto;
+        width: 100%;
+      }
+    }
+  
+  .hero-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .hero h1 .gold { color: var(--gold); }
+  .hero-cta {
+    display: inline-flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn-gold {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-gold:hover { background: #e8961a; }
+  .btn-outline {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 2px solid rgba(255,255,255,0.35);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn-outline:hover { border-color: var(--white); }
+  .cta-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  @media (min-width: 440px) { .cta-btns { flex-direction: row; max-width: none; } }
+  .cta-btn-wht {
+    display: block;
+    padding: 14px 28px;
+    border: 2px solid rgba(255,255,255,0.35);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .cta-btn-wht:hover { border-color: var(--white); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-tag">Areas We Serve · Forney, TX</span>
+  <h1>Forney <span class="gold">Property Management</span><br>Built for Investors</h1>
+  <p>Full-service property management for single-family and multi-family owners in Forney — Kaufman County's fastest-growing city. Hands-off ownership starts here.</p>
+  <div class="hero-cta">
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="btn-gold">Get a Free Rental Analysis</a>
+    <a href="#" class="btn-outline" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+  </div>
+</section>
+
+  <!-- MARKET SNAPSHOT -->
+  <section class="section off">
+    <div class="section-inner">
+      <div class="eyebrow">Market Snapshot</div>
+      <h2 class="sec-title">Why Investors Choose Forney</h2>
+      <p class="sec-body">Forney is one of DFW's fastest-growing outlier cities — new master-planned communities and I-80 access are drawing price-sensitive renters from the eastern metroplex</p>
+
+      <div class="market-grid">
+        <div class="mcard">
+          <div class="mcard-label">Population</div>
+          <div class="mcard-val">40,000+</div>
+        </div>
+        <div class="mcard">
+          <div class="mcard-label">Median Rent</div>
+          <div class="mcard-val">$1,725</div>
+        </div>
+        <div class="mcard">
+          <div class="mcard-label">3-Bed Avg</div>
+          <div class="mcard-val">$1,950</div>
+        </div>
+        <div class="mcard">
+          <div class="mcard-label">Median Home</div>
+          <div class="mcard-val">$358K</div>
+        </div>
+        <div class="mcard">
+          <div class="mcard-label">Renter Rate</div>
+          <div class="mcard-val">30%</div>
+        </div>
+        <div class="mcard">
+          <div class="mcard-label">Days on Market</div>
+          <div class="mcard-val">60</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY FORNEY -->
+  <section class="section white">
+    <div class="section-inner">
+      <div class="eyebrow">Investor Focus</div>
+      <h2 class="sec-title">What Makes Forney Special</h2>
+
+      <div class="reason-list">
+        <div class="reason-item">
+          <strong>Among Texas's Fastest-Growing Cities</strong>
+          <p>Forney ranks in the top 5 fastest-growing cities in Texas by percentage growth. This trajectory creates sustained demand and reliable property appreciation.</p>
+        </div>
+        <div class="reason-item">
+          <strong>Affordable New Construction Below Market</strong>
+          <p>Master-planned communities like Windmill Farms and Devonshire offer new homes under $360K median—below neighboring Rockwall and Rowlett—with lower maintenance burden.</p>
+        </div>
+        <div class="reason-item">
+          <strong>I-80 Corridor Direct Dallas Access</strong>
+          <p>30-minute commute to Dallas via US-80. Price-sensitive professionals choose Forney for affordability while maintaining Dallas employment. Strong renter demand.</p>
+        </div>
+        <div class="reason-item">
+          <strong>Forney ISD Growth Projections</strong>
+          <p>Forney ISD is expanding to serve rapid population growth. Long-term family demand will sustain above-market rents as schools build reputation.</p>
+        </div>
+        <div class="reason-item">
+          <strong>Minimal Institutional Competition</strong>
+          <p>Unlike Frisco, Plano, or McKinney, Forney is primarily individual investors. Less competition means higher margins and better deal flow for operators like us.</p>
+        </div>
+        <div class="reason-item">
+          <strong>Collin County's Past Is Kaufman County's Future</strong>
+          <p>Forney's growth trajectory mirrors Collin County 15 years ago. Early operators who positioned in outskirts before institutional capital arrived captured exceptional appreciation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section off">
+    <div class="section-inner">
+      <div class="eyebrow">What We Do</div>
+      <h2 class="sec-title">Full-Service Property Management</h2>
+      <p class="sec-body">From tenant screening to maintenance coordination and monthly reporting, we handle it all.</p>
+
+      <div class="svc-grid">
+        <div class="svc-card">
+          <div class="svc-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+            </svg>
+          </div>
+          <h3>Tenant Screening</h3>
+          <p>Credit, criminal, and eviction reports. Fair Housing compliant every time.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3>Rent Collection</h3>
+          <p>Automated payment processing, late fees, and delinquency management.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3>Maintenance</h3>
+          <p>24/7 emergency response, vendor coordination, and work order tracking.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/>
+            </svg>
+          </div>
+          <h3>Financial Reporting</h3>
+          <p>Monthly P&L statements, expense tracking, and tax-ready reports.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Legal Compliance</h3>
+          <p>Texas Property Code compliance, lease management, and eviction support.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <h3>Market Analysis</h3>
+          <p>Rent optimization, market reports, and investment performance tracking.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:28px;">
+        <a href="https://www.darlingpropertymanagement.com/services" class="btn-gold" style="display:inline-block;">See All Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEIGHBORHOODS -->
+  <section class="section white">
+    <div class="section-inner">
+      <div class="eyebrow">Where We Manage</div>
+      <h2 class="sec-title">Forney Neighborhoods</h2>
+      <p class="sec-body">We know every neighborhood in Forney. From master-planned communities to established subdivisions, we manage properties across the city.</p>
+
+      <div class="hood-chips">
+        <span class="hood-chip">Windmill Farms</span>
+        <span class="hood-chip">Devonshire</span>
+        <span class="hood-chip">Gateway Parks</span>
+        <span class="hood-chip">Travis Ranch</span>
+        <span class="hood-chip">Lynn Creek</span>
+        <span class="hood-chip">Clements Ranch</span>
+        <span class="hood-chip">Overland Grove</span>
+        <span class="hood-chip">Dalton's Creek</span>
+        <span class="hood-chip">Heartland</span>
+        <span class="hood-chip">Shores at Hidden Cove</span>
+      </div>
+
+      <div class="callout-box">
+        <p><strong>Nearby Markets:</strong> We also manage properties in Rockwall, Mesquite, Dallas, Rowlett, and Balch Springs. Building an eastern metroplex portfolio? Let's talk.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section off">
+    <div class="section-inner">
+      <div class="eyebrow">Questions?</div>
+      <h2 class="sec-title">Frequently Asked</h2>
+
+      <div class="faq-list">
+        <div class="faq-item open">
+          <div class="faq-q">What are typical rent ranges in Forney?</div>
+          <div class="faq-a">Forney's 2-bedroom homes rent for $1,450–$1,650/month, and 3-bedrooms for $1,700–$2,050/month depending on age, condition, and community. New construction typically rents 10% higher than older homes.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">How much does property management cost?</div>
+          <div class="faq-a">Our full management fee is 10% of monthly rent — right in line with the DFW average of 10–12%. Tenant placement is 75% of the first month's rent ($1,000 minimum). There are no fees while your property is vacant. For leasing-only services, the fee is 100% of the first month's rent.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Why is Forney one of the fastest-growing cities in Texas?</div>
+          <div class="faq-a">Forney offers affordable new construction, I-80 commute access, quality schools, and room to grow—all at a lower price point than northern DFW suburbs. This affordability coupled with Dallas commuter access drives sustained migration.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">How long does it take to find a tenant in Forney?</div>
+          <div class="faq-a">Average days on market in Forney is 60 days. Strong commuter demand and new home appeal help fill properties quickly. Professional photography, compelling copy, and syndication to 30+ platforms reduce this time by 15–25%.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Are new construction rentals easier to manage?</div>
+          <div class="faq-a">Yes. New homes have fewer maintenance issues during the first few years, lower turnover (tenants stay longer in new construction), and command 5–10% higher rents than comparable older homes.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">How do I get started?</div>
+          <div class="faq-a">Schedule a free 30-minute consultation with our team. We'll review your property, discuss your goals, walk through our process, and provide a free rental analysis. No obligation—just honest conversation about whether we're a fit.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <h2>Own a rental in Forney?<br>Let's talk.</h2>
+  <p>Get a free rental analysis — no obligation, no pressure. Just straight answers about what your property could earn.</p>
+  <div class="cta-btns">
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="cta-btn-gold">Get My Free Rental Analysis</a>
+    <a href="#" class="cta-btn-wht" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+  </div>
+</section>
+
+  <!-- FOOTNOTE -->
+  <footer class="footnote">
+    <p>Darling Property Management, LLC | Forney, TX | <a href="https://www.darlingpropertymanagement.com">darlingpropertymanagement.com</a></p>
+    <p style="margin-top: 12px;">© 2026 Darling Property Management. All rights reserved. | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+  </footer>
+
+  <!-- Calendly JS -->
+  <script src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+  <!-- FAQ Toggle Script -->
+  <script>
+    document.querySelectorAll('.faq-q').forEach(question => {
+      question.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
