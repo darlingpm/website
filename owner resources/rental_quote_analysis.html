@@ -411,6 +411,28 @@
             margin-top: 8px;
         }
 
+        .contact-confirmation {
+            background: rgba(82, 183, 136, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .contact-confirmation h4 {
+            color: var(--success);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .contact-confirmation p {
+            color: rgba(255,255,255,0.80);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
         .cta-section {
             text-align: center;
             margin-top: 24px;
@@ -630,6 +652,30 @@
         <div class="card">
             <div class="section-title">
                 <span class="section-number">1</span>
+                <span>Your Contact Information</span>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group full-width">
+                    <label for="ownerName">Your Name</label>
+                    <input type="text" id="ownerName" name="ownerName" placeholder="John Smith" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ownerEmail">Email Address</label>
+                    <input type="email" id="ownerEmail" name="ownerEmail" placeholder="you@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ownerPhone">Phone Number</label>
+                    <input type="tel" id="ownerPhone" name="ownerPhone" placeholder="(555) 123-4567" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">
+                <span class="section-number">2</span>
                 <span>Select Your Service Tier</span>
             </div>
 
@@ -654,7 +700,7 @@
             </div>
 
             <div class="section-title" style="margin-top: 24px;">
-                <span class="section-number">2</span>
+                <span class="section-number">3</span>
                 <span>Property Details</span>
             </div>
 
@@ -724,7 +770,7 @@
         <div class="results-container" id="resultsContainer">
             <div class="card">
                 <div class="section-title">
-                    <span class="section-number">3</span>
+                    <span class="section-number">4</span>
                     <span>Your Rental Analysis</span>
                 </div>
 
@@ -739,8 +785,13 @@
             </div>
 
             <div class="card">
+                <div class="contact-confirmation">
+                    <h4>✓ We've Got Your Info</h4>
+                    <p id="contactSummary">Thanks, [Owner]. Our team will review your numbers and reach out within 24 hours at [phone].</p>
+                </div>
+
                 <div class="section-title">
-                    <span class="section-number">4</span>
+                    <span class="section-number">5</span>
                     <span>Your Management Quote</span>
                 </div>
 
@@ -762,9 +813,11 @@
                 </div>
 
                 <div class="cta-section">
-                    <h3>Ready to Get Started?</h3>
-                    <p>Let's discuss how we can maximize your rental income and minimize your stress</p>
-                    <a href="" class="btn btn-secondary" id="scheduleBtn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Consultation</a>                </div>
+                    <h3>Ready to Protect Your Investment?</h3>
+                    <p>Our team will show you exactly how to optimize this property for maximum cash flow. Let's talk about your specific situation.</p>
+                    <a href="" class="btn btn-secondary" id="scheduleBtn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule Your Free Consultation</a>
+                    <p style="font-size: 12px; margin-top: 12px; opacity: 0.75;">Choose a time that works for you — it only takes 30 minutes.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -797,10 +850,13 @@
         // Form submission
         document.getElementById('propertyForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const serviceTier = document.querySelector('input[name="serviceTier"]:checked').value;
-            
+
             const formData = {
+                ownerName: document.getElementById('ownerName').value,
+                ownerEmail: document.getElementById('ownerEmail').value,
+                ownerPhone: document.getElementById('ownerPhone').value,
                 address: document.getElementById('address').value,
                 propertyType: document.getElementById('propertyType').value,
                 bedrooms: parseInt(document.getElementById('bedrooms').value),
@@ -819,9 +875,9 @@
             try {
                 // Call Rentcast API
                 const rentalEstimate = await getRentcastEstimate(formData);
-                
+
                 // Generate quote
-                generateQuote(rentalEstimate, formData.propertyCount, formData.serviceTier);
+                generateQuote(rentalEstimate, formData.propertyCount, formData.serviceTier, formData.ownerName, formData.ownerPhone);
 
                 // Store quote data for notification
                 quoteData = {
@@ -927,7 +983,7 @@
         function sendQuoteNotification(data) {
             const monthlyRent = data.rentalEstimate.estimate;
             const managementFee = Math.round(monthlyRent * 0.10);
-            const tenantPlacement = data.serviceTier === 'management' 
+            const tenantPlacement = data.serviceTier === 'management'
                 ? Math.max(Math.round(monthlyRent * 0.75), 1000)
                 : monthlyRent;
 
@@ -935,9 +991,12 @@
             const formspreeEndpoint = 'https://formspree.io/f/xnjbvddb'; // Replace with your Formspree ID
 
             const emailData = {
-                _subject: `New Quote Generated - ${data.address}`,
+                _subject: `📊 New Quote - ${data.ownerName} at ${data.address}`,
                 _template: 'table',
-                Address: data.address,
+                'Owner Name': data.ownerName,
+                'Owner Email': data.ownerEmail,
+                'Owner Phone': data.ownerPhone,
+                'Property Address': data.address,
                 PropertyType: data.propertyType,
                 Bedrooms: data.bedrooms,
                 Bathrooms: data.bathrooms,
@@ -984,9 +1043,12 @@
             }).catch(err => console.log('Notification error:', err));
         }
 
-        function generateQuote(rentalEstimate, numProperties, serviceTier) {
+        function generateQuote(rentalEstimate, numProperties, serviceTier, ownerName, ownerPhone) {
             const monthlyRent = rentalEstimate.estimate;
-            
+
+            // Update contact confirmation
+            document.getElementById('contactSummary').textContent = `Thanks, ${ownerName}. Our team will review your numbers and reach out within 24 hours at ${ownerPhone}.`;
+
             document.getElementById('rentalEstimate').textContent = `$${monthlyRent.toLocaleString()}`;
             document.getElementById('rentalRange').textContent = `Range: $${rentalEstimate.low.toLocaleString()} - $${rentalEstimate.high.toLocaleString()}`;
 
