@@ -823,6 +823,19 @@
     </div>
 
     <script>
+        function fireGAEvent(eventName, params) {
+            try {
+                window.parent.postMessage({
+                    type: 'ga4_event',
+                    eventName: eventName,
+                    params: params
+                }, '*');
+                console.log('[GA4] postMessage sent:', eventName, params);
+            } catch (e) {
+                console.warn('[GA4] postMessage failed:', e);
+            }
+        }
+
         // Rentcast API Configuration
         const RENTCAST_API_KEY = 'e0deff5d3b484f1fb3211bb3e80951b4';
 
