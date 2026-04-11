@@ -894,13 +894,14 @@
                 generateQuote(rentalEstimate, formData.propertyCount, formData.serviceTier, formData.ownerName, formData.ownerPhone);
 
                 // Track quote request submission to GA4
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'quote_request_submitted', {
-                        'event_category': 'lead',
-                        'event_label': 'rental_quote_form',
-                        'value': formData.propertyCount
-                    });
-                }
+                fireGAEvent('quote_request_submitted', {
+                    event_category: 'lead',
+                    event_label: 'rental_quote_form',
+                    value: formData.propertyCount,
+                    service_tier: formData.serviceTier,
+                    property_type: formData.propertyType,
+                    bedrooms: formData.bedrooms
+                });
 
                 // Store quote data for notification
                 quoteData = {
