@@ -878,6 +878,13 @@
 
                 // Generate quote
                 generateQuote(rentalEstimate, formData.propertyCount, formData.serviceTier, formData.ownerName, formData.ownerPhone);
+                
+                // Track quote request submission to GA4
+                gtag('event', 'quote_request_submitted', {
+                    'event_category': 'lead',
+                    'event_label': 'rental_quote_form',
+                    'value': formData.propertyCount
+                });
 
                 // Store quote data for notification
                 quoteData = {
