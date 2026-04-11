@@ -825,7 +825,7 @@
     <script>
         function fireGAEvent(eventName, params) {
             try {
-                window.parent.postMessage({
+                window.top.postMessage({
                     type: 'ga4_event',
                     eventName: eventName,
                     params: params
