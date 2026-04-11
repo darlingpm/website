@@ -861,7 +861,8 @@
         });
 
         // Form submission
-        document.getElementById('propertyForm').addEventListener('submit', async (e) => {
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('propertyForm').addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const serviceTier = document.querySelector('input[name="serviceTier"]:checked').value;
@@ -891,7 +892,7 @@
 
                 // Generate quote
                 generateQuote(rentalEstimate, formData.propertyCount, formData.serviceTier, formData.ownerName, formData.ownerPhone);
-                
+
                 // Track quote request submission to GA4
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'quote_request_submitted', {
@@ -922,6 +923,7 @@
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
             }
+        });
         });
 
         // Track when someone clicks "Schedule a Consultation"
