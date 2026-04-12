@@ -16,6 +16,12 @@
 <link rel="canonical" href="https://www.darlingpropertymanagement.com/pricing">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <style>
+  /* Calendly popup viewport fix — keeps popup centered in viewport on scroll */
+  .calendly-overlay { position: fixed !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; overflow-y: auto !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+  .calendly-popup { position: relative !important; top: auto !important; left: auto !important; transform: none !important; margin: auto !important; }
+  .calendly-close-overlay { position: fixed !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; }
+</style>
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
 <style>
@@ -926,7 +932,7 @@
       <!-- Mobile CTA (hidden on desktop via CSS) -->
       <div class="panel-cta">
         <div class="cta-primary-row">
-          <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="btn-main">Get My Free Quote</a>
+          <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="btn-main" target="_blank" rel="noopener">Get My Free Quote</a>
           <a href="#" class="btn-call" onclick="Calendly.initPopupWidget({url:'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
         </div>
       </div>
@@ -973,7 +979,7 @@
       <!-- Mobile CTA (hidden on desktop via CSS) -->
       <div class="panel-cta">
         <div class="cta-primary-row">
-          <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="btn-main">Get My Free Quote</a>
+          <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="btn-main" target="_blank" rel="noopener">Get My Free Quote</a>
           <a href="#" class="btn-call" onclick="Calendly.initPopupWidget({url:'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
         </div>
       </div>
@@ -989,7 +995,7 @@
 <div class="shared-cta">
   <p class="shared-cta-label">No obligation. No pressure. Free rental analysis included.</p>
   <div class="shared-cta-btns">
-    <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="sc-btn-primary">Get My Free Quote</a>
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="sc-btn-primary" target="_blank" rel="noopener">Get My Free Quote</a>
     <a href="#" class="sc-btn-secondary" onclick="Calendly.initPopupWidget({url:'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
   </div>
 </div>
@@ -1137,7 +1143,7 @@
   <h2>Let's talk about your property.</h2>
   <p>Free rental analysis — no obligation, no pressure.</p>
   <div class="fcta-btns">
-    <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="fc-btn-gold">Get My Free Quote</a>
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="fc-btn-gold" target="_blank" rel="noopener">Get My Free Quote</a>
     <a href="#" class="fc-btn-wht" onclick="Calendly.initPopupWidget({url:'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
   </div>
 </section>
@@ -1149,7 +1155,7 @@
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta" id="sticky-cta">
-  <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="sc-mob-primary">Get My Free Quote</a>
+  <a href="https://www.darlingpropertymanagement.com/rental-property-quote" class="sc-mob-primary" target="_blank" rel="noopener">Get My Free Quote</a>
   <a href="#" class="sc-mob-secondary" onclick="Calendly.initPopupWidget({url:'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
 </div>
 

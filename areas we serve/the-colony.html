@@ -27,6 +27,12 @@
 
   <!-- Calendly -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <style>
+  /* Calendly popup viewport fix — keeps popup centered in viewport on scroll */
+  .calendly-overlay { position: fixed !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; overflow-y: auto !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+  .calendly-popup { position: relative !important; top: auto !important; left: auto !important; transform: none !important; margin: auto !important; }
+  .calendly-close-overlay { position: fixed !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; }
+</style>
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
   <!-- LocalBusiness JSON-LD Schema -->
@@ -138,7 +144,7 @@
   <h1>Professional Property Management in <span class="gold">The Colony, TX</span></h1>
   <p>Lakeside living on Lewisville Lake — a hidden gem for DFW investors</p>
   <div class="hero-cta">
-    <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=areas-the-colony" class="btn-gold">Get a Free Rental Analysis</a>
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=areas-the-colony" class="btn-gold" target="_blank" rel="noopener">Get a Free Rental Analysis</a>
     <a href="#" class="btn-outline" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
   </div>
 </section>
@@ -264,7 +270,7 @@
       </div>
     </div>
     <div style="text-align: center; margin-top: 28px;">
-      <a href="https://www.darlingpropertymanagement.com/services" class="btn-gold" style="display:inline-block;">See All Services →</a>
+      <a href="https://www.darlingpropertymanagement.com/services" class="btn-gold" style="display:inline-block;" target="_blank" rel="noopener">See All Services →</a>
     </div>
   </div>
 </section>
@@ -336,7 +342,7 @@
   <h2>Ready to Hand Off Your Colony Investment?</h2>
   <p>Schedule a free 30-minute consultation with our team. We'll analyze your property, walk you through our process, and show you why investors trust us with their rentals.</p>
   <div class="cta-btns">
-    <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=areas-the-colony" class="cta-btn-gold">Get My Free Rental Analysis</a>
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=areas-the-colony" class="cta-btn-gold" target="_blank" rel="noopener">Get My Free Rental Analysis</a>
     <a href="#" class="cta-btn-wht" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
   </div>
 </section>

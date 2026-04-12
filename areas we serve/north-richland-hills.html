@@ -18,6 +18,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <style>
+  /* Calendly popup viewport fix — keeps popup centered in viewport on scroll */
+  .calendly-overlay { position: fixed !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; overflow-y: auto !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+  .calendly-popup { position: relative !important; top: auto !important; left: auto !important; transform: none !important; margin: auto !important; }
+  .calendly-close-overlay { position: fixed !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; }
+</style>
   <script src="https://assets.calendly.com/assets/external/widget.js" defer></script>
   <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -124,7 +130,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--charcoal); color: v
   <h1>Expert Property Management in <span class="gold">North Richland Hills</span></h1>
   <p>The mid-cities sweet spot — between Fort Worth and Dallas, with NRH's established suburban appeal</p>
   <div class="hero-cta">
-    <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=areas-north-richland-hills" class="btn-gold">Free Rental Analysis</a>
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=areas-north-richland-hills" class="btn-gold" target="_blank" rel="noopener">Free Rental Analysis</a>
     <a href="#" class="btn-outline" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
   </div>
 </section>
@@ -269,7 +275,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--charcoal); color: v
         <p>Professional inspections, security deposit handling, and turnover coordination. Smooth transitions, every time.</p>
       </div>
     </div>
-    <p class="sec-body" style="margin-top: 28px; text-align: center;">Questions about what we do? <a href="https://www.darlingpropertymanagement.com/services" style="color: var(--gold); text-decoration: none; font-weight: 600;">Learn more about our services.</a></p>
+    <p class="sec-body" style="margin-top: 28px; text-align: center;">Questions about what we do? <a href="https://www.darlingpropertymanagement.com/services" style="color: var(--gold); text-decoration: none; font-weight: 600;" target="_blank" rel="noopener">Learn more about our services.</a></p>
   </div>
 </section>
 
@@ -314,7 +320,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--charcoal); color: v
   <h2>Ready to Build Your North Richland Hills Portfolio?</h2>
   <p>Let's talk about how Darling Property Management can help you earn more from your rental while doing less of the work.</p>
   <div class="cta-btns">
-    <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=areas-north-richland-hills" class="cta-btn-gold">Get Free Rental Analysis</a>
+    <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=areas-north-richland-hills" class="cta-btn-gold" target="_blank" rel="noopener">Get Free Rental Analysis</a>
     <a href="#" class="cta-btn-wht" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
   </div>
   <div class="callout-box" style="margin: 26px auto 0;">
@@ -326,7 +332,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--charcoal); color: v
 <footer class="footnote">
   <p><strong>Darling Property Management</strong><br>
   <a href="tel:+14693249605" style="color: var(--gold); text-decoration: none;">(469) 324-9605</a> | <a href="mailto:info@darlingpropertymanagement.com" style="color: var(--gold); text-decoration: none;">info@darlingpropertymanagement.com</a><br>
-  Full-service residential property management for DFW real estate investors | <a href="https://www.darlingpropertymanagement.com/pricing" style="color: var(--gold); text-decoration: none;">See our pricing</a></p>
+  Full-service residential property management for DFW real estate investors | <a href="https://www.darlingpropertymanagement.com/pricing" style="color: var(--gold); text-decoration: none;" target="_blank" rel="noopener">See our pricing</a></p>
 </footer>
 
 <script>
