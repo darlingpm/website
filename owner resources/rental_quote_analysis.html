@@ -10,12 +10,6 @@
 
     <!-- Calendly -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <style>
-  /* Calendly popup viewport fix — keeps popup centered in viewport on scroll */
-  .calendly-overlay { position: fixed !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; overflow-y: auto !important; display: flex !important; align-items: center !important; justify-content: center !important; }
-  .calendly-popup { position: relative !important; top: auto !important; left: auto !important; transform: none !important; margin: auto !important; }
-  .calendly-close-overlay { position: fixed !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; }
-</style>
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
     <style>
@@ -1277,5 +1271,53 @@
             `).join('');
         }
     </script>
+<script>
+  /* Calendly popup viewport fix: MutationObserver intercepts overlay at creation */
+  (function () {
+    function fixCalendlyOverlay(overlay) {
+      overlay.style.position = 'fixed';
+      overlay.style.top = '0';
+      overlay.style.left = '0';
+      overlay.style.right = '0';
+      overlay.style.bottom = '0';
+      overlay.style.zIndex = '9999';
+      overlay.style.overflowY = 'auto';
+      overlay.style.display = 'flex';
+      overlay.style.alignItems = 'center';
+      overlay.style.justifyContent = 'center';
+      var closeEl = overlay.querySelector('.calendly-close-overlay');
+      if (closeEl) {
+        closeEl.style.position = 'fixed';
+        closeEl.style.top = '0';
+        closeEl.style.left = '0';
+        closeEl.style.right = '0';
+        closeEl.style.bottom = '0';
+      }
+      var popup = overlay.querySelector('.calendly-popup');
+      if (popup) {
+        popup.style.position = 'relative';
+        popup.style.top = 'auto';
+        popup.style.left = 'auto';
+        popup.style.transform = 'none';
+        popup.style.margin = 'auto';
+        popup.style.maxHeight = '90vh';
+        popup.style.overflowY = 'auto';
+      }
+    }
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mut) {
+        mut.addedNodes.forEach(function (node) {
+          if (node.nodeType !== 1) return;
+          if (node.classList && node.classList.contains('calendly-overlay')) {
+            fixCalendlyOverlay(node);
+          }
+        });
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      observer.observe(document.body, { childList: true });
+    });
+  })();
+</script>
 </body>
 </html>
