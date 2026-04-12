@@ -418,7 +418,7 @@
   <p>Full-service property management for single-family and small multi-family owners across Dallas — from Lake Highlands to Oak Cliff. The largest rental market in North Texas.</p>
   <div class="hero-cta">
     <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=areas-dallas" class="btn-gold" target="_blank" rel="noopener">Get a Free Rental Analysis</a>
-    <a href="#" class="btn-outline" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+    <a href="#" class="btn-outline" onclick="window.open('https://calendly.com/michael-darlingpropertymanagement/30min','_blank'); return false;">Schedule a Call</a>
   </div>
 </section>
 
@@ -609,7 +609,7 @@
   <p>Get a free rental analysis — no obligation, no pressure. Just straight answers about what your property could earn.</p>
   <div class="cta-btns">
     <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=areas-dallas" class="cta-btn-gold" target="_blank" rel="noopener">Get My Free Rental Analysis</a>
-    <a href="#" class="cta-btn-wht" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+    <a href="#" class="cta-btn-wht" onclick="window.open('https://calendly.com/michael-darlingpropertymanagement/30min','_blank'); return false;">Schedule a Call</a>
   </div>
 </section>
 
@@ -631,54 +631,6 @@
     link.setAttribute('target', '_blank');
     link.setAttribute('rel', 'noopener');
   });
-</script>
-<script>
-  /* Calendly popup viewport fix: MutationObserver intercepts overlay at creation */
-  (function () {
-    function fixCalendlyOverlay(overlay) {
-      overlay.style.position = 'fixed';
-      overlay.style.top = '0';
-      overlay.style.left = '0';
-      overlay.style.right = '0';
-      overlay.style.bottom = '0';
-      overlay.style.zIndex = '9999';
-      overlay.style.overflowY = 'auto';
-      overlay.style.display = 'flex';
-      overlay.style.alignItems = 'center';
-      overlay.style.justifyContent = 'center';
-      var closeEl = overlay.querySelector('.calendly-close-overlay');
-      if (closeEl) {
-        closeEl.style.position = 'fixed';
-        closeEl.style.top = '0';
-        closeEl.style.left = '0';
-        closeEl.style.right = '0';
-        closeEl.style.bottom = '0';
-      }
-      var popup = overlay.querySelector('.calendly-popup');
-      if (popup) {
-        popup.style.position = 'relative';
-        popup.style.top = 'auto';
-        popup.style.left = 'auto';
-        popup.style.transform = 'none';
-        popup.style.margin = 'auto';
-        popup.style.maxHeight = '90vh';
-        popup.style.overflowY = 'auto';
-      }
-    }
-    var observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mut) {
-        mut.addedNodes.forEach(function (node) {
-          if (node.nodeType !== 1) return;
-          if (node.classList && node.classList.contains('calendly-overlay')) {
-            fixCalendlyOverlay(node);
-          }
-        });
-      });
-    });
-    document.addEventListener('DOMContentLoaded', function () {
-      observer.observe(document.body, { childList: true });
-    });
-  })();
 </script>
 </body>
 </html>

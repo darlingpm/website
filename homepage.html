@@ -593,7 +593,7 @@
   <p>Investor-owned and operated. We manage your DFW rental the way we'd manage our own — so you can own more and worry less.</p>
   <div class="hero-cta">
     <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=homepage-hero-primary" class="btn-gold" target="_blank" rel="noopener">Get a Free Rental Analysis</a>
-    <a href="#" class="btn-outline-w" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+    <a href="#" class="btn-outline-w" onclick="window.open('https://calendly.com/michael-darlingpropertymanagement/30min','_blank'); return false;">Schedule a Call</a>
   </div>
   <div class="hero-trust">
     <span>✓ No fees while vacant</span>
@@ -875,7 +875,7 @@
   <p>Free rental analysis — no obligation, no pressure. Just straight answers about what your investment could earn with professional management.</p>
   <div class="cta-btns">
     <a href="https://www.darlingpropertymanagement.com/contact?utm_source=darlingpm.com&utm_medium=website&utm_campaign=homepage-hero-secondary" class="cta-btn-gold" target="_blank" rel="noopener">Get My Free Rental Analysis</a>
-    <a href="#" class="cta-btn-wht" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+    <a href="#" class="cta-btn-wht" onclick="window.open('https://calendly.com/michael-darlingpropertymanagement/30min','_blank'); return false;">Schedule a Call</a>
   </div>
 </section>
 
@@ -891,52 +891,4 @@
   (469) 324-9605
 </a>
 
-<script>
-  /* Calendly popup viewport fix: MutationObserver intercepts overlay at creation */
-  (function () {
-    function fixCalendlyOverlay(overlay) {
-      overlay.style.position = 'fixed';
-      overlay.style.top = '0';
-      overlay.style.left = '0';
-      overlay.style.right = '0';
-      overlay.style.bottom = '0';
-      overlay.style.zIndex = '9999';
-      overlay.style.overflowY = 'auto';
-      overlay.style.display = 'flex';
-      overlay.style.alignItems = 'center';
-      overlay.style.justifyContent = 'center';
-      var closeEl = overlay.querySelector('.calendly-close-overlay');
-      if (closeEl) {
-        closeEl.style.position = 'fixed';
-        closeEl.style.top = '0';
-        closeEl.style.left = '0';
-        closeEl.style.right = '0';
-        closeEl.style.bottom = '0';
-      }
-      var popup = overlay.querySelector('.calendly-popup');
-      if (popup) {
-        popup.style.position = 'relative';
-        popup.style.top = 'auto';
-        popup.style.left = 'auto';
-        popup.style.transform = 'none';
-        popup.style.margin = 'auto';
-        popup.style.maxHeight = '90vh';
-        popup.style.overflowY = 'auto';
-      }
-    }
-    var observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mut) {
-        mut.addedNodes.forEach(function (node) {
-          if (node.nodeType !== 1) return;
-          if (node.classList && node.classList.contains('calendly-overlay')) {
-            fixCalendlyOverlay(node);
-          }
-        });
-      });
-    });
-    document.addEventListener('DOMContentLoaded', function () {
-      observer.observe(document.body, { childList: true });
-    });
-  })();
-</script>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></scr

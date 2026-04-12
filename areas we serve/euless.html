@@ -125,7 +125,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--charcoal); color: v
   <p>One mile from DFW Airport — the mid-cities rental market that never stays vacant</p>
   <div class="hero-cta">
     <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=areas-euless" class="btn-gold" target="_blank" rel="noopener">Free Rental Analysis</a>
-    <a href="#" class="btn-outline" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+    <a href="#" class="btn-outline" onclick="window.open('https://calendly.com/michael-darlingpropertymanagement/30min','_blank'); return false;">Schedule a Call</a>
   </div>
 </section>
 
@@ -315,7 +315,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--charcoal); color: v
   <p>Let's talk about how Darling Property Management can help you earn more from your rental while doing less of the work.</p>
   <div class="cta-btns">
     <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=darlingpm.com&utm_medium=website&utm_campaign=areas-euless" class="cta-btn-gold" target="_blank" rel="noopener">Get Free Rental Analysis</a>
-    <a href="#" class="cta-btn-wht" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/michael-darlingpropertymanagement/30min'}); return false;">Schedule a Call</a>
+    <a href="#" class="cta-btn-wht" onclick="window.open('https://calendly.com/michael-darlingpropertymanagement/30min','_blank'); return false;">Schedule a Call</a>
   </div>
   <div class="callout-box" style="margin: 26px auto 0;">
     <strong>Service areas near Euless:</strong> We also serve Bedford, Hurst, Irving, Fort Worth, Grand Prairie, Arlington, and other mid-cities and DFW communities. <a href="https://www.darlingpropertymanagement.com" style="color: var(--gold); text-decoration: none;">Browse all our service areas.</a>
@@ -346,53 +346,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script>
-  /* Calendly popup viewport fix: MutationObserver intercepts overlay at creation */
-  (function () {
-    function fixCalendlyOverlay(overlay) {
-      overlay.style.position = 'fixed';
-      overlay.style.top = '0';
-      overlay.style.left = '0';
-      overlay.style.right = '0';
-      overlay.style.bottom = '0';
-      overlay.style.zIndex = '9999';
-      overlay.style.overflowY = 'auto';
-      overlay.style.display = 'flex';
-      overlay.style.alignItems = 'center';
-      overlay.style.justifyContent = 'center';
-      var closeEl = overlay.querySelector('.calendly-close-overlay');
-      if (closeEl) {
-        closeEl.style.position = 'fixed';
-        closeEl.style.top = '0';
-        closeEl.style.left = '0';
-        closeEl.style.right = '0';
-        closeEl.style.bottom = '0';
-      }
-      var popup = overlay.querySelector('.calendly-popup');
-      if (popup) {
-        popup.style.position = 'relative';
-        popup.style.top = 'auto';
-        popup.style.left = 'auto';
-        popup.style.transform = 'none';
-        popup.style.margin = 'auto';
-        popup.style.maxHeight = '90vh';
-        popup.style.overflowY = 'auto';
-      }
-    }
-    var observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mut) {
-        mut.addedNodes.forEach(function (node) {
-          if (node.nodeType !== 1) return;
-          if (node.classList && node.classList.contains('calendly-overlay')) {
-            fixCalendlyOverlay(node);
-          }
-        });
-      });
-    });
-    document.addEventListener('DOMContentLoaded', function () {
-      observer.observe(document.body, { childList: true });
-    });
-  })();
-</script>
 </body>
 </html>
