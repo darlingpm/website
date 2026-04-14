@@ -104,52 +104,7 @@ body {
 
 .gold { color: #F6A623; }
 
-/* ── Nav placeholder (keeps page self-contained) ────────────── */
-.site-nav {
-  background: #2a2a2a;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  padding: 18px 0;
-}
-.site-nav .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.nav-logo {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-}
-.nav-logo span { color: #F6A623; }
-.nav-links {
-  display: flex;
-  gap: 28px;
-  list-style: none;
-}
-.nav-links a {
-  color: rgba(255,255,255,0.80);
-  text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.nav-links a:hover, .nav-links a.active { color: #F6A623; }
-
-/* ── Breadcrumb ─────────────────────────────────────────────── */
-.breadcrumb {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.50);
-  margin-bottom: 20px;
-}
-.breadcrumb a {
-  color: rgba(255,255,255,0.55);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.breadcrumb a:hover { color: #F6A623; }
-.breadcrumb span { margin: 0 6px; }
+/* ── Breadcrumb (kept in schema, removed visually) ──────────── */
 
 /* ── Hero ────────────────────────────────────────────────────── */
 .hero {
@@ -460,7 +415,7 @@ body {
 }
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin-top: 48px;
 }
@@ -587,22 +542,6 @@ body {
 
 <body>
 
-<!-- ═══════════════════════════════════════════════════════════
-     NAV
-════════════════════════════════════════════════════════════ -->
-<nav class="site-nav" role="navigation" aria-label="Main navigation">
-  <div class="container">
-    <a href="/" class="nav-logo">Darling <span>Property Management</span></a>
-    <ul class="nav-links">
-      <li><a href="/services">Services</a></li>
-      <li><a href="/areas-we-serve" class="active">Areas We Serve</a></li>
-      <li><a href="/pricing">Pricing</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="#get-started" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.82rem;">Get Free Analysis</a></li>
-    </ul>
-  </div>
-</nav>
-
 <main>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -611,19 +550,12 @@ body {
 <section class="hero" aria-labelledby="hero-heading">
   <div class="container">
 
-    <!-- Breadcrumb -->
-    <nav aria-label="Breadcrumb" class="breadcrumb">
-      <a href="/">Home</a>
-      <span aria-hidden="true">›</span>
-      <span aria-current="page">Areas We Serve</span>
-    </nav>
-
     <h1 id="hero-heading">Expert Property Management Across the <em>DFW Metroplex</em></h1>
     <p class="subhead">We manage single-family homes, duplexes, and small multifamily properties across North Texas — so you don't have to.</p>
 
     <div class="hero-ctas">
-      <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/darlingpropertymanagement'}); return false;"
-         class="btn btn-primary">
+      <a href="https://www.darlingpropertymanagement.com/rental-property-quote?utm_source=website&utm_medium=areas-we-serve&utm_campaign=rental-analysis&utm_content=hero-cta"
+         class="btn btn-primary" target="_blank" rel="noopener">
         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         Get a Free Rental Analysis
       </a>
@@ -731,23 +663,23 @@ body {
         <a href="/areas/mesquite" class="city-link" aria-label="Property management in Mesquite">View Details →</a>
       </article>
 
-      <article class="city-card" data-county="dallas" role="listitem">
+      <article class="city-card" data-county="dallas tarrant" role="listitem">
         <div class="city-name">Grand Prairie</div>
-        <span class="county-badge">Dallas County</span>
+        <span class="county-badge">Dallas · Tarrant County</span>
         <p class="city-tagline">Central DFW location — high commuter and family demand</p>
         <a href="/areas/grand-prairie" class="city-link" aria-label="Property management in Grand Prairie">View Details →</a>
       </article>
 
-      <article class="city-card" data-county="dallas" role="listitem">
+      <article class="city-card" data-county="dallas rockwall" role="listitem">
         <div class="city-name">Rowlett</div>
-        <span class="county-badge">Dallas County</span>
+        <span class="county-badge">Dallas · Rockwall County</span>
         <p class="city-tagline">Lakeside community with steady renter retention rates</p>
         <a href="/areas/rowlett" class="city-link" aria-label="Property management in Rowlett">View Details →</a>
       </article>
 
-      <article class="city-card" data-county="dallas" role="listitem">
+      <article class="city-card" data-county="dallas collin" role="listitem">
         <div class="city-name">Sachse</div>
-        <span class="county-badge">Dallas County</span>
+        <span class="county-badge">Dallas · Collin County</span>
         <p class="city-tagline">Fast-growing East Dallas suburb on the rise</p>
         <a href="/areas/sachse" class="city-link" aria-label="Property management in Sachse">View Details →</a>
       </article>
@@ -760,9 +692,9 @@ body {
         <a href="/areas/plano" class="city-link" aria-label="Property management in Plano">View Details →</a>
       </article>
 
-      <article class="city-card" data-county="collin" role="listitem">
+      <article class="city-card" data-county="collin denton" role="listitem">
         <div class="city-name">Frisco</div>
-        <span class="county-badge">Collin County</span>
+        <span class="county-badge">Collin · Denton County</span>
         <p class="city-tagline">Top-rated schools drive top-tier rental demand and rates</p>
         <a href="/areas/frisco" class="city-link" aria-label="Property management in Frisco">View Details →</a>
       </article>
@@ -781,16 +713,16 @@ body {
         <a href="/areas/allen" class="city-link" aria-label="Property management in Allen">View Details →</a>
       </article>
 
-      <article class="city-card" data-county="collin" role="listitem">
+      <article class="city-card" data-county="collin dallas" role="listitem">
         <div class="city-name">Richardson</div>
-        <span class="county-badge">Collin County</span>
+        <span class="county-badge">Collin · Dallas County</span>
         <p class="city-tagline">Telecom Corridor tech hub — professional renter market</p>
         <a href="/areas/richardson" class="city-link" aria-label="Property management in Richardson">View Details →</a>
       </article>
 
-      <article class="city-card" data-county="collin" role="listitem">
+      <article class="city-card" data-county="collin denton dallas" role="listitem">
         <div class="city-name">Carrollton</div>
-        <span class="county-badge">Collin County</span>
+        <span class="county-badge">Dallas · Denton County</span>
         <p class="city-tagline">Established diverse suburb — consistent rental performance</p>
         <a href="/areas/carrollton" class="city-link" aria-label="Property management in Carrollton">View Details →</a>
       </article>
@@ -964,6 +896,16 @@ body {
         <p>No setup fees, no lease renewal fees, no junk charges. Our pricing is flat and straightforward so you always know exactly what you're paying for — and why.</p>
       </div>
 
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <h3>No Vendor Markups</h3>
+        <p>We don't profit from your maintenance. Vendors bill at their standard rates and you see every invoice — no inflated markups, no hidden coordination fees.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -977,9 +919,9 @@ body {
     <p>Get a free rental analysis and see what your property could earn under professional management — with no obligation.</p>
     <div class="footer-cta-btns">
       <a href="#"
-         onclick="Calendly.initPopupWidget({url: 'https://calendly.com/darlingpropertymanagement'}); return false;"
+         onclick="window.open('https://calendly.com/michael-darlingpropertymanagement/30min','_blank'); return false;"
          class="btn btn-primary">
-        Get Started Today
+        Schedule a Call
       </a>
       <a href="tel:+14693249605" class="btn btn-outline">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18L6.61 2a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.45 9.46a16 16 0 0 0 6.29 6.29l1.42-1.42a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -1026,7 +968,8 @@ body {
 
   function filterCities(filter) {
     cityCards.forEach(function (card) {
-      if (filter === 'all' || card.dataset.county === filter) {
+      var counties = card.dataset.county ? card.dataset.county.split(' ') : [];
+      if (filter === 'all' || counties.includes(filter)) {
         card.classList.remove('hidden');
       } else {
         card.classList.add('hidden');
